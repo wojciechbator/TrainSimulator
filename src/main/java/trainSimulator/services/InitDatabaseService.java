@@ -9,9 +9,9 @@ import trainSimulator.models.Route;
 import trainSimulator.models.Station;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  * Created by mitron-wojtek on 18.11.16.
@@ -77,14 +77,14 @@ public class InitDatabaseService {
         stationService.saveStation(warszawa);
         //Now routes
         Route firstRoute = new Route();
-        List<Station> stationsOnFirstRoute = new ArrayList<>();
+        Set<Station> stationsOnFirstRoute = new LinkedHashSet<>();
         stationsOnFirstRoute.add(wroclaw);
         stationsOnFirstRoute.add(poznan);
         stationsOnFirstRoute.add(szczecin);
         firstRoute.setStationsOnRoute(stationsOnFirstRoute);
         firstRoute.setAvailable(true);
         Route secondRoute = new Route();
-        List<Station> stationsOnSecondRoute = new ArrayList<>();
+        Set<Station> stationsOnSecondRoute = new LinkedHashSet<>();
         stationsOnSecondRoute.add(wroclaw);
         stationsOnSecondRoute.add(krakow);
         stationsOnSecondRoute.add(warszawa);

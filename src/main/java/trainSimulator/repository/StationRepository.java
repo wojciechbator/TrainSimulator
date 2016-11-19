@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import trainSimulator.models.Route;
 import trainSimulator.models.Station;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by mitron-wojtek on 17.11.16.
@@ -14,5 +14,5 @@ import java.util.List;
 public interface StationRepository extends JpaRepository<Station, Integer> {
     Station findOne(String criteria);
 
-    List<Station> findByRoute(Route route);
+    Set<Station> findByRoute(Route route);
 }

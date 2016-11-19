@@ -6,6 +6,7 @@ import trainSimulator.models.TimetableEntity;
 import trainSimulator.repository.TimetableEntityRepository;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by mitron-wojtek on 18.11.16.
@@ -19,7 +20,7 @@ public class TimetableEntityService {
         this.timetableEntityRepository = timetableEntityRepository;
     }
 
-    public void saveTimetable(List<TimetableEntity> timetable) {
+    public void saveTimetable(Set<TimetableEntity> timetable) {
         timetableEntityRepository.save(timetable);
     }
 

@@ -8,10 +8,7 @@ import trainSimulator.models.*;
 import trainSimulator.repository.RouteRepository;
 import trainSimulator.repository.TimetableEntityRepository;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by mitron-wojtek on 17.11.16.
@@ -57,10 +54,10 @@ public class TimetableGeneratorService {
         timetableEntities.forEach(this::deleteTimetableEntity);
     }
 
-    private List<Passenger> passengersForTrain(int passengersCount) {
+    private Set<Passenger> passengersForTrain(int passengersCount) {
         String[] names = {"Wojtek", "Janek", "Jurek", "Piotrek", "Andrzej", "Eustachy", "Reniek", "Maciek", "Mariusz", "Marek",
                 "Paulina", "Kasia", "Basia", "Zosia", "Ola", "Karolina", "Ula", "Marzena", "Marta", "Marysia"};
-        List<Passenger> passengers = new ArrayList<>();
+        Set<Passenger> passengers = new LinkedHashSet<>();
         for (int i = 0; i < passengersCount; i++) {
             int index = new Random().nextInt(names.length);
             Passenger passenger = new Passenger();
@@ -73,12 +70,12 @@ public class TimetableGeneratorService {
     public void createTrains(Date startingTime, Date endingTime, int passengersCount) {
         while (startingTime.getTime() < endingTime.getTime()) {
             Train train = new Train();
-            List<Passenger> passengers = passengersForTrain(passengersCount);
+            Set<Passenger> passengers = passengersForTrain(passengersCount);
             List<Route> allRoutes = routeRepository.findAll();
             train.setRoute(allRoutes.get(train.getId() % allRoutes.size()));
             train.getRoute().setAvailable(true);
-            List<Station> stationsOnRoute = train.getRoute().getStationsOnRoute();
-            List<TimetableEntity> timetable = new ArrayList<>();
+            Set<Station> stationsOnRoute = train.getRoute().getStationsOnRoute();
+            Set<TimetableEntity> timetable = new LinkedHashSet<>();
             for (Station station : stationsOnRoute) {
                 TimetableEntity timetableEntity = new TimetableEntity();
                 timetableEntity.setArrivalTime(startingTime);

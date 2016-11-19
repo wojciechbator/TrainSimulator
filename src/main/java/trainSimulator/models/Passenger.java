@@ -2,7 +2,7 @@ package trainSimulator.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by mitron-wojtek on 15.11.16.
@@ -17,7 +17,7 @@ public class Passenger {
     private String name;
     @OneToMany(mappedBy = "passenger", cascade = CascadeType.REMOVE)
     @JoinColumn(name = "passenger_id")
-    private List<Ticket> tickets;
+    private Set<Ticket> tickets;
     @ManyToOne()
     private Integer trainID;
 
@@ -29,11 +29,11 @@ public class Passenger {
         this.trainID = trainID;
     }
 
-    public List<Ticket> getTickets() {
+    public Set<Ticket> getTickets() {
         return tickets;
     }
 
-    public void setTickets(List<Ticket> tickets) {
+    public void setTickets(Set<Ticket> tickets) {
         this.tickets = tickets;
     }
 

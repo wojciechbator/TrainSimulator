@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import trainSimulator.models.Passenger;
 import trainSimulator.models.Train;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by mitron-wojtek on 17.11.16.
@@ -14,5 +14,5 @@ import java.util.List;
 public interface PassengerRepository extends JpaRepository<Passenger, Integer> {
     Passenger findOne(String criteria);
 
-    List<Passenger> findPassengersInTrain(Train train);
+    Set<Passenger> findPassengersInTrain(Train train);
 }

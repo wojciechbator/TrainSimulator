@@ -1,7 +1,7 @@
 package trainSimulator.models;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by mitron-wojtek on 17.11.16.
@@ -15,12 +15,12 @@ public class Station {
     private String name;
     @OneToMany(mappedBy = "trains_on_station")
     @JoinColumn(name = "station_id")
-    private List<Train> trainsOnStation;
+    private Set<Train> trainsOnStation;
     @ManyToOne
     private Route route;
     @OneToMany(mappedBy = "timetable_for_station")
     @JoinColumn(name = "station_id")
-    private List<TimetableEntity> timetableForStation;
+    private Set<TimetableEntity> timetableForStation;
 
     public Integer getId() {
         return id;
@@ -38,11 +38,11 @@ public class Station {
         this.name = name;
     }
 
-    public List<Train> getTrainsOnStation() {
+    public Set<Train> getTrainsOnStation() {
         return trainsOnStation;
     }
 
-    public void setTrainsOnStation(List<Train> trainsOnStation) {
+    public void setTrainsOnStation(Set<Train> trainsOnStation) {
         this.trainsOnStation = trainsOnStation;
     }
 
@@ -54,11 +54,11 @@ public class Station {
         this.route = route;
     }
 
-    public List<TimetableEntity> getTimetableForStation() {
+    public Set<TimetableEntity> getTimetableForStation() {
         return timetableForStation;
     }
 
-    public void setTimetableForStation(List<TimetableEntity> timetableForStation) {
+    public void setTimetableForStation(Set<TimetableEntity> timetableForStation) {
         this.timetableForStation = timetableForStation;
     }
 }

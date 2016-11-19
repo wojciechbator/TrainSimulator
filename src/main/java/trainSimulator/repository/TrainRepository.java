@@ -6,7 +6,7 @@ import trainSimulator.models.Route;
 import trainSimulator.models.Station;
 import trainSimulator.models.Train;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by mitron-wojtek on 17.11.16.
@@ -15,7 +15,7 @@ import java.util.List;
 public interface TrainRepository extends JpaRepository<Train, Integer> {
     Train findOne(String criteria);
 
-    List<Train> findTrainsOnStation(Station station);
+    Set<Train> findTrainsOnStation(Station station);
 
-    List<Train> findTrainsOnRoute(Route route);
+    Set<Train> findTrainsOnRoute(Route route);
 }
