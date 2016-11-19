@@ -1,0 +1,14 @@
+.mdl-button--raised.mdl-button--colored {
+    background: darkslategray;
+}
+
+.mdl-layout-title {
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: large;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
