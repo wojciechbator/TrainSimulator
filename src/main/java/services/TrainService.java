@@ -35,4 +35,8 @@ public class TrainService {
         List<Train> allTrains = trainRepository.findAll();
         allTrains.forEach(this::deleteTrain);
     }
+
+    public List<Train> getAllTrains() {
+        return trainRepository.findAll();
+    }
 }
