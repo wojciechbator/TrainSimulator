@@ -14,12 +14,12 @@ public class Station {
     private Integer id;
     private String name;
     @OneToMany(mappedBy = "trains_on_station")
+    @JoinColumn(name = "station_id")
     private List<Train> trainsOnStation;
     @ManyToOne
-    @JoinColumn(name = "route_id")
     private Route route;
-    @OneToOne
-    @JoinColumn(name = "timetable_for_station")
+    @OneToMany(mappedBy = "timetable_for_station")
+    @JoinColumn(name = "station_id")
     private List<TimetableEntity> timetableForStation;
 
     public Integer getId() {

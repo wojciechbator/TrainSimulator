@@ -12,7 +12,6 @@ public class Ticket {
     @GeneratedValue
     private int id;
     @ManyToOne()
-    @JoinColumn(name = "passenger_id")
     private Passenger passenger;
     private float price;
 

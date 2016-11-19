@@ -15,11 +15,10 @@ public class Passenger {
     private int id;
     @Size(min = 1, message = "Please, specify at least one character.")
     private String name;
-    @OneToMany(mappedBy = "ticketsForPassenger", cascade = CascadeType.REMOVE)
-    @JoinTable
+    @OneToMany(mappedBy = "passenger", cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "passenger_id")
     private List<Ticket> tickets;
     @ManyToOne()
-    @JoinTable
     private Integer trainID;
 
     public Integer getTrainID() {
