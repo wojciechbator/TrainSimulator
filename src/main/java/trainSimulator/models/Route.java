@@ -8,10 +8,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "routes")
-public class Route {
-    @Id
-    @GeneratedValue
-    private int id;
+public class Route extends BaseEntity {
     @OneToMany(mappedBy = "stations_on_route", cascade = CascadeType.REMOVE)
     @JoinColumn(name = "route_id")
     private Set<Station> stationsOnRoute;
@@ -19,14 +16,6 @@ public class Route {
     @JoinColumn(name = "route_id")
     private Set<Train> trainsOnRoute;
     private boolean isAvailable;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public Set<Station> getStationsOnRoute() {
         return stationsOnRoute;

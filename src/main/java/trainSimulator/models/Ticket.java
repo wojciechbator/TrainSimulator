@@ -1,27 +1,18 @@
 package trainSimulator.models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * Created by mitron-wojtek on 17.11.16.
  */
 @Entity
 @Table(name = "tickets")
-public class Ticket {
-    @Id
-    @GeneratedValue
-    private int id;
+public class Ticket extends BaseEntity {
     @ManyToOne()
     private Passenger passenger;
     private float price;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public Passenger getPassenger() {
         return passenger;

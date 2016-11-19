@@ -1,8 +1,6 @@
 package trainSimulator.models;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -10,20 +8,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "generator_parameters")
-public class GeneratorParameter {
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class GeneratorParameter extends BaseEntity {
     private String parameterName;
     private String parameterValue;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getParameterName() {
         return parameterName;

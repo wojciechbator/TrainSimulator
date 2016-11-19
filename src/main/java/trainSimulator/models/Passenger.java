@@ -9,10 +9,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "passengers")
-public class Passenger {
-    @Id
-    @GeneratedValue
-    private int id;
+public class Passenger extends BaseEntity {
     @Size(min = 1, message = "Please, specify at least one character.")
     private String name;
     @OneToMany(mappedBy = "passenger", cascade = CascadeType.REMOVE)
@@ -35,14 +32,6 @@ public class Passenger {
 
     public void setTickets(Set<Ticket> tickets) {
         this.tickets = tickets;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

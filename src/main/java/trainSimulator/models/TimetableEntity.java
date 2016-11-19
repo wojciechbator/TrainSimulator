@@ -1,6 +1,8 @@
 package trainSimulator.models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
@@ -8,24 +10,13 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "timetable")
-public class TimetableEntity {
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class TimetableEntity extends BaseEntity {
     @ManyToOne
     private Train train;
     @ManyToOne
     private Station station;
     private Date arrivalTime;
     private Date departureTime;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Train getTrain() {
         return train;

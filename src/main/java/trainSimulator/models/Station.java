@@ -8,10 +8,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "stations")
-public class Station {
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class Station extends BaseEntity {
     private String name;
     @OneToMany(mappedBy = "trains_on_station")
     @JoinColumn(name = "station_id")
@@ -21,14 +18,6 @@ public class Station {
     @OneToMany(mappedBy = "timetable_for_station")
     @JoinColumn(name = "station_id")
     private Set<TimetableEntity> timetableForStation;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

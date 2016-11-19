@@ -8,10 +8,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "trains")
-public class Train {
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class Train extends BaseEntity {
     @ManyToOne
     private Route route;
     @OneToMany(mappedBy = "train_timetable", cascade = CascadeType.REMOVE)
@@ -22,14 +19,6 @@ public class Train {
     private Set<Passenger> passengers;
     @ManyToOne
     private Station currentStation;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Route getRoute() {
         return route;
