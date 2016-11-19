@@ -1,11 +1,11 @@
 package tests;
 
-import models.Passenger;
-import models.Ticket;
 import org.junit.Before;
 import org.junit.Test;
-import repository.dao.GenericDao;
-import repository.dao.InMemoryDao;
+import trainSimulator.models.Passenger;
+import trainSimulator.models.Ticket;
+import trainSimulator.repository.dao.GenericDao;
+import trainSimulator.repository.dao.InMemoryDao;
 
 import java.util.ArrayList;
 import java.util.List;
