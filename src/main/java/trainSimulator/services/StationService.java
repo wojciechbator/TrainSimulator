@@ -2,8 +2,10 @@ package trainSimulator.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Station;
-import trainSimulator.repository.StationRepository;
+import trainSimulator.repositories.StationsDao;
+import trainSimulator.repositories.implementations.StationsDaoImplementation;
 
 import java.util.List;
 
@@ -11,28 +13,31 @@ import java.util.List;
  * Created by mitron-wojtek on 18.11.16.
  */
 @Service
+@Transactional
 public class StationService {
-    private final StationRepository stationRepository;
+    private final StationsDao stationsDao;
 
     @Autowired
-    public StationService(StationRepository stationRepository) {
-        this.stationRepository = stationRepository;
+    public StationService(StationsDaoImplementation stationsDao) {
+        this.stationsDao = stationsDao;
     }
 
     public void saveStation(Station Station) {
-        stationRepository.save(Station);
+        stationsDao.saveOrUpdate(Station);
     }
 
-    public void deleteStation(Station Station) {
-        stationRepository.delete(Station);
+    public void deleteStation(Long id) {
+        stationsDao.delete(id);
     }
 
-    public void findStation(Integer id) {
-        stationRepository.findOne(String.valueOf(id));
+    public void findStation(Long id) {
+        stationsDao.findOne(id);
     }
 
     public void clearStations() {
-        List<Station> allStations = stationRepository.findAll();
-        allStations.forEach(this::deleteStation);
+        List<Station> allStations = stationsDao.findAll();
+        for (Station station : allStations) {
+            deleteStation(station.getId());
+        }
     }
 }

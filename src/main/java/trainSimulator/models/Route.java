@@ -1,7 +1,7 @@
 package trainSimulator.models;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by mitron-wojtek on 17.11.16.
@@ -9,27 +9,39 @@ import java.util.Set;
 @Entity
 @Table(name = "routes")
 public class Route extends BaseEntity {
+    @Id
+    @GeneratedValue
+    private Long id;
     @OneToMany(mappedBy = "stations_on_route", cascade = CascadeType.REMOVE)
     @JoinColumn(name = "route_id")
-    private Set<Station> stationsOnRoute;
+    private List<Station> stationsOnRoute;
     @OneToMany(mappedBy = "trains_on_route", cascade = CascadeType.REMOVE)
     @JoinColumn(name = "route_id")
-    private Set<Train> trainsOnRoute;
+    private List<Train> trainsOnRoute;
     private boolean isAvailable;
 
-    public Set<Station> getStationsOnRoute() {
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Station> getStationsOnRoute() {
         return stationsOnRoute;
     }
 
-    public void setStationsOnRoute(Set<Station> stationsOnRoute) {
+    public void setStationsOnRoute(List<Station> stationsOnRoute) {
         this.stationsOnRoute = stationsOnRoute;
     }
 
-    public Set<Train> getTrainsOnRoute() {
+    public List<Train> getTrainsOnRoute() {
         return trainsOnRoute;
     }
 
-    public void setTrainsOnRoute(Set<Train> trainsOnRoute) {
+    public void setTrainsOnRoute(List<Train> trainsOnRoute) {
         this.trainsOnRoute = trainsOnRoute;
     }
 

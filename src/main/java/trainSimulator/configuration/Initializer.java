@@ -8,12 +8,12 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class Initializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[0];
+        return new Class<?>[]{PersistenceConfig.class,};
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[]{SpringConfiguration.class};
+        return new Class<?>[]{ApplicationContext.class};
     }
 
     @Override

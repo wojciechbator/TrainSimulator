@@ -2,8 +2,10 @@ package trainSimulator.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Route;
-import trainSimulator.repository.RouteRepository;
+import trainSimulator.repositories.RoutesDao;
+import trainSimulator.repositories.implementations.RoutesDaoImplementation;
 
 import java.util.List;
 
@@ -11,29 +13,32 @@ import java.util.List;
  * Created by mitron-wojtek on 18.11.16.
  */
 @Service
+@Transactional
 public class RouteService {
-    private final RouteRepository routeRepository;
+    private final RoutesDao routesDao;
 
     @Autowired
-    public RouteService(RouteRepository routeRepository) {
-        this.routeRepository = routeRepository;
+    public RouteService(RoutesDaoImplementation routesDao) {
+        this.routesDao = routesDao;
     }
 
     public void saveRoute(Route route) {
-        routeRepository.save(route);
+        routesDao.saveOrUpdate(route);
     }
 
-    public void deleteRoute(Route route) {
-        routeRepository.delete(route);
+    public void deleteRoute(Long id) {
+        routesDao.delete(id);
     }
 
-    public void findRoute(Integer id) {
-        routeRepository.findOne(String.valueOf(id));
+    public void findRoute(Long id) {
+        routesDao.findOne(id);
     }
 
     public void clearRoutes() {
-        List<Route> allRoutes = routeRepository.findAll();
-        allRoutes.forEach(this::deleteRoute);
+        List<Route> allRoutes = routesDao.findAll();
+        for (Route route : allRoutes) {
+            deleteRoute(route.getId());
+        }
     }
 
 

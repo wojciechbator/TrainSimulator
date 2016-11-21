@@ -2,8 +2,10 @@ package trainSimulator.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.EventLog;
-import trainSimulator.repository.EventLogRepository;
+import trainSimulator.repositories.EventLogsDao;
+import trainSimulator.repositories.implementations.EventLogsDaoImplementation;
 
 import java.util.List;
 
@@ -11,28 +13,31 @@ import java.util.List;
  * Created by mitron-wojtek on 18.11.16.
  */
 @Service
+@Transactional
 class EventLogService {
-    private final EventLogRepository eventLogRepository;
+    private final EventLogsDao eventLogsDao;
 
     @Autowired
-    public EventLogService(EventLogRepository eventLogRepository) {
-        this.eventLogRepository = eventLogRepository;
+    public EventLogService(EventLogsDaoImplementation eventLogsDao) {
+        this.eventLogsDao = eventLogsDao;
     }
 
     void saveEvent(EventLog eventLog) {
-        eventLogRepository.save(eventLog);
+        eventLogsDao.saveOrUpdate(eventLog);
     }
 
-    public EventLog findEvent(Integer id) {
-        return eventLogRepository.findEvent(id);
+    public EventLog findEvent(Long id) {
+        return eventLogsDao.findOne(id);
     }
 
-    private void deleteEventLog(EventLog eventLog) {
-        eventLogRepository.delete(eventLog);
+    private void deleteEventLog(Long id) {
+        eventLogsDao.delete(id);
     }
 
     void clearEvents() {
-        List<EventLog> eventLogs = eventLogRepository.findAll();
-        eventLogs.forEach(this::deleteEventLog);
+        List<EventLog> eventLogs = eventLogsDao.findAll();
+        for (EventLog eventLog : eventLogs) {
+            deleteEventLog(eventLog.getId());
+        }
     }
 }

@@ -1,6 +1,7 @@
 package trainSimulator.models;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -9,16 +10,28 @@ import java.util.Set;
 @Entity
 @Table(name = "trains")
 public class Train extends BaseEntity {
+    @Id
+    @GeneratedValue
+    private Long id;
     @ManyToOne
     private Route route;
     @OneToMany(mappedBy = "train_timetable", cascade = CascadeType.REMOVE)
     @JoinColumn(name = "train_id")
-    private Set<TimetableEntity> timetable;
+    private List<TimetableEntity> timetable;
     @OneToMany(mappedBy = "train_passengers", cascade = CascadeType.REMOVE)
     @JoinColumn(name = "train_id")
     private Set<Passenger> passengers;
     @ManyToOne
     private Station currentStation;
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Route getRoute() {
         return route;
@@ -28,11 +41,11 @@ public class Train extends BaseEntity {
         this.route = route;
     }
 
-    public Set<TimetableEntity> getTimetable() {
+    public List<TimetableEntity> getTimetable() {
         return timetable;
     }
 
-    public void setTimetable(Set<TimetableEntity> timetable) {
+    public void setTimetable(List<TimetableEntity> timetable) {
         this.timetable = timetable;
         for (TimetableEntity timetableEntity : timetable) {
             timetableEntity.setTrain(this);

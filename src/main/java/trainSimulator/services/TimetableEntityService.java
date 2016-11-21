@@ -2,38 +2,42 @@ package trainSimulator.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.TimetableEntity;
-import trainSimulator.repository.TimetableEntityRepository;
+import trainSimulator.repositories.TimetableEntitiesDao;
+import trainSimulator.repositories.implementations.TimetableEntitiesDaoImplementation;
 
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by mitron-wojtek on 18.11.16.
  */
 @Service
+@Transactional
 public class TimetableEntityService {
-    private final TimetableEntityRepository timetableEntityRepository;
+    private final TimetableEntitiesDao timetableEntitiesDao;
 
     @Autowired
-    public TimetableEntityService(TimetableEntityRepository timetableEntityRepository) {
-        this.timetableEntityRepository = timetableEntityRepository;
+    public TimetableEntityService(TimetableEntitiesDaoImplementation timetableEntitiesDao) {
+        this.timetableEntitiesDao = timetableEntitiesDao;
     }
 
-    public void saveTimetable(Set<TimetableEntity> timetable) {
-        timetableEntityRepository.save(timetable);
+    public void saveTimetable(List<TimetableEntity> timetable) {
+        timetableEntitiesDao.saveOrUpdate(timetable);
     }
 
-    public void deleteTimetableEntity(TimetableEntity timetableEntity) {
-        timetableEntityRepository.delete(timetableEntity);
+    public void deleteTimetableEntity(Long id) {
+        timetableEntitiesDao.delete(id);
     }
 
-    public void findTimetableEntity(Integer id) {
-        timetableEntityRepository.findOne(String.valueOf(id));
+    public void findTimetableEntity(Long id) {
+        timetableEntitiesDao.findOne(id);
     }
 
     public void clearTimetableEntitys() {
-        List<TimetableEntity> allTimetableEntities = timetableEntityRepository.findAll();
-        allTimetableEntities.forEach(this::deleteTimetableEntity);
+        List<TimetableEntity> allTimetableEntities = timetableEntitiesDao.findAll();
+        for (TimetableEntity timetableEntity : allTimetableEntities) {
+            deleteTimetableEntity(timetableEntity.getId());
+        }
     }
 }

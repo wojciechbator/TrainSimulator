@@ -3,11 +3,15 @@
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/java/configuration/SpringConfiguration.java</file>
+        <fileset id="initializer trainSimulator.configuration.Initializer servlet context" name="MVC dispatcher initializer servlet context" removed="true">
+          <file>file://$MODULE_DIR$/src/main/java/trainSimulator/configuration/ApplicationContext.java</file>
         </fileset>
-        <fileset id="fileset2" name="DatabaseContext" removed="false">
-          <file>file://$MODULE_DIR$/src/main/java/configuration/PostgresConfiguration.java</file>
+        <fileset id="initializer trainSimulator.configuration.Initializer root context" name="MVC dispatcher initializer root context" removed="true" />
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/trainSimulator/configuration/ApplicationContext.java</file>
+        </fileset>
+        <fileset id="fileset2" name="Postgres Configuration" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/trainSimulator/configuration/PostgresConfiguration.java</file>
         </fileset>
       </configuration>
     </facet>

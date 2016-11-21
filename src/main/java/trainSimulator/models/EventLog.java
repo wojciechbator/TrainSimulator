@@ -1,6 +1,8 @@
 package trainSimulator.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -10,10 +12,22 @@ import java.util.Date;
 @Entity
 @Table(name = "event_register")
 public class EventLog extends BaseEntity {
+    @Id
+    @GeneratedValue
+    private Long id;
     private String type;
     private String stationName;
     private Date timestamp;
     private String comment;
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getType() {
         return type;

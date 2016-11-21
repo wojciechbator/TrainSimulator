@@ -9,9 +9,9 @@ import trainSimulator.models.Route;
 import trainSimulator.models.Station;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by mitron-wojtek on 18.11.16.
@@ -37,7 +37,6 @@ public class InitDatabaseService {
     public void init() {
         eventLogService.clearEvents();
         EventLog eventLog = new EventLog();
-        eventLog.setId(0);
         eventLog.setComment("A new session started!");
         eventLog.setStationName("All stations active");
         eventLog.setTimestamp(new Date());
@@ -46,19 +45,19 @@ public class InitDatabaseService {
         GeneratorParameter onStationStopTime = new GeneratorParameter();
         onStationStopTime.setParameterName("on_station_stop_time");
         onStationStopTime.setParameterValue("60");
-        generatorParametersService.saveGeneratorParameters(onStationStopTime);
+        generatorParametersService.saveGeneratorParameter(onStationStopTime);
         GeneratorParameter departureFrequency = new GeneratorParameter();
         departureFrequency.setParameterName("departure_frequency");
         departureFrequency.setParameterValue("300");
-        generatorParametersService.saveGeneratorParameters(departureFrequency);
+        generatorParametersService.saveGeneratorParameter(departureFrequency);
         GeneratorParameter periodBetweenStation = new GeneratorParameter();
         periodBetweenStation.setParameterName("period_between_station");
         periodBetweenStation.setParameterValue("300");
-        generatorParametersService.saveGeneratorParameters(periodBetweenStation);
+        generatorParametersService.saveGeneratorParameter(periodBetweenStation);
         GeneratorParameter passengersCount = new GeneratorParameter();
         passengersCount.setParameterName("passengers_count");
         passengersCount.setParameterValue("50");
-        generatorParametersService.saveGeneratorParameters(passengersCount);
+        generatorParametersService.saveGeneratorParameter(passengersCount);
         //Prepared infrastructure for train simulator
         Station wroclaw = new Station();
         wroclaw.setName("Wroclaw");
@@ -77,14 +76,14 @@ public class InitDatabaseService {
         stationService.saveStation(warszawa);
         //Now routes
         Route firstRoute = new Route();
-        Set<Station> stationsOnFirstRoute = new LinkedHashSet<>();
+        List<Station> stationsOnFirstRoute = new ArrayList<>();
         stationsOnFirstRoute.add(wroclaw);
         stationsOnFirstRoute.add(poznan);
         stationsOnFirstRoute.add(szczecin);
         firstRoute.setStationsOnRoute(stationsOnFirstRoute);
         firstRoute.setAvailable(true);
         Route secondRoute = new Route();
-        Set<Station> stationsOnSecondRoute = new LinkedHashSet<>();
+        List<Station> stationsOnSecondRoute = new ArrayList<>();
         stationsOnSecondRoute.add(wroclaw);
         stationsOnSecondRoute.add(krakow);
         stationsOnSecondRoute.add(warszawa);

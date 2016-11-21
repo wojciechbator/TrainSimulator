@@ -2,8 +2,9 @@ package trainSimulator.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Train;
-import trainSimulator.repository.TrainRepository;
+import trainSimulator.repositories.implementations.TrainsDaoImplementation;
 
 import java.util.List;
 
@@ -11,32 +12,37 @@ import java.util.List;
  * Created by mitron-wojtek on 18.11.16.
  */
 @Service
+@Transactional
 public class TrainService {
-    private final TrainRepository trainRepository;
+    private final TrainsDaoImplementation trainsDaoImplementation;
 
     @Autowired
-    public TrainService(TrainRepository TrainRepository) {
-        this.trainRepository = TrainRepository;
+    public TrainService(TrainsDaoImplementation trainsDaoImplementation) {
+        this.trainsDaoImplementation = trainsDaoImplementation;
     }
 
     public void saveTrain(Train Train) {
-        trainRepository.save(Train);
+        trainsDaoImplementation.saveOrUpdate(Train);
     }
 
-    public void deleteTrain(Train Train) {
-        trainRepository.delete(Train);
+    public void deleteTrain(Long id) {
+        trainsDaoImplementation.delete(id);
     }
 
-    public void findTrain(Integer id) {
-        trainRepository.findOne(String.valueOf(id));
+    public void findTrain(Long id) {
+        trainsDaoImplementation.findOne(id);
     }
 
     public void clearTrains() {
-        List<Train> allTrains = trainRepository.findAll();
-        allTrains.forEach(this::deleteTrain);
+        List<Train> allTrains = trainsDaoImplementation.findAll();
+        for (Train train : allTrains) {
+            deleteTrain(train.getId());
+        }
     }
 
     public List<Train> getAllTrains() {
-        return trainRepository.findAll();
+        return trainsDaoImplementation.findAll();
     }
+
+    //TODO: Do more stuff with trains, for example delete from route, IDK
 }
