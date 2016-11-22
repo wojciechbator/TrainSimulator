@@ -15,15 +15,12 @@ public class Train {
     private Long id;
     @ManyToOne
     private Route route;
-    @OneToMany(mappedBy = "train_timetable", cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "train_id")
+    @OneToMany(mappedBy = "train", cascade = CascadeType.REMOVE)
     private List<TimetableEntity> timetable;
-    @OneToMany(mappedBy = "train_passengers", cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "train_id")
+    @OneToMany(mappedBy = "train", cascade = CascadeType.REMOVE)
     private Set<Passenger> passengers;
     @ManyToOne
-    @JoinColumn("station_name")
-    private Station currentStation;
+    private Station station;
 
     public Long getId() {
         return id;
@@ -60,11 +57,11 @@ public class Train {
         this.passengers = passengers;
     }
 
-    public Station getCurrentStation() {
-        return currentStation;
+    public Station getStation() {
+        return station;
     }
 
-    public void setCurrentStation(Station currentStation) {
-        this.currentStation = currentStation;
+    public void setStation(Station station) {
+        this.station = station;
     }
 }

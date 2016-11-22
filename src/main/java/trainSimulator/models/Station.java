@@ -13,13 +13,11 @@ public class Station {
     @GeneratedValue
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "trains_on_station")
-    @JoinColumn(name = "station_id")
+    @OneToMany(mappedBy = "station")
     private Set<Train> trainsOnStation;
     @ManyToOne
     private Route route;
-    @OneToMany(mappedBy = "timetable_for_station")
-    @JoinColumn(name = "station_id")
+    @OneToMany(mappedBy = "station")
     private Set<TimetableEntity> timetableForStation;
 
     public Long getId() {

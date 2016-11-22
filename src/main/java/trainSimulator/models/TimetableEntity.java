@@ -31,8 +31,8 @@ public class TimetableEntity {
         return train;
     }
 
-    public void setTrain(Train train) {
-        this.train = train;
+    public void setTrain(Train trainId) {
+        this.train = trainId;
     }
 
     public Station getStation() {

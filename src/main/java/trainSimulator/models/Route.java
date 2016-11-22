@@ -12,11 +12,9 @@ public class Route {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToMany(mappedBy = "stations_on_route", cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "route_id")
+    @OneToMany(mappedBy = "route", cascade = CascadeType.REMOVE)
     private List<Station> stationsOnRoute;
-    @OneToMany(mappedBy = "trains_on_route", cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "route_id")
+    @OneToMany(mappedBy = "route", cascade = CascadeType.REMOVE)
     private List<Train> trainsOnRoute;
     private boolean isAvailable;
 

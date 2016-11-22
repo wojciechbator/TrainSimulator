@@ -27,8 +27,8 @@ public class Ticket {
         return passenger;
     }
 
-    public void setPassenger(Passenger passenger) {
-        this.passenger = passenger;
+    public void setPassenger(Passenger passengerId) {
+        this.passenger = passengerId;
     }
 
     public float getPrice() {

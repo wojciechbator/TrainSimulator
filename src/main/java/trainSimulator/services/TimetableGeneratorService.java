@@ -92,7 +92,7 @@ public class TimetableGeneratorService {
             train.setTimetable(timetable);
             timetableEntityService.saveTimetable(timetable);
             for (Passenger passenger : passengers) {
-                passenger.setTrainID(train.getId());
+                passenger.setTrain(train);
             }
             train.setPassengers(passengers);
             EventLog eventLog = new EventLog();

@@ -16,10 +16,9 @@ public class Passenger {
     @Size(min = 1, message = "Please, specify at least one character.")
     private String name;
     @OneToMany(mappedBy = "passenger", cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "passenger_id")
     private Set<Ticket> tickets;
     @ManyToOne()
-    private Long trainID;
+    private Train train;
 
     public Long getId() {
         return id;
@@ -29,12 +28,12 @@ public class Passenger {
         this.id = id;
     }
 
-    public Long getTrainID() {
-        return trainID;
+    public Train getTrain() {
+        return train;
     }
 
-    public void setTrainID(Long trainID) {
-        this.trainID = trainID;
+    public void setTrain(Train train) {
+        this.train = train;
     }
 
     public Set<Ticket> getTickets() {

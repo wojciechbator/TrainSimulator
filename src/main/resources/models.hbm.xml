@@ -3,70 +3,70 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="trainSimulator.models">
-    <class name="EventLog" table="event_register">
-        <id name="id" column="event_log_id">
+    <class name="EventLog">
+        <id name="id">
             <generator class="native"/>
         </id>
-        <property name="type" column="type"/>
-        <property name="timestamp" column="timestamp"/>
-        <property name="stationName" column="station_name"/>
-        <property name="comment" column="comment"/>
+        <property name="type"/>
+        <property name="timestamp"/>
+        <property name="stationName"/>
+        <property name="comment"/>
     </class>
-    <class name="GeneratorParameter" table="generator_parameters">
-        <id name="id" column="generator_parameter_id">
+    <class name="GeneratorParameter">
+        <id name="id">
             <generator class="native"/>
         </id>
-        <property name="parameterName" column="parameter_name"/>
-        <property name="parameterValue" column="parameter_value"/>
+        <property name="parameterName"/>
+        <property name="parameterValue"/>
     </class>
-    <class name="Passenger" table="passengers">
-        <id name="id" column="passenger_id">
+    <class name="Passenger">
+        <id name="id">
             <generator class="native"/>
         </id>
-        <property name="name" column="passenger_name"/>
-        <property name="tickets" column="passenger_tickets"/>
-        <property name="trainID" column="train_id"/>
+        <property name="name"/>
+        <property name="tickets"/>
+        <property name="trainID"/>
     </class>
-    <class name="Route" table="routes">
-        <id name="id" column="route_id">
+    <class name="Route">
+        <id name="id">
             <generator class="native"/>
         </id>
-        <property name="stationsOnRoute" column="stations_on_route"/>
-        <property name="trainsOnRoute" column="trains_on_route"/>
-        <property name="isAvailable" column="is_available"/>
+        <property name="stationsOnRoute"/>
+        <property name="trainsOnRoute"/>
+        <property name="isAvailable"/>
     </class>
-    <class name="Station" table="stations">
-        <id name="id" column="station_id">
+    <class name="Station">
+        <id name="id">
             <generator class="native"/>
         </id>
-        <property name="name" column="station_name"/>
-        <property name="trainsOnStation" column="trains_on_station"/>
-        <property name="route" column="route_id"/>
-        <property name="timetableForStation" column="timetable_for_station"/>
+        <property name="name"/>
+        <property name="trainsOnStation"/>
+        <property name="route"/>
+        <property name="timetableForStation"/>
     </class>
-    <class name="Ticket" table="tickets">
-        <id name="id" column="ticket_id">
+    <class name="Ticket">
+        <id name="id">
             <generator class="native"/>
         </id>
-        <property name="passenger" column="owner"/>
-        <property name="price" column="price"/>
+        <property name="passenger"/>
+        <property name="price"/>
     </class>
-    <class name="TimetableEntity" table="timetable">
-        <id name="id" column="timetable_id">
+    <class name="TimetableEntity">
+        <id name="id">
             <generator class="native"/>
         </id>
-        <property name="train" column="train_id"/>
-        <property name="station" column="station_name"/>
-        <property name="arrivalTime" column="arrival_time"/>
-        <property name="departureTime" column="departure_time"/>
+        <property name="getTrain"/>
+        <property name="station"/>
+        <property name="arrivalTime"/>
+        <property name="departureTime"/>
     </class>
-    <class name="Train" table="trains">
-        <id name="id" column="train_id">
+    <class name="Train">
+        <id name="id">
             <generator class="native"/>
         </id>
-        <property name="route" column="route_id"/>
-        <property name="timetable" column="train_timetable"/>
-        <property name="passengers" column="train_passengers"/>
-        <property name="currentStation" column="station_name"/>
+        <property name="routeId"/>
+        <property name="timetable"/>
+        <property name="passengers"/>
+        <property name="currentStation"/>
     </class>
 </hibernate-mapping>
