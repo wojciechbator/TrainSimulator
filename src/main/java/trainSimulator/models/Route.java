@@ -16,7 +16,7 @@ public class Route {
     private List<Station> stationsOnRoute;
     @OneToMany(mappedBy = "route", cascade = CascadeType.REMOVE)
     private List<Train> trainsOnRoute;
-    private boolean isAvailable;
+    private boolean available;
 
     public Long getId() {
         return id;
@@ -42,11 +42,11 @@ public class Route {
         this.trainsOnRoute = trainsOnRoute;
     }
 
-    public boolean getIsAvailable() {
-        return isAvailable;
+    public boolean isAvailable() {
+        return available;
     }
 
     public void setAvailable(boolean available) {
-        isAvailable = available;
+        this.available = available;
     }
 }

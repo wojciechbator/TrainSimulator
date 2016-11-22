@@ -18,6 +18,7 @@ public class Passenger {
     @OneToMany(mappedBy = "passenger", cascade = CascadeType.REMOVE)
     private Set<Ticket> tickets;
     @ManyToOne()
+    @JoinColumn(name = "train_id")
     private Train train;
 
     public Long getId() {
@@ -28,12 +29,12 @@ public class Passenger {
         this.id = id;
     }
 
-    public Train getTrain() {
-        return train;
+    public String getName() {
+        return name;
     }
 
-    public void setTrain(Train train) {
-        this.train = train;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Set<Ticket> getTickets() {
@@ -44,11 +45,11 @@ public class Passenger {
         this.tickets = tickets;
     }
 
-    public String getName() {
-        return name;
+    public Train getTrain() {
+        return train;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTrain(Train train) {
+        this.train = train;
     }
 }

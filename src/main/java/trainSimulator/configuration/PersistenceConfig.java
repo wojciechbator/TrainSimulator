@@ -1,21 +1,17 @@
 package trainSimulator.configuration;
 
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.postgresql.Driver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
-import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
@@ -52,46 +48,11 @@ public class PersistenceConfig {
     @Bean(name = "dataSource")
     public DataSource dataSource() {
         DriverManagerDataSource driver = new DriverManagerDataSource();
-        driver.setDriverClassName("org.postgresql.Driver");
+        driver.setDriverClassName(Driver.class.getName());
         driver.setUrl("jdbc:" + dbms + "://" + serverName + ":" + port + ":" + dbName);
         driver.setUsername(user);
         driver.setPassword(dbPass);
         return driver;
-    }
-
-    @Bean
-    public EntityManagerFactory entityManagerFactory() {
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setGenerateDdl(true);
-        LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactory.setJpaVendorAdapter(vendorAdapter);
-        entityManagerFactory.setPackagesToScan("trainSimulator/repositories");
-        entityManagerFactory.setDataSource(dataSource());
-        entityManagerFactory.afterPropertiesSet();
-        return entityManagerFactory.getObject();
-    }
-
-    @Bean
-    @Autowired
-    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
-        HibernateTransactionManager htm = new HibernateTransactionManager();
-        htm.setSessionFactory(sessionFactory);
-        return htm;
-    }
-
-    @Bean
-    @Autowired
-    public HibernateTemplate getHibernateTemplate(SessionFactory sessionFactory) {
-        return new HibernateTemplate(sessionFactory);
-    }
-
-    @Bean
-    public AnnotationSessionFactoryBean getSessionFactory() {
-        AnnotationSessionFactoryBean asfb = new AnnotationSessionFactoryBean();
-        asfb.setDataSource(dataSource());
-        asfb.setHibernateProperties(getHibernateProperties());
-        asfb.setPackagesToScan("com.sivalabs");
-        return asfb;
     }
 
     @Bean
@@ -102,5 +63,20 @@ public class PersistenceConfig {
         properties.put("hibernate.hbm2ddl.auto", hibernateHbm2ddlAuto);
 
         return properties;
+    }
+
+    @Bean(name = "sessionFactory")
+    public SessionFactory getSessionFactory() throws Exception {
+        LocalSessionFactoryBean factory = new LocalSessionFactoryBean();
+        factory.setPackagesToScan("trainSimulator.models");
+        factory.setDataSource(dataSource());
+        factory.setHibernateProperties(getHibernateProperties());
+        factory.afterPropertiesSet();
+        return factory.getObject();
+    }
+
+    @Bean(name = "transactionManager")
+    public HibernateTransactionManager getTransactionManager() throws Exception {
+        return new HibernateTransactionManager(getSessionFactory());
     }
 }

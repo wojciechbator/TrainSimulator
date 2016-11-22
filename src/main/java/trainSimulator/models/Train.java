@@ -14,6 +14,7 @@ public class Train {
     @GeneratedValue
     private Long id;
     @ManyToOne
+    @JoinColumn(name = "trains_on_route")
     private Route route;
     @OneToMany(mappedBy = "train", cascade = CascadeType.REMOVE)
     private List<TimetableEntity> timetable;
