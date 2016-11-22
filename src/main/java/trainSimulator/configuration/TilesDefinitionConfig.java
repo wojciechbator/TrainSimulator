@@ -38,7 +38,7 @@ public final class TilesDefinitionConfig implements DefinitionsFactory {
         attributes.put("body", new Attribute(body));
         attributes.put("footer", new Attribute("/WEB-INF/basicLayout/commonFooter.jsp"));
 
-        Attribute baseTemplate = new Attribute("/WEB-INF/basicLayout/commonBody.jsp");
+        Attribute baseTemplate = new Attribute("/WEB-INF/basicLayout/commonLayout.jsp");
 
         TILES_DEFINITIONS.put(name, new Definition(name, baseTemplate, attributes));
     }

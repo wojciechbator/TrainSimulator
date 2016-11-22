@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "tickets")
-public class Ticket extends BaseEntity {
+public class Ticket {
     @Id
     @GeneratedValue
     private Long id;
@@ -15,7 +15,6 @@ public class Ticket extends BaseEntity {
     private Passenger passenger;
     private float price;
 
-    @Override
     public Long getId() {
         return id;
     }

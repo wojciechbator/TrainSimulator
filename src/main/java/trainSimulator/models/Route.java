@@ -8,7 +8,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "routes")
-public class Route extends BaseEntity {
+public class Route {
     @Id
     @GeneratedValue
     private Long id;
@@ -20,7 +20,6 @@ public class Route extends BaseEntity {
     private List<Train> trainsOnRoute;
     private boolean isAvailable;
 
-    @Override
     public Long getId() {
         return id;
     }
@@ -45,7 +44,7 @@ public class Route extends BaseEntity {
         this.trainsOnRoute = trainsOnRoute;
     }
 
-    public boolean isAvailable() {
+    public boolean getIsAvailable() {
         return isAvailable;
     }
 

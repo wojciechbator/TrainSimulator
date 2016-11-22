@@ -8,7 +8,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "stations")
-public class Station extends BaseEntity {
+public class Station {
     @Id
     @GeneratedValue
     private Long id;
@@ -22,7 +22,6 @@ public class Station extends BaseEntity {
     @JoinColumn(name = "station_id")
     private Set<TimetableEntity> timetableForStation;
 
-    @Override
     public Long getId() {
         return id;
     }

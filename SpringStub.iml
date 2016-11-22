@@ -10,8 +10,8 @@
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/trainSimulator/configuration/ApplicationContext.java</file>
         </fileset>
-        <fileset id="fileset2" name="Postgres Configuration" removed="false">
-          <file>file://$MODULE_DIR$/src/main/java/trainSimulator/configuration/PostgresConfiguration.java</file>
+        <fileset id="fileset2" name="Persistence Config" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/trainSimulator/configuration/PersistenceConfig.java</file>
         </fileset>
       </configuration>
     </facet>
@@ -24,6 +24,18 @@
           <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
         </sourceRoots>
+      </configuration>
+    </facet>
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map>
+          <unit-entry name="getSessionFactory" value="b4c2ae52-ef75-4f3d-900b-22cc80b957d6" />
+          <unit-entry name="hibernate.cfg.xml" value="b4c2ae52-ef75-4f3d-900b-22cc80b957d6" />
+          <unit-entry name="sessionFactory" />
+        </datasource-map>
+        <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/models.hbm.xml" />
       </configuration>
     </facet>
   </component>

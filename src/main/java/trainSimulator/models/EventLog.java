@@ -11,7 +11,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "event_register")
-public class EventLog extends BaseEntity {
+public class EventLog {
     @Id
     @GeneratedValue
     private Long id;
@@ -20,7 +20,6 @@ public class EventLog extends BaseEntity {
     private Date timestamp;
     private String comment;
 
-    @Override
     public Long getId() {
         return id;
     }
@@ -63,7 +62,7 @@ public class EventLog extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Id: " + super.getId() + ", type: " + type + ", station id: " + stationName + ", timestamp: " + timestamp.toString()
+        return "Id: " + id + ", type: " + type + ", station id: " + stationName + ", timestamp: " + timestamp.toString()
                 + ", comment: " + comment;
     }
 }

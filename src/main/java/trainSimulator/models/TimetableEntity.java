@@ -8,7 +8,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "timetable")
-public class TimetableEntity extends BaseEntity {
+public class TimetableEntity {
     @Id
     @GeneratedValue
     private Long id;
@@ -19,7 +19,6 @@ public class TimetableEntity extends BaseEntity {
     private Date arrivalTime;
     private Date departureTime;
 
-    @Override
     public Long getId() {
         return id;
     }

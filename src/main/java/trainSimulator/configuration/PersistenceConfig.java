@@ -6,17 +6,18 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
+import java.util.Properties;
 
 /**
  * Created by mitron-wojtek on 19.11.16.
@@ -38,6 +39,15 @@ public class PersistenceConfig {
     private String user;
     @Value("${dbPass}")
     private String dbPass;
+
+    @Value("${hibernate.dialect}")
+    private String hibernateDialect;
+    @Value("${hibernate.show_sql}")
+    private String hibernateShowSql;
+    @Value("${hibernate.hbm2ddl.auto}")
+    private String hibernateHbm2ddlAuto;
+    @Value("${hibernate.generate_statistics}")
+    private String hibernateGenerateStatistics;
 
     @Bean(name = "dataSource")
     public DataSource dataSource() {
@@ -61,27 +71,36 @@ public class PersistenceConfig {
         return entityManagerFactory.getObject();
     }
 
+    @Bean
     @Autowired
-    @Bean(name = "transactionManager")
-    public HibernateTransactionManager getTransactionManager(
-            SessionFactory sessionFactory) {
-
-        return new HibernateTransactionManager(sessionFactory);
+    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+        HibernateTransactionManager htm = new HibernateTransactionManager();
+        htm.setSessionFactory(sessionFactory);
+        return htm;
     }
 
     @Bean
-    public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {
-        return new PropertySourcesPlaceholderConfigurer();
+    @Autowired
+    public HibernateTemplate getHibernateTemplate(SessionFactory sessionFactory) {
+        return new HibernateTemplate(sessionFactory);
     }
 
-    @Autowired
-    @Bean(name = "sessionFactory")
-    public SessionFactory getSessionFactory(DataSource dataSource) {
-        LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-//        sessionBuilder.addAnnotatedClasses(EventLog.class, GeneratorParameter.class, Passenger.class, Route.class,
-//                Station.class, Ticket.class, TimetableEntity.class, Train.class);
-        sessionBuilder.scanPackages("trainSimulator/models");
-        sessionBuilder.setProperty("hibernate.show_sql", "true");
-        return sessionBuilder.buildSessionFactory();
+    @Bean
+    public AnnotationSessionFactoryBean getSessionFactory() {
+        AnnotationSessionFactoryBean asfb = new AnnotationSessionFactoryBean();
+        asfb.setDataSource(dataSource());
+        asfb.setHibernateProperties(getHibernateProperties());
+        asfb.setPackagesToScan("com.sivalabs");
+        return asfb;
+    }
+
+    @Bean
+    public Properties getHibernateProperties() {
+        Properties properties = new Properties();
+        properties.put("hibernate.dialect", hibernateDialect);
+        properties.put("hibernate.show_sql", hibernateShowSql);
+        properties.put("hibernate.hbm2ddl.auto", hibernateHbm2ddlAuto);
+
+        return properties;
     }
 }

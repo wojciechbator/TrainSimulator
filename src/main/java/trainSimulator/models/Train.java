@@ -9,7 +9,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "trains")
-public class Train extends BaseEntity {
+public class Train {
     @Id
     @GeneratedValue
     private Long id;
@@ -22,9 +22,9 @@ public class Train extends BaseEntity {
     @JoinColumn(name = "train_id")
     private Set<Passenger> passengers;
     @ManyToOne
+    @JoinColumn("station_name")
     private Station currentStation;
 
-    @Override
     public Long getId() {
         return id;
     }
