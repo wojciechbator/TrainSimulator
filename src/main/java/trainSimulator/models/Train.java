@@ -14,13 +14,14 @@ public class Train {
     @GeneratedValue
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "trains_on_route")
+    @JoinColumn(name = "route_id")
     private Route route;
-    @OneToMany(mappedBy = "train", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "train", targetEntity = TimetableEntity.class, fetch = FetchType.EAGER)
     private List<TimetableEntity> timetable;
-    @OneToMany(mappedBy = "train", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "train", targetEntity = Passenger.class, fetch = FetchType.EAGER)
     private Set<Passenger> passengers;
     @ManyToOne
+    @JoinColumn(name = "station_id")
     private Station station;
 
     public Long getId() {

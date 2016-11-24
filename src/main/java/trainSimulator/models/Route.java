@@ -10,11 +10,11 @@ import java.util.List;
 @Table(name = "routes")
 public class Route {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "route", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "route", targetEntity = Station.class, fetch = FetchType.EAGER)
     private List<Station> stationsOnRoute;
-    @OneToMany(mappedBy = "route", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "route", targetEntity = Train.class, fetch = FetchType.EAGER)
     private List<Train> trainsOnRoute;
     private boolean available;
 

@@ -13,8 +13,10 @@ public class TimetableEntity {
     @GeneratedValue
     private Long id;
     @ManyToOne
+    @JoinColumn(name = "train_id")
     private Train train;
     @ManyToOne
+    @JoinColumn(name = "station_id")
     private Station station;
     private Date arrivalTime;
     private Date departureTime;

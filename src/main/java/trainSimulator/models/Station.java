@@ -13,11 +13,12 @@ public class Station {
     @GeneratedValue
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "station")
+    @OneToMany(mappedBy = "station", targetEntity = Train.class, fetch = FetchType.EAGER)
     private Set<Train> trainsOnStation;
     @ManyToOne
+    @JoinColumn(name = "route_id")
     private Route route;
-    @OneToMany(mappedBy = "station")
+    @OneToMany(mappedBy = "station", targetEntity = TimetableEntity.class, fetch = FetchType.EAGER)
     private Set<TimetableEntity> timetableForStation;
 
     public Long getId() {

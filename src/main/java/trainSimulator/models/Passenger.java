@@ -15,7 +15,7 @@ public class Passenger {
     private Long id;
     @Size(min = 1, message = "Please, specify at least one character.")
     private String name;
-    @OneToMany(mappedBy = "passenger", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "passenger", targetEntity = Ticket.class, fetch = FetchType.EAGER)
     private Set<Ticket> tickets;
     @ManyToOne()
     @JoinColumn(name = "train_id")
