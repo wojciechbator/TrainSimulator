@@ -2,6 +2,7 @@ package trainSimulator.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -9,15 +10,22 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "passengers")
-public class Passenger {
+public class Passenger implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    public Passenger() {
+        super();
+    }
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Size(min = 1, message = "Please, specify at least one character.")
+    @Column(name = "name")
     private String name;
-    @OneToMany(mappedBy = "passenger", targetEntity = Ticket.class, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "passenger", targetEntity = Ticket.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Ticket> tickets;
-    @ManyToOne()
+    @ManyToOne(targetEntity = Train.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "train_id")
     private Train train;
 

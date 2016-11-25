@@ -1,20 +1,15 @@
 package trainSimulator.repositories;
 
+import org.springframework.stereotype.Repository;
 import trainSimulator.models.Train;
 
-import java.util.List;
-
 /**
- * Created by mitron-wojtek on 17.11.16.
+ * Created by mitron-wojtek on 25.11.16.
  */
-public interface TrainsDao {
-    List<Train> findAll();
-
-    Train get(Long id);
-
-    void saveOrUpdate(Train train);
-
-    void delete(Long id);
-
-    Train findOne(Long id);
+@Repository
+public class TrainsDao extends AbstractJpaDao<Train> implements TrainsDaoInterface {
+    public TrainsDao() {
+        super();
+        setClazz(Train.class);
+    }
 }

@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Ticket;
-import trainSimulator.repositories.TicketsDao;
-import trainSimulator.repositories.implementations.TicketsDaoImplementation;
+import trainSimulator.repositories.TicketsDaoInterface;
 
 import java.util.List;
 
@@ -15,29 +14,41 @@ import java.util.List;
 @Service
 @Transactional
 public class TicketService {
-    private final TicketsDao ticketsDao;
+    private final TicketsDaoInterface ticketsDaoInterface;
 
     @Autowired
-    public TicketService(TicketsDaoImplementation ticketsDao) {
-        this.ticketsDao = ticketsDao;
+    public TicketService(TicketsDaoInterface ticketsDao) {
+        this.ticketsDaoInterface = ticketsDao;
     }
 
-    public void saveTicket(Ticket Ticket) {
-        ticketsDao.saveOrUpdate(Ticket);
+    public void saveTicket(final Ticket ticket) {
+        ticketsDaoInterface.update(ticket);
     }
 
-    public void deleteTicket(Long id) {
-        ticketsDao.delete(id);
+    public void deleteTicket(final Ticket ticket) {
+        ticketsDaoInterface.delete(ticket);
     }
 
-    public void findTicket(Long id) {
-        ticketsDao.findOne(id);
+    public void deleteTicketById(final long id) {
+        ticketsDaoInterface.deleteById(id);
+    }
+
+    public void createTicket(final Ticket ticket) {
+        ticketsDaoInterface.create(ticket);
+    }
+
+    public List<Ticket> findAllTickets() {
+        return ticketsDaoInterface.findAll();
+    }
+
+    public void findTicket(final long id) {
+        ticketsDaoInterface.findOne(id);
     }
 
     public void clearTickets() {
-        List<Ticket> allTickets = ticketsDao.findAll();
+        List<Ticket> allTickets = ticketsDaoInterface.findAll();
         for (Ticket ticket : allTickets) {
-            deleteTicket(ticket.getId());
+            deleteTicket(ticket);
         }
     }
 }

@@ -1,20 +1,15 @@
 package trainSimulator.repositories;
 
+import org.springframework.stereotype.Repository;
 import trainSimulator.models.TimetableEntity;
 
-import java.util.List;
-
 /**
- * Created by mitron-wojtek on 17.11.16.
+ * Created by mitron-wojtek on 25.11.16.
  */
-public interface TimetableEntitiesDao {
-    List<TimetableEntity> findAll();
-
-    TimetableEntity get(Long id);
-
-    void saveOrUpdate(List<TimetableEntity> timetableEntities);
-
-    void delete(Long id);
-
-    TimetableEntity findOne(Long id);
+@Repository
+public class TimetableEntitiesDao extends AbstractJpaDao<TimetableEntity> implements TimetableEntitiesDaoInterface {
+    public TimetableEntitiesDao() {
+        super();
+        setClazz(TimetableEntity.class);
+    }
 }

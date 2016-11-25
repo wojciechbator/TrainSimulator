@@ -1,20 +1,28 @@
 package trainSimulator.repositories;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.GeneratorParameter;
 
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
- * Created by mitron-wojtek on 18.11.16.
+ * Created by mitron-wojtek on 25.11.16.
  */
-public interface GeneratorParametersDao {
-    List<GeneratorParameter> findAll();
+@Transactional
+@Repository
+public class GeneratorParametersDao extends AbstractJpaDao<GeneratorParameter> implements GeneratorParametersDaoInterface {
+    @PersistenceContext
+    private EntityManager entityManager;
 
-    GeneratorParameter get(Long id);
+    public GeneratorParametersDao() {
+        super();
+        setClazz(GeneratorParameter.class);
+    }
 
-    void saveOrUpdate(GeneratorParameter generatorParameter);
-
-    void delete(Long id);
-
-    GeneratorParameter findOne(String value);
+    @Override
+    public GeneratorParameter findOneByKeyName(String keyName) {
+        return entityManager.find(GeneratorParameter.class, keyName);
+    }
 }

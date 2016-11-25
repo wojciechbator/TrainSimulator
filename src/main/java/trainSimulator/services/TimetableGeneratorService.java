@@ -5,9 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.*;
-import trainSimulator.repositories.TimetableEntitiesDao;
-import trainSimulator.repositories.implementations.RoutesDaoImplementation;
-import trainSimulator.repositories.implementations.TimetableEntitiesDaoImplementation;
+import trainSimulator.repositories.RoutesDaoInterface;
+import trainSimulator.repositories.TimetableEntitiesDaoInterface;
 
 import java.util.*;
 
@@ -17,44 +16,25 @@ import java.util.*;
 @Service
 @Transactional
 public class TimetableGeneratorService {
-    private final TimetableEntitiesDao timetableEntitiesDao;
+    private final TimetableEntitiesDaoInterface timetableEntitiesDaoInterface;
     private final EventLogService eventLogService;
-    private final RoutesDaoImplementation routesDaoImplementation;
+    private final RoutesDaoInterface routesDaoImplementation;
     private final TimetableEntityService timetableEntityService;
     private final TrainService trainService;
     private final PassengerService passengerService;
     private final GeneratorParametersService generatorParametersService;
 
     @Autowired
-    public TimetableGeneratorService(TimetableEntitiesDaoImplementation timetableEntityRepository, EventLogService eventLogService,
-                                     RoutesDaoImplementation routesDaoImplementation, TimetableEntityService timetableEntityService,
+    public TimetableGeneratorService(TimetableEntitiesDaoInterface timetableEntityRepository, EventLogService eventLogService,
+                                     RoutesDaoInterface routesDaoInterface, TimetableEntityService timetableEntityService,
                                      TrainService trainService, PassengerService passengerService, GeneratorParametersService generatorParametersService) {
-        this.timetableEntitiesDao = timetableEntityRepository;
+        this.timetableEntitiesDaoInterface = timetableEntityRepository;
         this.eventLogService = eventLogService;
-        this.routesDaoImplementation = routesDaoImplementation;
+        this.routesDaoImplementation = routesDaoInterface;
         this.timetableEntityService = timetableEntityService;
         this.trainService = trainService;
         this.passengerService = passengerService;
         this.generatorParametersService = generatorParametersService;
-    }
-
-    public void saveTimetableEntity(List<TimetableEntity> timetableEntities) {
-        timetableEntitiesDao.saveOrUpdate(timetableEntities);
-    }
-
-    public void deleteTimetableEntity(Long id) {
-        timetableEntitiesDao.delete(id);
-    }
-
-    public void findTimetableEntity(Long id) {
-        timetableEntitiesDao.findOne(id);
-    }
-
-    public void clearTimetableEntities() {
-        List<TimetableEntity> timetableEntities = timetableEntitiesDao.findAll();
-        for (TimetableEntity timetableEntity : timetableEntities) {
-            deleteTimetableEntity(timetableEntity.getId());
-        }
     }
 
     private Set<Passenger> passengersForTrain(int passengersCount) {
@@ -83,14 +63,16 @@ public class TimetableGeneratorService {
                 TimetableEntity timetableEntity = new TimetableEntity();
                 timetableEntity.setArrivalTime(startingTime);
 
-                startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameter("on_station_stop_time").getParameterValue()));
+                startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterByKeyName("on_station_stop_time").getParameterValue()));
                 timetableEntity.setDepartureTime(startingTime);
                 timetableEntity.setStation(station);
-                startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameter("period_between_station").getParameterValue()));
+                startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterByKeyName("period_between_station").getParameterValue()));
                 timetable.add(timetableEntity);
             }
             train.setTimetable(timetable);
-            timetableEntityService.saveTimetable(timetable);
+            for (TimetableEntity entity : timetable) {
+                timetableEntityService.saveTimetableEntity(entity);
+            }
             for (Passenger passenger : passengers) {
                 passenger.setTrain(train);
             }
@@ -103,7 +85,7 @@ public class TimetableGeneratorService {
                     ", with " + train.getPassengers().size() + " passengers on board!");
             eventLogService.saveEvent(eventLog);
             trainService.saveTrain(train);
-            startingTime = DateUtils.addSeconds(startingTime, Integer.parseInt(generatorParametersService.findGeneratorParameter("departure_frequency").getParameterValue()));
+            startingTime = DateUtils.addSeconds(startingTime, Integer.parseInt(generatorParametersService.findGeneratorParameterByKeyName("departure_frequency").getParameterValue()));
         }
     }
 
@@ -119,6 +101,6 @@ public class TimetableGeneratorService {
         eventLog.setComment("Cleared old trains, timetable for them, passengers and tickets!");
         eventLogService.saveEvent(eventLog);
 
-        createTrains(startingDate, endingDate, Integer.valueOf(generatorParametersService.findGeneratorParameter("passengers_count").getParameterValue()));
+        createTrains(startingDate, endingDate, Integer.valueOf(generatorParametersService.findGeneratorParameterByKeyName("passengers_count").getParameterValue()));
     }
 }

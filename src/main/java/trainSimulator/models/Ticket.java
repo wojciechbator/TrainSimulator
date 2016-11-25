@@ -1,19 +1,28 @@
 package trainSimulator.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by mitron-wojtek on 17.11.16.
  */
 @Entity
 @Table(name = "tickets")
-public class Ticket {
+public class Ticket implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    public Ticket() {
+        super();
+    }
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ticket_id")
     private Long id;
-    @ManyToOne()
+    @ManyToOne(targetEntity = Passenger.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "passenger_id")
     private Passenger passenger;
+    @Column(name = "price")
     private float price;
 
     public Long getId() {

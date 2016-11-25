@@ -5,10 +5,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Passenger;
 import trainSimulator.models.Ticket;
-import trainSimulator.repositories.PassengersDao;
-import trainSimulator.repositories.TicketsDao;
-import trainSimulator.repositories.implementations.PassengersDaoImplementation;
-import trainSimulator.repositories.implementations.TicketsDaoImplementation;
+import trainSimulator.repositories.PassengersDaoInterface;
+import trainSimulator.repositories.TicketsDaoInterface;
 
 import java.util.List;
 import java.util.Random;
@@ -19,36 +17,44 @@ import java.util.Random;
 @Service
 @Transactional
 public class PassengerService {
-    private final PassengersDao passengersDao;
+    private final PassengersDaoInterface passengersDaoInterface;
     private final TicketService ticketService;
     private final EventLogService eventLogService;
-    private final TicketsDao ticketsDao;
+    private final TicketsDaoInterface ticketsDaoInterface;
 
     @Autowired
-    public PassengerService(PassengersDaoImplementation passengersDaoImplementation, TicketService ticketService, EventLogService eventLogService,
-                            TicketsDaoImplementation ticketsDaoImplementation) {
-        this.passengersDao = passengersDaoImplementation;
+    public PassengerService(PassengersDaoInterface passengersDaoInterface, TicketService ticketService, EventLogService eventLogService,
+                            TicketsDaoInterface ticketsDaoInterface) {
+        this.passengersDaoInterface = passengersDaoInterface;
         this.ticketService = ticketService;
         this.eventLogService = eventLogService;
-        this.ticketsDao = ticketsDaoImplementation;
+        this.ticketsDaoInterface = ticketsDaoInterface;
     }
 
     public List<Passenger> findAll() {
-        return passengersDao.findAll();
+        return passengersDaoInterface.findAll();
     }
 
-    public Passenger findByID(Long id) {
-        return passengersDao.findOne(id);
+    public Passenger findById(final long id) {
+        return passengersDaoInterface.findOne(id);
     }
 
-    public void save(Passenger passenger) {
+    public void createPassenger(final Passenger passenger) {
+        passengersDaoInterface.create(passenger);
+    }
+
+    public void deletePassengerById(final long id) {
+        passengersDaoInterface.deleteById(id);
+    }
+
+    public void save(final Passenger passenger) {
         //more things to set for passenger when saving, etc: give him some ticket, some params
         //passenger.setTickets();
-        passengersDao.saveOrUpdate(passenger);
+        passengersDaoInterface.update(passenger);
     }
 
-    public void delete(Long id) {
-        passengersDao.delete(id);
+    public void delete(final Passenger passenger) {
+        passengersDaoInterface.delete(passenger);
     }
 
     public void buyTicket(Passenger passenger, Ticket ticket) {
@@ -59,8 +65,8 @@ public class PassengerService {
     }
 
     public void removePassengers() {
-        for (Passenger passenger : passengersDao.findAll()) {
-            delete(passenger.getId());
+        for (Passenger passenger : passengersDaoInterface.findAll()) {
+            delete(passenger);
         }
     }
 }

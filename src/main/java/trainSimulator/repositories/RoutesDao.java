@@ -1,22 +1,15 @@
 package trainSimulator.repositories;
 
+import org.springframework.stereotype.Repository;
 import trainSimulator.models.Route;
 
-import java.util.List;
-
 /**
- * Created by mitron-wojtek on 17.11.16.
+ * Created by mitron-wojtek on 25.11.16.
  */
-
-public interface RoutesDao {
-    List<Route> findAll();
-
-    Route get(Long id);
-
-    void saveOrUpdate(Route route);
-
-    void delete(Long id);
-
-    Route findOne(Long id);
+@Repository
+public class RoutesDao extends AbstractJpaDao<Route> implements RoutesDaoInterface {
+    public RoutesDao() {
+        super();
+        setClazz(Route.class);
+    }
 }
-

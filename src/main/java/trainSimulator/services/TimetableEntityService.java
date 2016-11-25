@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.TimetableEntity;
-import trainSimulator.repositories.TimetableEntitiesDao;
-import trainSimulator.repositories.implementations.TimetableEntitiesDaoImplementation;
+import trainSimulator.repositories.TimetableEntitiesDaoInterface;
 
 import java.util.List;
 
@@ -15,29 +14,41 @@ import java.util.List;
 @Service
 @Transactional
 public class TimetableEntityService {
-    private final TimetableEntitiesDao timetableEntitiesDao;
+    private final TimetableEntitiesDaoInterface timetableEntitiesDaoInterface;
 
     @Autowired
-    public TimetableEntityService(TimetableEntitiesDaoImplementation timetableEntitiesDao) {
-        this.timetableEntitiesDao = timetableEntitiesDao;
+    public TimetableEntityService(TimetableEntitiesDaoInterface timetableEntitiesDao) {
+        this.timetableEntitiesDaoInterface = timetableEntitiesDao;
     }
 
-    public void saveTimetable(List<TimetableEntity> timetable) {
-        timetableEntitiesDao.saveOrUpdate(timetable);
+    public void saveTimetableEntity(final TimetableEntity timetableEntity) {
+        timetableEntitiesDaoInterface.update(timetableEntity);
     }
 
-    public void deleteTimetableEntity(Long id) {
-        timetableEntitiesDao.delete(id);
+    public void createTimetableEntity(final TimetableEntity timetableEntity) {
+        timetableEntitiesDaoInterface.create(timetableEntity);
     }
 
-    public void findTimetableEntity(Long id) {
-        timetableEntitiesDao.findOne(id);
+    public void deleteTimetableEntity(final TimetableEntity timetableEntity) {
+        timetableEntitiesDaoInterface.delete(timetableEntity);
     }
 
-    public void clearTimetableEntitys() {
-        List<TimetableEntity> allTimetableEntities = timetableEntitiesDao.findAll();
+    public void deleteTimetableEntityById(final long id) {
+        timetableEntitiesDaoInterface.deleteById(id);
+    }
+
+    public List<TimetableEntity> getAllTimetableEntities() {
+        return timetableEntitiesDaoInterface.findAll();
+    }
+
+    public void findTimetableEntity(final long id) {
+        timetableEntitiesDaoInterface.findOne(id);
+    }
+
+    public void clearTimetableEntities() {
+        List<TimetableEntity> allTimetableEntities = timetableEntitiesDaoInterface.findAll();
         for (TimetableEntity timetableEntity : allTimetableEntities) {
-            deleteTimetableEntity(timetableEntity.getId());
+            deleteTimetableEntity(timetableEntity);
         }
     }
 }

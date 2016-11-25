@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Route;
-import trainSimulator.repositories.RoutesDao;
-import trainSimulator.repositories.implementations.RoutesDaoImplementation;
+import trainSimulator.repositories.RoutesDaoInterface;
 
 import java.util.List;
 
@@ -15,29 +14,41 @@ import java.util.List;
 @Service
 @Transactional
 public class RouteService {
-    private final RoutesDao routesDao;
+    private final RoutesDaoInterface routesDaoInterface;
 
     @Autowired
-    public RouteService(RoutesDaoImplementation routesDao) {
-        this.routesDao = routesDao;
+    public RouteService(RoutesDaoInterface routesDaoInterface) {
+        this.routesDaoInterface = routesDaoInterface;
     }
 
-    public void saveRoute(Route route) {
-        routesDao.saveOrUpdate(route);
+    public void saveRoute(final Route route) {
+        routesDaoInterface.update(route);
     }
 
-    public void deleteRoute(Long id) {
-        routesDao.delete(id);
+    public List<Route> getAllRoutes() {
+        return routesDaoInterface.findAll();
     }
 
-    public void findRoute(Long id) {
-        routesDao.findOne(id);
+    public void createRoute(final Route route) {
+        routesDaoInterface.create(route);
+    }
+
+    public void deleteRoute(final Route route) {
+        routesDaoInterface.delete(route);
+    }
+
+    public void findRouteById(final long id) {
+        routesDaoInterface.findOne(id);
+    }
+
+    public void deleteRouteById(final long id) {
+        routesDaoInterface.deleteById(id);
     }
 
     public void clearRoutes() {
-        List<Route> allRoutes = routesDao.findAll();
+        List<Route> allRoutes = routesDaoInterface.findAll();
         for (Route route : allRoutes) {
-            deleteRoute(route.getId());
+            deleteRoute(route);
         }
     }
 

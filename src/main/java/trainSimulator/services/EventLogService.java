@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.EventLog;
-import trainSimulator.repositories.EventLogsDao;
-import trainSimulator.repositories.implementations.EventLogsDaoImplementation;
+import trainSimulator.repositories.EventLogsDaoInterface;
 
 import java.util.List;
 
@@ -15,29 +14,41 @@ import java.util.List;
 @Service
 @Transactional
 class EventLogService {
-    private final EventLogsDao eventLogsDao;
+    private final EventLogsDaoInterface eventLogsDao;
 
     @Autowired
-    public EventLogService(EventLogsDaoImplementation eventLogsDao) {
+    public EventLogService(EventLogsDaoInterface eventLogsDao) {
         this.eventLogsDao = eventLogsDao;
     }
 
-    void saveEvent(EventLog eventLog) {
-        eventLogsDao.saveOrUpdate(eventLog);
+    void saveEvent(final EventLog eventLog) {
+        eventLogsDao.update(eventLog);
     }
 
-    public EventLog findEvent(Long id) {
+    public void createEvent(final EventLog eventLog) {
+        eventLogsDao.create(eventLog);
+    }
+
+    public List<EventLog> findAll() {
+        return eventLogsDao.findAll();
+    }
+
+    public EventLog findEvent(final long id) {
         return eventLogsDao.findOne(id);
     }
 
-    private void deleteEventLog(Long id) {
-        eventLogsDao.delete(id);
+    public void deleteEventLogById(final long id) {
+        eventLogsDao.deleteById(id);
+    }
+
+    private void deleteEventLog(final EventLog eventLog) {
+        eventLogsDao.delete(eventLog);
     }
 
     void clearEvents() {
         List<EventLog> eventLogs = eventLogsDao.findAll();
         for (EventLog eventLog : eventLogs) {
-            deleteEventLog(eventLog.getId());
+            deleteEventLog(eventLog);
         }
     }
 }

@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Station;
-import trainSimulator.repositories.StationsDao;
-import trainSimulator.repositories.implementations.StationsDaoImplementation;
+import trainSimulator.repositories.StationsDaoInterface;
 
 import java.util.List;
 
@@ -15,29 +14,41 @@ import java.util.List;
 @Service
 @Transactional
 public class StationService {
-    private final StationsDao stationsDao;
+    private final StationsDaoInterface stationsDaoInterface;
 
     @Autowired
-    public StationService(StationsDaoImplementation stationsDao) {
-        this.stationsDao = stationsDao;
+    public StationService(StationsDaoInterface stationsDaoInterface) {
+        this.stationsDaoInterface = stationsDaoInterface;
     }
 
-    public void saveStation(Station Station) {
-        stationsDao.saveOrUpdate(Station);
+    public void saveStation(final Station Station) {
+        stationsDaoInterface.update(Station);
     }
 
-    public void deleteStation(Long id) {
-        stationsDao.delete(id);
+    public void deleteStation(final Station station) {
+        stationsDaoInterface.delete(station);
     }
 
-    public void findStation(Long id) {
-        stationsDao.findOne(id);
+    public void deleteStationById(final long id) {
+        stationsDaoInterface.deleteById(id);
+    }
+
+    public void createStation(final Station station) {
+        stationsDaoInterface.create(station);
+    }
+
+    public void findStation(final long id) {
+        stationsDaoInterface.findOne(id);
+    }
+
+    public List<Station> findAllStations() {
+        return stationsDaoInterface.findAll();
     }
 
     public void clearStations() {
-        List<Station> allStations = stationsDao.findAll();
+        List<Station> allStations = stationsDaoInterface.findAll();
         for (Station station : allStations) {
-            deleteStation(station.getId());
+            deleteStation(station);
         }
     }
 }

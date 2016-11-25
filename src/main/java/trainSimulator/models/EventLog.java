@@ -1,9 +1,7 @@
 package trainSimulator.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,13 +9,24 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "event_register")
-public class EventLog {
+public class EventLog implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    public EventLog() {
+        super();
+    }
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "eventlog_id")
     private Long id;
+    @Column(name = "type")
     private String type;
+    @Column(name = "Station_name")
     private String stationName;
+    @Column(name = "timestamp")
     private Date timestamp;
+    @Column(name = "comment")
     private String comment;
 
     public Long getId() {

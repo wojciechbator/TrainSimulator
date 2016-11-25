@@ -1,6 +1,7 @@
 package trainSimulator.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -8,14 +9,22 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "stations")
-public class Station {
+public class Station implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    public Station() {
+        super();
+    }
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "station_id")
     private Long id;
+    @Column(name = "name")
     private String name;
     @OneToMany(mappedBy = "station", targetEntity = Train.class, fetch = FetchType.EAGER)
     private Set<Train> trainsOnStation;
-    @ManyToOne
+    @ManyToOne(targetEntity = Route.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "route_id")
     private Route route;
     @OneToMany(mappedBy = "station", targetEntity = TimetableEntity.class, fetch = FetchType.EAGER)

@@ -1,6 +1,7 @@
 package trainSimulator.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -8,17 +9,26 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "timetable")
-public class TimetableEntity {
+public class TimetableEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    public TimetableEntity() {
+        super();
+    }
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "timetable_id")
     private Long id;
-    @ManyToOne
+    @ManyToOne(targetEntity = Train.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "train_id")
     private Train train;
-    @ManyToOne
+    @ManyToOne(targetEntity = Station.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "station_id")
     private Station station;
+    @Column(name = "arrival_time")
     private Date arrivalTime;
+    @Column(name = "departure_time")
     private Date departureTime;
 
     public Long getId() {
