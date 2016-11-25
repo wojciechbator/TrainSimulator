@@ -6,30 +6,30 @@
 
     <groupId>com.mitron.SpringStub</groupId>
     <artifactId>SpringStub</artifactId>
-    <packaging>war:exploded</packaging>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <spring.version>4.2.5.RELEASE</spring.version>
+        <spring.version>4.3.4.RELEASE</spring.version>
         <slf4j.version>1.7.21</slf4j.version>
         <tiles.version>3.0.5</tiles.version>
         <hibernate.version>5.1.0.Final</hibernate.version>
-        <spring.oot.version>1.2.3.RELEASE</spring.oot.version>
+        <spring.root.version>1.2.3.RELEASE</spring.root.version>
     </properties>
     <dependencies>
         <!--SPRING-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-parent</artifactId>
-            <version>${spring.oot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring.oot.version}</version>
+            <version>${spring.root.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
         <dependency>
@@ -40,7 +40,7 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
-            <version>1.10.2.RELEASE</version>
+            <version>1.6.4.RELEASE</version>
         </dependency>
         <!--SERVLET API-->
         <dependency>
@@ -141,28 +141,28 @@
     </dependencies>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>2.4</version>
-                    <configuration>
-                        <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                        <warName>SpringStub</warName>
-                        <failOnMissingWebXml>false</failOnMissingWebXml>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.0</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12.4</version>
             </plugin>
         </plugins>
         <finalName>SpringStub</finalName>
