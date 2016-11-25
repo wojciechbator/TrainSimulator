@@ -7,10 +7,12 @@
           <file>file://$MODULE_DIR$/src/main/java/trainSimulator/configuration/ApplicationContext.java</file>
         </fileset>
         <fileset id="initializer trainSimulator.configuration.Initializer root context" name="MVC dispatcher initializer root context" removed="true" />
-        <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/java/trainSimulator/configuration/ApplicationContext.java</file>
+        <fileset id="spring_boot_trainSimulator.BootApplication" name="BootApplication" removed="true">
+          <file>file://$MODULE_DIR$/src/main/java/trainSimulator/BootApplication.java</file>
         </fileset>
-        <fileset id="fileset2" name="Persistence Config" removed="false">
+        <fileset id="fileset" name="Spring Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/trainSimulator/configuration/ApplicationContext.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/trainSimulator/BootApplication.java</file>
           <file>file://$MODULE_DIR$/src/main/java/trainSimulator/configuration/PersistenceConfig.java</file>
         </fileset>
       </configuration>
@@ -31,6 +33,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
+          <factory-entry name="Entities" />
           <factory-entry name="entityManagerFactory" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/META-INF/persistence.xml" />
@@ -86,6 +89,7 @@
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.7" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-devtools:unknown" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet.jsp:javax.servlet.jsp-api:2.3.2-b01" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />

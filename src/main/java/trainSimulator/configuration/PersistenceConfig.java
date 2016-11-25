@@ -26,11 +26,12 @@ import java.util.Properties;
 @PropertySource("classpath:database.properties")
 @ComponentScan(basePackages = "trainSimulator.repositories, trainSimulator.models, trainSimulator.services")
 public class PersistenceConfig {
-    @Autowired
-    private Environment environment;
+    private final Environment environment;
 
-    public PersistenceConfig() {
+    @Autowired
+    public PersistenceConfig(Environment environment) {
         super();
+        this.environment = environment;
     }
 
     @Bean

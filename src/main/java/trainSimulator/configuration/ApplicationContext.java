@@ -16,8 +16,8 @@ import org.springframework.web.servlet.view.JstlView;
  * Created by mitron-wojtek on 15.11.16.
  */
 @Configuration
-@ComponentScan(basePackages = "trainSimulator")
 @EnableWebMvc
+@ComponentScan(basePackages = "trainSimulator")
 public class ApplicationContext extends WebMvcConfigurerAdapter {
     @Bean
     public InternalResourceViewResolver viewResolver() {
