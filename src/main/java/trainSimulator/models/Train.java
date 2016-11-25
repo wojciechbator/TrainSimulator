@@ -20,7 +20,7 @@ public class Train implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "train_id")
-    private Long id;
+    private long id;
     @ManyToOne(targetEntity = Route.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "route_id")
     private Route route;
@@ -32,11 +32,11 @@ public class Train implements Serializable {
     @JoinColumn(name = "station_id")
     private Station station;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

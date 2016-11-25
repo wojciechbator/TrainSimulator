@@ -18,18 +18,18 @@ public class Ticket implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ticket_id")
-    private Long id;
+    private long id;
     @ManyToOne(targetEntity = Passenger.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "passenger_id")
     private Passenger passenger;
     @Column(name = "price")
-    private float price;
+    private double price;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -41,11 +41,11 @@ public class Ticket implements Serializable {
         this.passenger = passengerId;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

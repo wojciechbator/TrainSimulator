@@ -13,14 +13,14 @@
         <slf4j.version>1.7.21</slf4j.version>
         <tiles.version>3.0.5</tiles.version>
         <hibernate.version>5.1.0.Final</hibernate.version>
-        <spring.root.version>1.2.3.RELEASE</spring.root.version>
+        <spring.boot.version>1.4.2.RELEASE</spring.boot.version>
     </properties>
     <dependencies>
         <!--SPRING-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring.root.version}</version>
+            <version>1.2.3.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -45,7 +45,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
+            <version>${spring.boot.version}</version>
         </dependency>
         <!--SERVLET API-->
         <dependency>

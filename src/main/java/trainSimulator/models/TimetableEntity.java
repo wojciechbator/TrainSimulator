@@ -19,7 +19,7 @@ public class TimetableEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "timetable_id")
-    private Long id;
+    private long id;
     @ManyToOne(targetEntity = Train.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "train_id")
     private Train train;
@@ -31,11 +31,11 @@ public class TimetableEntity implements Serializable {
     @Column(name = "departure_time")
     private Date departureTime;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

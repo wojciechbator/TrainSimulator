@@ -4,11 +4,11 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="SpringStub" />
+          <element id="module-output" name="TrainSimulator" />
           <element id="library" level="application" name="material" />
           <element id="library" level="application" name="angular" />
           <element id="library" level="application" name="jquery-1.10.2" />
-          <element id="jpa-descriptors" facet="SpringStub/jpa/JPA" />
+          <element id="jpa-descriptors" facet="TrainSimulator/jpa/JPA" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
@@ -79,7 +79,7 @@
           <element id="library" level="project" name="Maven: postgresql:postgresql:9.0-801.jdbc4" />
         </element>
       </element>
-      <element id="javaee-facet-resources" facet="SpringStub/web/Web" />
+      <element id="javaee-facet-resources" facet="TrainSimulator/web/Web" />
     </root>
   </artifact>
 </component>

@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SpringStub" />
+        <module name="TrainSimulator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="SpringStub" target="1.8" />
+      <module name="TrainSimulator" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

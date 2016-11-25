@@ -19,7 +19,7 @@ public class EventLog implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "eventlog_id")
-    private Long id;
+    private long id;
     @Column(name = "type")
     private String type;
     @Column(name = "Station_name")
@@ -29,11 +29,11 @@ public class EventLog implements Serializable {
     @Column(name = "comment")
     private String comment;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

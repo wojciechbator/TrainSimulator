@@ -19,7 +19,7 @@ public class Station implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "station_id")
-    private Long id;
+    private long id;
     @Column(name = "name")
     private String name;
     @OneToMany(mappedBy = "station", targetEntity = Train.class, fetch = FetchType.EAGER)
@@ -30,11 +30,11 @@ public class Station implements Serializable {
     @OneToMany(mappedBy = "station", targetEntity = TimetableEntity.class, fetch = FetchType.EAGER)
     private Set<TimetableEntity> timetableForStation;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

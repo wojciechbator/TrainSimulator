@@ -18,17 +18,17 @@ public class GeneratorParameter implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "parameter_id")
-    private Long id;
+    private long id;
     @Column(name = "parameter_name")
     private String parameterName;
     @Column(name = "parameter_value")
     private String parameterValue;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -19,7 +19,7 @@ public class Passenger implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
     @Size(min = 1, message = "Please, specify at least one character.")
     @Column(name = "name")
     private String name;
@@ -29,11 +29,11 @@ public class Passenger implements Serializable {
     @JoinColumn(name = "train_id")
     private Train train;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
