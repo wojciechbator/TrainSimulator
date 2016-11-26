@@ -18,7 +18,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "trainSimulator")
-public class ApplicationContext extends WebMvcConfigurerAdapter {
+public class MvcConfiguration extends WebMvcConfigurerAdapter {
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

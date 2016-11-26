@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +11,7 @@
     <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 </head>
 <body>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles-extras" prefix="tilesx" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<tilesx:useAttribute name="current"/>
 <h1>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM JEBŁEM</h1>
 </body>
 </html>

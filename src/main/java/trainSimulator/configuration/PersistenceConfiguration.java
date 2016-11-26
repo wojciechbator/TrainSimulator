@@ -25,11 +25,11 @@ import java.util.Properties;
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
 @ComponentScan(basePackages = "trainSimulator.repositories, trainSimulator.models, trainSimulator.services")
-public class PersistenceConfig {
+public class PersistenceConfiguration {
     private final Environment environment;
 
     @Autowired
-    public PersistenceConfig(Environment environment) {
+    public PersistenceConfiguration(Environment environment) {
         super();
         this.environment = environment;
     }
