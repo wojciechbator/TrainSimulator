@@ -7,12 +7,11 @@
     <title>Index</title>
 </head>
 <body>
-<%@ include file="../common/commonTaglibs.jsp" %>
 <header id="header">
     <tiles:insertAttribute name="header"/>
 </header>
 
-<section id="sidemenu">
+<section id="title">
     <tiles:insertAttribute name="title"/>
 </section>
 
