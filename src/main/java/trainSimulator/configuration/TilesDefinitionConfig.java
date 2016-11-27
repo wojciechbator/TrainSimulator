@@ -13,7 +13,7 @@ public final class TilesDefinitionConfig implements DefinitionsFactory {
     private static final Map<String, Definition> TILES_DEFINITIONS = new HashMap<>();
 
     @Override
-    public Definition getDefinition(String name, Request rqst) {
+    public Definition getDefinition(String name, Request request) {
 
         return TILES_DEFINITIONS.get(name);
     }
@@ -30,7 +30,6 @@ public final class TilesDefinitionConfig implements DefinitionsFactory {
         Map<String, Attribute> attributes = new HashMap<>();
 
         attributes.put("title", new Attribute(title));
-        attributes.put("taglibs", new Attribute("/WEB-INF/common/commonTaglibs.jsp"));
         attributes.put("header", new Attribute("/WEB-INF/common/commonHeader.jsp"));
         attributes.put("body", new Attribute(body));
         attributes.put("footer", new Attribute("/WEB-INF/common/commonFooter.jsp"));

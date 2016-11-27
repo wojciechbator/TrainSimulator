@@ -1,3 +1,4 @@
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="../common/commonTaglibs.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,23 +7,38 @@
     <title>Index</title>
 </head>
 <body>
-<%@include file="../common/commonLayout.jsp" %>
+<%@ include file="../common/commonTaglibs.jsp" %>
+<header id="header">
+    <tiles:insertAttribute name="header"/>
+</header>
+
+<section id="sidemenu">
+    <tiles:insertAttribute name="title"/>
+</section>
+
+<section id="site-content">
+    <tiles:insertAttribute name="body"/>
+</section>
+
+<footer id="footer">
+    <tiles:insertAttribute name="footer"/>
+</footer>
 <div>
     <main class="mdl-layout__content">
         <section class="mdl-layout__tab-panel is-active" id="main-section">
             <div class="page-content">
-                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="testHistoryTable">
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="indexTable">
                     <thead>
                     <tr>
-                        <th class="mdl-data-table__cell--non-numeric" id="testHistoryId"
+                        <th class="mdl-data-table__cell--non-numeric" id="indexTableId"
                             style="width: 25%; text-align: center">
                             <div>id</div>
                         </th>
-                        <th class="mdl-data-table__cell--non-numeric" id="testHistoryJSON"
+                        <th class="mdl-data-table__cell--non-numeric" id="indexTableJSON"
                             style="width: 75%; text-align: center;">
                             <div>szajs</div>
                         </th>
-                        <th class="mdl-data-table__cell--non-numeric" id="testHistoryTimestamp"
+                        <th class="mdl-data-table__cell--non-numeric" id="indexTableTimestamp"
                             style="width: 25%; text-align: center;">
                             <div>szajs</div>
                         </th>
