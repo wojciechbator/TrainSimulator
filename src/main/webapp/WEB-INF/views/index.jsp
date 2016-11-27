@@ -1,28 +1,4 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<%@ taglib prefix="tilesx" uri="http://tiles.apache.org/tags-tiles" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@include file="../common/commonTaglibs.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <title>Index</title>
-</head>
-<body>
-<header id="header">
-    <tiles:insertAttribute name="header"/>
-</header>
-
-<section id="title">
-    <tiles:insertAttribute name="title"/>
-</section>
-
-<section id="site-content">
-    <tiles:insertAttribute name="body"/>
-</section>
-
-<footer id="footer">
-    <tiles:insertAttribute name="footer"/>
-</footer>
 <div>
     <main class="mdl-layout__content">
         <section class="mdl-layout__tab-panel is-active" id="main-section">
@@ -54,13 +30,5 @@
                 </table>
             </div>
         </section>
-        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
-            <div class="page-content"><!-- Your content goes here --></div>
-        </section>
-        <section class="mdl-layout__tab-panel" id="fixed-tab-3">
-            <div class="page-content"><!-- Your content goes here --></div>
-        </section>
     </main>
 </div>
-</body>
-</html>

@@ -20,12 +20,12 @@ public final class TilesDefinitionConfig implements DefinitionsFactory {
 
     public static void addDefinitions() {
 
-        addDefaultLayoutDefinition("index", "Start", "/WEB-INF/views/index.jsp");
-        addDefaultLayoutDefinition("trains", "List of trains", "/WEB-INF/views/trains.jsp");
+        addDefaultLayoutDefinition("index", "Start", "/WEB-INF/views/index.jsp", "index");
+        addDefaultLayoutDefinition("trains", "List of trains", "/WEB-INF/views/trains.jsp", "trains");
 
     }
 
-    private static void addDefaultLayoutDefinition(String name, String title, String body) {
+    private static void addDefaultLayoutDefinition(String name, String title, String body, String current) {
 
         Map<String, Attribute> attributes = new HashMap<>();
 
@@ -33,6 +33,7 @@ public final class TilesDefinitionConfig implements DefinitionsFactory {
         attributes.put("header", new Attribute("/WEB-INF/common/commonHeader.jsp"));
         attributes.put("body", new Attribute(body));
         attributes.put("footer", new Attribute("/WEB-INF/common/commonFooter.jsp"));
+        attributes.put("current", new Attribute(current));
 
         Attribute baseTemplate = new Attribute("/WEB-INF/common/commonLayout.jsp");
 

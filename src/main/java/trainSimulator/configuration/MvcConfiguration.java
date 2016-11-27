@@ -31,7 +31,6 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
         UrlBasedViewResolver viewResolver = new UrlBasedViewResolver();
         viewResolver.setViewClass(TilesView.class);
         registry.viewResolver(viewResolver);
-        registry.jsp("/WEB-INF/views/", ".jsp");
     }
 
     //Read statics
