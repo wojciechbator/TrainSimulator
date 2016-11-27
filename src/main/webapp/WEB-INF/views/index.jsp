@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="commonTaglibs.jsp" %>
-<%@include file="commonLayout.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <title>Index</title>
 </head>
 <body>
+<%@include file="commonLayout.jsp" %>
 <div>
     <main class="mdl-layout__content">
         <section class="mdl-layout__tab-panel is-active" id="main-section">
