@@ -6,8 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="commonTaglibs.jsp" %>
-<%@include file="commonLayout.jsp"%><html>
+<%@include file="../common/commonTaglibs.jsp" %>
+<%@include file="../common/commonLayout.jsp"%><html>
 <head>
     <title>Show trains</title>
 </head>
