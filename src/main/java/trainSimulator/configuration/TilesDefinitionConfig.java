@@ -30,11 +30,12 @@ public final class TilesDefinitionConfig implements DefinitionsFactory {
         Map<String, Attribute> attributes = new HashMap<>();
 
         attributes.put("title", new Attribute(title));
-        attributes.put("header", new Attribute("/WEB-INF/basicLayout/commonHeader.jsp"));
+        attributes.put("taglibs", new Attribute("/WEB-INF/common/commonTaglibs.jsp"));
+        attributes.put("header", new Attribute("/WEB-INF/common/commonHeader.jsp"));
         attributes.put("body", new Attribute(body));
-        attributes.put("footer", new Attribute("/WEB-INF/basicLayout/commonFooter.jsp"));
+        attributes.put("footer", new Attribute("/WEB-INF/common/commonFooter.jsp"));
 
-        Attribute baseTemplate = new Attribute("/WEB-INF/basicLayout/commonLayout.jsp");
+        Attribute baseTemplate = new Attribute("/WEB-INF/common/commonLayout.jsp");
 
         TILES_DEFINITIONS.put(name, new Definition(name, baseTemplate, attributes));
     }
