@@ -22,6 +22,7 @@ public final class TilesDefinitionConfig implements DefinitionsFactory {
 
         addDefaultLayoutDefinition("index", "Start", "/WEB-INF/views/index.jsp", "index");
         addDefaultLayoutDefinition("trains", "List of trains", "/WEB-INF/views/trains.jsp", "trains");
+        addDefaultLayoutDefinition("timetable", "Timetable Generator", "/WEB-INF/views/timetable.jsp", "timetable");
 
     }
 

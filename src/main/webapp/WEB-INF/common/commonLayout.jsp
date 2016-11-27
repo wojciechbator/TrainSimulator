@@ -27,8 +27,8 @@
         <!-- Tabs -->
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
             <a href="<spring:url value="/" />" class="mdl-layout__tab is-active" id="indexButton" style="text-align: center">Index</a>
-            <a href="<spring:url value="/timetable" />" class="mdl-layout__tab" id="trainsButton" style="text-align: center">Trains timetable</a>
-            <a href="#fixed-tab-3" class="mdl-layout__tab" id="cosTamButton" style="text-align: center">Cos tam jeszcze innego</a>
+            <a href="<spring:url value="/trains" />" class="mdl-layout__tab" id="trainsButton" style="text-align: center">Trains timetable</a>
+            <a href="<spring:url value="/generator" /> " class="mdl-layout__tab" id="cosTamButton" style="text-align: center">Generator pociagow</a>
         </div>
     </header>
     <div class="mdl-layout__drawer">
@@ -39,9 +39,6 @@
             <a class="mdl-navigation__link" href="">Whatever 3</a>
         </nav>
     </div>
-    <section class="mdl-layout__tab-panel" id="fixed-tab-3">
-        <div class="page-content"><!-- Your content goes here --></div>
-    </section>
     <tiles:insertAttribute name="body"/>
     <br><br>
     <div style="text-align: center;">
