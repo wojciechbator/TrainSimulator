@@ -19,8 +19,8 @@ public class TimetableGeneratorController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String generateTimetable(ModelMap modelMap) {
-     //   modelMap.addAttribute("timetableGeneratingButton", timetableGeneratorService.generateTimetable());
-        return "timetable";
+    public void generateTimetable(ModelMap modelMap) {
+        timetableGeneratorService.generateTimetable();
+        modelMap.addAttribute("generateTimetable", timetableGeneratorService);
     }
 }
