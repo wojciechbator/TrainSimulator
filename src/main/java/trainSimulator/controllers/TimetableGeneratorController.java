@@ -1,5 +1,6 @@
 package trainSimulator.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,13 +15,16 @@ import trainSimulator.services.TimetableGeneratorService;
 public class TimetableGeneratorController {
     private final TimetableGeneratorService timetableGeneratorService;
 
+    @Autowired
     public TimetableGeneratorController(TimetableGeneratorService timetableGeneratorService) {
         this.timetableGeneratorService = timetableGeneratorService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public void generateTimetable(ModelMap modelMap) {
+    public String generateTimetable(ModelMap modelMap) {
         timetableGeneratorService.generateTimetable();
         modelMap.addAttribute("generateTimetable", timetableGeneratorService);
+        return "timetable";
     }
+
 }

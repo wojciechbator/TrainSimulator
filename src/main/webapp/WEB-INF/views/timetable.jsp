@@ -1,12 +1,15 @@
 <%@ taglib prefix="spring" uri="http://tiles.apache.org/tags-tiles" %>
-<section class="mdl-layout__tab-panel" id="fixed-tab-3">
+<head>
+    <script type="text/javascript" src="../../resources/js/generateTimetable.js"></script>
+    <noscript>
+        Sorry... Install JavaScript to have dynamic content working on this site!
+    </noscript>
+</head>
+<section class="mdl-layout__tab-panel" id="generatorTab">
     <div class="page-content">
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+        ${generateTimetable} >
             Generate trains
         </button>
     </div>
 </section>
-
-<script>
-    <%--SCRIPT FOR INVOKING THE GENERATOR BUTTON VIA ONCLICK METHOD--%>
-</script>

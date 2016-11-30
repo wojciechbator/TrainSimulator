@@ -1,7 +1,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <div>
     <main class="mdl-layout__content">
-        <section class="mdl-layout__tab-panel is-active" id="main-section">
+        <section class="mdl-layout__tab-panel is-active" id="indexTab">
             <div class="page-content">
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="indexTable">
                     <thead>
