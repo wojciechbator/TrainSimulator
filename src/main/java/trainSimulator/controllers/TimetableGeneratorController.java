@@ -21,6 +21,11 @@ public class TimetableGeneratorController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
+    public String generatorView() {
+        return "generator";
+    }
+
+    @RequestMapping(value = "/generateTrains", method = RequestMethod.GET)
     @ResponseBody
     public void generateTimetable() {
         timetableGeneratorService.generateTimetable();

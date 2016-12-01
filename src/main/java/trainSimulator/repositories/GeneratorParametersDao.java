@@ -23,6 +23,6 @@ public class GeneratorParametersDao extends AbstractJpaDao<GeneratorParameter> i
 
     @Override
     public GeneratorParameter findOneByKeyName(String keyName) {
-        return entityManager.find(GeneratorParameter.class, keyName);
+        return entityManager.createQuery("SELECT parameterName FROM GeneratorParameter WHERE parameterName=" + keyName, GeneratorParameter.class).getSingleResult();
     }
 }
