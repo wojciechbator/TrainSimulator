@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link rel="stylesheet" href="../../resources/css/style.css" type="text/css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script data-require="angular.js@1.2.15" data-semver="1.2.15" src="//code.angularjs.org/1.2.15/angular.js"></script>
     <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 </head>
