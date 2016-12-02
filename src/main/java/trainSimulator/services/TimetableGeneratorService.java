@@ -55,7 +55,7 @@ public class TimetableGeneratorService {
             Train train = new Train();
             Set<Passenger> passengers = passengersForTrain(passengersCount);
             List<Route> allRoutes = routesDaoImplementation.findAll();
-            train.setRoute(allRoutes.get(Math.toIntExact(train.getId() % 2)));
+            train.setRoute(allRoutes.get(Math.toIntExact(train.getId() % 2))); //HERE RETURNS 0 the allRoutes is not filled!
             train.getRoute().setAvailable(true);
             List<Station> stationsOnRoute = train.getRoute().getStationsOnRoute();
             List<TimetableEntity> timetable = new ArrayList<>();
@@ -63,10 +63,10 @@ public class TimetableGeneratorService {
                 TimetableEntity timetableEntity = new TimetableEntity();
                 timetableEntity.setArrivalTime(startingTime);
 
-                startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterByKeyName("on_station_stop_time").getParameterValue()));
+                startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterById(2).getParameterValue()));
                 timetableEntity.setDepartureTime(startingTime);
                 timetableEntity.setStation(station);
-                startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterByKeyName("period_between_station").getParameterValue()));
+                startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterById(4).getParameterValue()));
                 timetable.add(timetableEntity);
             }
             train.setTimetable(timetable);
@@ -85,7 +85,7 @@ public class TimetableGeneratorService {
                     ", with " + train.getPassengers().size() + " passengers on board!");
             eventLogService.saveEvent(eventLog);
             trainService.saveTrain(train);
-            startingTime = DateUtils.addSeconds(startingTime, Integer.parseInt(generatorParametersService.findGeneratorParameterByKeyName("departure_frequency").getParameterValue()));
+            startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterById(3).getParameterValue()));
         }
     }
 
@@ -101,6 +101,7 @@ public class TimetableGeneratorService {
         eventLog.setComment("Cleared old trains, timetable for them, passengers and tickets!");
         eventLogService.saveEvent(eventLog);
 
-        createTrains(startingDate, endingDate, Integer.valueOf(generatorParametersService.findGeneratorParameterByKeyName("passengers_count").getParameterValue()));
+        //TODO: Get param by ID somehow, for now it will be hardcoded :(
+        createTrains(startingDate, endingDate, Integer.valueOf(generatorParametersService.findGeneratorParameterById(5).getParameterValue()));
     }
 }

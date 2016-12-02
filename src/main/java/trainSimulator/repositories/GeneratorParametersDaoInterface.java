@@ -19,6 +19,4 @@ public interface GeneratorParametersDaoInterface {
     GeneratorParameter findOne(long id);
 
     void deleteById(long entityId);
-
-    GeneratorParameter findOneByKeyName(String keyName);
 }

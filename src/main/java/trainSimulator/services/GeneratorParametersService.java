@@ -45,10 +45,6 @@ public class GeneratorParametersService {
         generatorParametersDao.delete(generatorParameter);
     }
 
-    public GeneratorParameter findGeneratorParameterByKeyName(final String keyName) {
-        return generatorParametersDao.findOneByKeyName(keyName);
-    }
-
     void clearParameters() {
         List<GeneratorParameter> generatorParameters = generatorParametersDao.findAll();
         for (GeneratorParameter generatorParameter : generatorParameters) {

@@ -21,14 +21,16 @@ import java.util.List;
 public class InitDatabaseService {
     private final EventLogService eventLogService;
     private final StationService stationService;
+    private final RouteService routeService;
     private final TimetableGeneratorService timetableGeneratorService;
     private final GeneratorParametersService generatorParametersService;
 
     @Autowired
-    public InitDatabaseService(EventLogService eventLogService, StationService stationService,
+    public InitDatabaseService(EventLogService eventLogService, StationService stationService, RouteService routeService,
                                TimetableGeneratorService timetableGeneratorService, GeneratorParametersService generatorParametersService) {
         this.eventLogService = eventLogService;
         this.stationService = stationService;
+        this.routeService = routeService;
         this.timetableGeneratorService = timetableGeneratorService;
         this.generatorParametersService = generatorParametersService;
     }
@@ -59,35 +61,45 @@ public class InitDatabaseService {
         passengersCount.setParameterValue("50");
         generatorParametersService.saveGeneratorParameter(passengersCount);
         //Prepared infrastructure for train simulator
+        Route firstRoute = new Route();
+        List<Station> stationsOnFirstRoute = new ArrayList<>();
+        Route secondRoute = new Route();
+        List<Station> stationsOnSecondRoute = new ArrayList<>();
         Station wroclaw = new Station();
         wroclaw.setName("Wroclaw");
+        wroclaw.setRoute(firstRoute);
         stationService.saveStation(wroclaw);
         Station poznan = new Station();
         poznan.setName("Poznan");
+        poznan.setRoute(firstRoute);
         stationService.saveStation(poznan);
         Station szczecin = new Station();
         szczecin.setName("Szczecin");
+        szczecin.setRoute(firstRoute);
+        Station wroclaw2 = new Station();
+        wroclaw2.setName("Wroclaw");
+        wroclaw2.setRoute(secondRoute);
         stationService.saveStation(szczecin);
         Station krakow = new Station();
         krakow.setName("Krakow");
+        krakow.setRoute(secondRoute);
         stationService.saveStation(krakow);
         Station warszawa = new Station();
         warszawa.setName("Warszawa");
+        warszawa.setRoute(secondRoute);
         stationService.saveStation(warszawa);
-        //Now routes
-        Route firstRoute = new Route();
-        List<Station> stationsOnFirstRoute = new ArrayList<>();
+
         stationsOnFirstRoute.add(wroclaw);
         stationsOnFirstRoute.add(poznan);
         stationsOnFirstRoute.add(szczecin);
         firstRoute.setStationsOnRoute(stationsOnFirstRoute);
         firstRoute.setAvailable(true);
-        Route secondRoute = new Route();
-        List<Station> stationsOnSecondRoute = new ArrayList<>();
-        stationsOnSecondRoute.add(wroclaw);
+        routeService.saveRoute(firstRoute);
+        stationsOnSecondRoute.add(wroclaw2);
         stationsOnSecondRoute.add(krakow);
         stationsOnSecondRoute.add(warszawa);
         secondRoute.setStationsOnRoute(stationsOnSecondRoute);
         secondRoute.setAvailable(true);
+        routeService.saveRoute(secondRoute);
     }
 }

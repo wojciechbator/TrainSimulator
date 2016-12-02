@@ -20,10 +20,10 @@ public class TimetableEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "timetable_id")
     private long id;
-    @ManyToOne(targetEntity = Train.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Train.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "train_id")
     private Train train;
-    @ManyToOne(targetEntity = Station.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Station.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "station_id")
     private Station station;
     @Column(name = "arrival_time")

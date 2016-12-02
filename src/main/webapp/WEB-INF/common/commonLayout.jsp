@@ -35,9 +35,9 @@
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Spring template menu</span>
         <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="">Whatever 1</a>
-            <a class="mdl-navigation__link" href="">Whatever 2</a>
-            <a class="mdl-navigation__link" href="">Whatever 3</a>
+            <a class="mdl-navigation__link" href="<spring:url value="/" />">Indeks</a>
+            <a class="mdl-navigation__link" href="<spring:url value="/timetable" />">Rozkład</a>
+            <a class="mdl-navigation__link" href="<spring:url value="/generator" />">Generator</a>
         </nav>
     </div>
     <tiles:insertAttribute name="body"/>

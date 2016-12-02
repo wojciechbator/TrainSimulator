@@ -25,7 +25,7 @@ public class Passenger implements Serializable {
     private String name;
     @OneToMany(mappedBy = "passenger", targetEntity = Ticket.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Ticket> tickets;
-    @ManyToOne(targetEntity = Train.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Train.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "train_id")
     private Train train;
 

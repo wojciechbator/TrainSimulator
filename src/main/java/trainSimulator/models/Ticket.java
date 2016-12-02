@@ -19,7 +19,7 @@ public class Ticket implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ticket_id")
     private long id;
-    @ManyToOne(targetEntity = Passenger.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Passenger.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "passenger_id")
     private Passenger passenger;
     @Column(name = "price")

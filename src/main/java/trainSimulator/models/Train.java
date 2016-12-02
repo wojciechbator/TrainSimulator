@@ -21,14 +21,14 @@ public class Train implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "train_id")
     private long id;
-    @ManyToOne(targetEntity = Route.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Route.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "route_id")
     private Route route;
     @OneToMany(mappedBy = "train", targetEntity = TimetableEntity.class, fetch = FetchType.EAGER)
     private List<TimetableEntity> timetable;
     @OneToMany(mappedBy = "train", targetEntity = Passenger.class, fetch = FetchType.EAGER)
     private Set<Passenger> passengers;
-    @ManyToOne(targetEntity = Station.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Station.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "station_id")
     private Station station;
 
