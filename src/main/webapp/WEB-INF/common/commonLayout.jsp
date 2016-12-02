@@ -27,9 +27,9 @@
         </div>
         <!-- Tabs -->
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-            <a href="<spring:url value="/" />" class="mdl-layout__tab is-active" id="indexButton" style="text-align: center">Index</a>
-            <a href="<spring:url value="/trains" />" class="mdl-layout__tab" id="trainsButton" style="text-align: center">Trains timetable</a>
-            <a href="<spring:url value="/generator" /> " class="mdl-layout__tab" id="cosTamButton" style="text-align: center">Generator pociagow</a>
+            <a href="<spring:url value="/" />" class="mdl-layout__tab is-active" id="indexTabPanel" style="text-align: center">Strona główna</a>
+            <a href="<spring:url value="/timetable" />" class="mdl-layout__tab" id="timetableTabPanel" style="text-align: center">Rozkład jazdy</a>
+            <a href="<spring:url value="/generator" /> " class="mdl-layout__tab" id="generatorTabPanel" style="text-align: center">Generator pociagów</a>
         </div>
     </header>
     <div class="mdl-layout__drawer">

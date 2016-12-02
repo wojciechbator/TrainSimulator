@@ -7,8 +7,43 @@
     font-size: large;
 }
 
+.mdl-data-table {
+    width: 100%;
+}
+
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+}
+
+.author-table-row {
+    padding-top: 5px;
+    display: table;
+    height: 48px;
+    width: 100%;
+}
+
+.author-table-cell {
+    display: table-cell;
+    height: 100%;
+    padding: 2px;
+    width:5%;
+}
+
+/*.author-span {*/
+    /*display: inline-block;*/
+    /*vertical-align: middle;*/
+    /*line-height: normal;*/
+/*}*/
+
+.author-table-div {
+    background-color: darkolivegreen;
+    height: 100%;
+    text-align:center;
+    font-size:1.5em;
+    color: midnightblue;
+    font-family:"DejaVu Sans", sans-serif;
+    font-weight:300;
+
 }

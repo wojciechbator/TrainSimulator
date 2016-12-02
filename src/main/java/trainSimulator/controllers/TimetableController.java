@@ -11,18 +11,18 @@ import trainSimulator.services.TrainService;
  * Created by mitron-wojtek on 19.11.16.
  */
 @Controller
-@RequestMapping("/trains")
-public class TrainListController {
+@RequestMapping("/timetable")
+public class TimetableController {
     private final TrainService trainService;
 
     @Autowired
-    public TrainListController(TrainService trainService) {
+    public TimetableController(TrainService trainService) {
         this.trainService = trainService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public String listTrains(ModelMap modelMap) {
         modelMap.addAttribute("trainsList", trainService.getAllTrains());
-        return "trains";
+        return "timetable";
     }
 }

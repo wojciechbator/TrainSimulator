@@ -12,11 +12,11 @@ import trainSimulator.services.TimetableGeneratorService;
  */
 @Controller
 @RequestMapping("/generator")
-public class TimetableGeneratorController {
+public class GeneratorController {
     private final TimetableGeneratorService timetableGeneratorService;
 
     @Autowired
-    public TimetableGeneratorController(TimetableGeneratorService timetableGeneratorService) {
+    public GeneratorController(TimetableGeneratorService timetableGeneratorService) {
         this.timetableGeneratorService = timetableGeneratorService;
     }
 
