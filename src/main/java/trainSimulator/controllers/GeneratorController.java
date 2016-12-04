@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import trainSimulator.services.TimetableGeneratorService;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 /**
  * Created by mitron-wojtek on 27.11.16.
  */
@@ -25,10 +28,11 @@ public class GeneratorController {
         return "generator";
     }
 
-    @RequestMapping(value = "/generateTrains", method = RequestMethod.GET)
+    @RequestMapping("/generate")
     @ResponseBody
-    public void generateTimetable() {
+    public void generateTimetable(HttpServletResponse httpServletResponse) throws IOException {
         timetableGeneratorService.generateTimetable();
+        httpServletResponse.sendRedirect("/timetable");
     }
 
 }
