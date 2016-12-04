@@ -3,32 +3,29 @@
 <main class="mdl-layout__content">
     <section class="mdl-layout__tab-panel is-active" id="timetableTabPanel">
         <div class="page-content">
-            <div class="mdl-layout-title">Rozkład jazdy pociągów</div>
-            <div class="author-table-row" id="indexTable">
-                <div class="author-table-cell" id="indexTableId">
-                    <div>id</div>
-                </div>
-                <div class="author-table-cell" id="indexTableJSON">
-                    <div>szajs</div>
-                </div>
-                <div class="author-table-cell" id="indexTableTimestamp">
-                    <div>szajs</div>
-                </div>
-            </div>
-            <%--FOR LOOP (ROWS)--%>
-            <c:forEach items="${trainsList}" var="train">
-            <div class="author-table-row">
-                <div class="author-table-cell">
-                    <div>jakies dane</div>
-                </div>
-                <div class="author-table-cell">
-                    <div>szajs</div>
-                </div>
-                <div class="author-table-cell">
-                    <div>szajs</div>
-                </div>
-            </div>
-            </c:forEach>
+            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">ID pociągu</th>
+                    <th>ID trasy</th>
+                    <th>Bieżąca stacja</th>
+                </tr>
+                </thead>
+                <c:forEach items="${trainsList}" var="train">
+                    <c:if test="${train == null}">
+                        <tbody>
+                        Na razie nie ma tu żadnych pociągów
+                        </tbody>
+                    </c:if>
+                    <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">${train.id}</td>
+                        <td class="mdl-data-table__cell--non-numeric">${train.route.id}</td>
+                        <td>${train.station.name}</td>
+                    </tr>
+                    </tbody>
+                </c:forEach>
+            </table>
         </div>
     </section>
 </main>

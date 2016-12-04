@@ -53,9 +53,10 @@ public class TimetableGeneratorService {
     public void createTrains(Date startingTime, Date endingTime, int passengersCount) {
         while (startingTime.getTime() < endingTime.getTime()) {
             Train train = new Train();
+            //TODO: puste listy stacji na trasie, poprawic!
             Set<Passenger> passengers = passengersForTrain(passengersCount);
             List<Route> allRoutes = routesDaoImplementation.findAll();
-            train.setRoute(allRoutes.get(Math.toIntExact(train.getId() % 2))); //HERE RETURNS 0 the allRoutes is not filled!
+            train.setRoute(allRoutes.get(Math.toIntExact(train.getId() % 2)));
             train.getRoute().setAvailable(true);
             List<Station> stationsOnRoute = train.getRoute().getStationsOnRoute();
             List<TimetableEntity> timetable = new ArrayList<>();
@@ -77,6 +78,7 @@ public class TimetableGeneratorService {
                 passenger.setTrain(train);
             }
             train.setPassengers(passengers);
+            //train.setStation(stationsOnRoute.get(0));
             EventLog eventLog = new EventLog();
             eventLog.setType("INFO");
             eventLog.setTimestamp(new Date());

@@ -22,12 +22,12 @@ public class Station implements Serializable {
     private long id;
     @Column(name = "name")
     private String name;
-    @OneToMany(mappedBy = "station", targetEntity = Train.class, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "station", targetEntity = Train.class)
     private Set<Train> trainsOnStation;
-    @ManyToOne(targetEntity = Route.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(targetEntity = Route.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "route_id")
     private Route route;
-    @OneToMany(mappedBy = "station", targetEntity = TimetableEntity.class, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "station", targetEntity = TimetableEntity.class)
     private Set<TimetableEntity> timetableForStation;
 
     public long getId() {

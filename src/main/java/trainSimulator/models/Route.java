@@ -20,9 +20,9 @@ public class Route implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "route_id")
     private long id;
-    @OneToMany(mappedBy = "route", targetEntity = Station.class, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "route", targetEntity = Station.class)
     private List<Station> stationsOnRoute;
-    @OneToMany(mappedBy = "route", targetEntity = Train.class, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "route", targetEntity = Train.class)
     private List<Train> trainsOnRoute;
     @Column(name = "is_available")
     private boolean available;
