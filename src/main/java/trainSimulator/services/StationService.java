@@ -37,8 +37,8 @@ public class StationService {
         stationsDaoInterface.create(station);
     }
 
-    public void findStation(final long id) {
-        stationsDaoInterface.findOne(id);
+    public Station findStation(final long id) {
+        return stationsDaoInterface.findOne(id);
     }
 
     public List<Station> findAllStations() {

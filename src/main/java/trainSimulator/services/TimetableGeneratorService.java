@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.*;
-import trainSimulator.repositories.RoutesDaoInterface;
 import trainSimulator.repositories.TimetableEntitiesDaoInterface;
 
 import java.util.*;
@@ -18,7 +17,7 @@ import java.util.*;
 public class TimetableGeneratorService {
     private final TimetableEntitiesDaoInterface timetableEntitiesDaoInterface;
     private final EventLogService eventLogService;
-    private final RoutesDaoInterface routesDaoImplementation;
+    private final RouteService routeService;
     private final TimetableEntityService timetableEntityService;
     private final TrainService trainService;
     private final PassengerService passengerService;
@@ -26,11 +25,11 @@ public class TimetableGeneratorService {
 
     @Autowired
     public TimetableGeneratorService(TimetableEntitiesDaoInterface timetableEntityRepository, EventLogService eventLogService,
-                                     RoutesDaoInterface routesDaoInterface, TimetableEntityService timetableEntityService,
+                                     RouteService routeService, TimetableEntityService timetableEntityService,
                                      TrainService trainService, PassengerService passengerService, GeneratorParametersService generatorParametersService) {
         this.timetableEntitiesDaoInterface = timetableEntityRepository;
         this.eventLogService = eventLogService;
-        this.routesDaoImplementation = routesDaoInterface;
+        this.routeService = routeService;
         this.timetableEntityService = timetableEntityService;
         this.trainService = trainService;
         this.passengerService = passengerService;
@@ -53,10 +52,22 @@ public class TimetableGeneratorService {
     public void createTrains(Date startingTime, Date endingTime, int passengersCount) {
         while (startingTime.getTime() < endingTime.getTime()) {
             Train train = new Train();
-            //TODO: puste listy stacji na trasie, poprawic!
             Set<Passenger> passengers = passengersForTrain(passengersCount);
-            List<Route> allRoutes = routesDaoImplementation.findAll();
-            train.setRoute(allRoutes.get(Math.toIntExact(train.getId() % 3)));
+            List<Train> allTrains = trainService.getAllTrains();
+            Route firstRoute = routeService.findRouteById(1);
+            Route secondRoute = routeService.findRouteById(2);
+            //TODO: fix routes, now routeService goes on 1 route
+            if(allTrains.get(allTrains.size() - 1).getRoute() == firstRoute && secondRoute.isAvailable()) {
+                train.setRoute(secondRoute);
+            }
+            else if(allTrains.get(allTrains.size() - 1).getRoute() == secondRoute && firstRoute.isAvailable()) {
+                train.setRoute(firstRoute);
+            }
+            else {
+                for (Route route : routeService.getAllRoutes()) {
+                    if(route.isAvailable()) train.setRoute(route);
+                }
+            }
             List<Station> stationsOnRoute = train.getRoute().getStationsOnRoute();
             List<TimetableEntity> timetable = new ArrayList<>();
             for (Station station : stationsOnRoute) {

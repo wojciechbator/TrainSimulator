@@ -41,8 +41,8 @@ public class TimetableEntityService {
         return timetableEntitiesDaoInterface.findAll();
     }
 
-    public void findTimetableEntity(final long id) {
-        timetableEntitiesDaoInterface.findOne(id);
+    public TimetableEntity findTimetableEntity(final long id) {
+        return timetableEntitiesDaoInterface.findOne(id);
     }
 
     public void clearTimetableEntities() {

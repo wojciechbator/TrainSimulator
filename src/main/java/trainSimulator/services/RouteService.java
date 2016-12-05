@@ -37,8 +37,8 @@ public class RouteService {
         routesDaoInterface.delete(route);
     }
 
-    public void findRouteById(final long id) {
-        routesDaoInterface.findOne(id);
+    public Route findRouteById(final long id) {
+        return routesDaoInterface.findOne(id);
     }
 
     public void deleteRouteById(final long id) {

@@ -41,8 +41,8 @@ public class TicketService {
         return ticketsDaoInterface.findAll();
     }
 
-    public void findTicket(final long id) {
-        ticketsDaoInterface.findOne(id);
+    public Ticket findTicket(final long id) {
+        return ticketsDaoInterface.findOne(id);
     }
 
     public void clearTickets() {

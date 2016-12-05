@@ -37,8 +37,8 @@ public class TrainService {
         trainsDaoInterface.deleteById(id);
     }
 
-    public void findTrain(final long id) {
-        trainsDaoInterface.findOne(id);
+    public Train findTrain(final long id) {
+        return trainsDaoInterface.findOne(id);
     }
 
     public void clearTrains() {
