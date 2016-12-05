@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.*;
-import trainSimulator.repositories.TimetableEntitiesDaoInterface;
 
 import java.util.*;
 
@@ -15,7 +14,6 @@ import java.util.*;
 @Service
 @Transactional
 public class TimetableGeneratorService {
-    private final TimetableEntitiesDaoInterface timetableEntitiesDaoInterface;
     private final EventLogService eventLogService;
     private final RouteService routeService;
     private final TimetableEntityService timetableEntityService;
@@ -24,10 +22,8 @@ public class TimetableGeneratorService {
     private final GeneratorParametersService generatorParametersService;
 
     @Autowired
-    public TimetableGeneratorService(TimetableEntitiesDaoInterface timetableEntityRepository, EventLogService eventLogService,
-                                     RouteService routeService, TimetableEntityService timetableEntityService,
+    public TimetableGeneratorService(EventLogService eventLogService, RouteService routeService, TimetableEntityService timetableEntityService,
                                      TrainService trainService, PassengerService passengerService, GeneratorParametersService generatorParametersService) {
-        this.timetableEntitiesDaoInterface = timetableEntityRepository;
         this.eventLogService = eventLogService;
         this.routeService = routeService;
         this.timetableEntityService = timetableEntityService;
@@ -57,17 +53,20 @@ public class TimetableGeneratorService {
             Route firstRoute = routeService.findRouteById(1);
             Route secondRoute = routeService.findRouteById(2);
             //TODO: fix routes, now routeService goes on 1 route
-            if(allTrains.get(allTrains.size() - 1).getRoute() == firstRoute && secondRoute.isAvailable()) {
-                train.setRoute(secondRoute);
-            }
-            else if(allTrains.get(allTrains.size() - 1).getRoute() == secondRoute && firstRoute.isAvailable()) {
-                train.setRoute(firstRoute);
-            }
-            else {
-                for (Route route : routeService.getAllRoutes()) {
-                    if(route.isAvailable()) train.setRoute(route);
+            if(allTrains.size() > 0) {
+                if(allTrains.get(allTrains.size() - 1).getRoute() == firstRoute && secondRoute.isAvailable()) {
+                    train.setRoute(secondRoute);
+                }
+                else if(allTrains.get(allTrains.size() - 1).getRoute() == secondRoute && firstRoute.isAvailable()) {
+                    train.setRoute(firstRoute);
+                }
+                else {
+                    for (Route route : routeService.getAllRoutes()) {
+                        if(route.isAvailable()) train.setRoute(route);
+                    }
                 }
             }
+            else train.setRoute(firstRoute);
             List<Station> stationsOnRoute = train.getRoute().getStationsOnRoute();
             List<TimetableEntity> timetable = new ArrayList<>();
             for (Station station : stationsOnRoute) {
@@ -79,11 +78,9 @@ public class TimetableGeneratorService {
                 timetableEntity.setStation(station);
                 startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterById(3).getParameterValue()));
                 timetable.add(timetableEntity);
+                timetableEntityService.saveTimetableEntity(timetableEntity);
             }
             train.setTimetable(timetable);
-            for (TimetableEntity entity : timetable) {
-                timetableEntityService.saveTimetableEntity(entity);
-            }
             for (Passenger passenger : passengers) {
                 passenger.setTrain(train);
             }
