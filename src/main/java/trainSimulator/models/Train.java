@@ -9,7 +9,9 @@ import java.util.Set;
  * Created by mitron-wojtek on 17.11.16.
  */
 @Entity
-@Table(name = "trains")
+@Table(name = "trains", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "id")
+})
 public class Train implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -18,18 +20,18 @@ public class Train implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "train_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private long id;
-    @ManyToOne(targetEntity = Route.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "route_id")
+    @ManyToOne
     private Route route;
-    @OneToMany(mappedBy = "train", targetEntity = TimetableEntity.class)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn
     private List<TimetableEntity> timetable;
-    @OneToMany(mappedBy = "train", targetEntity = Passenger.class)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn
     private Set<Passenger> passengers;
-    @ManyToOne(targetEntity = Station.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "station_id")
+    @ManyToOne
     private Station station;
 
     public long getId() {

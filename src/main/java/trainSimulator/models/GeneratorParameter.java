@@ -7,7 +7,9 @@ import java.io.Serializable;
  * Created by mitron-wojtek on 18.11.16.
  */
 @Entity
-@Table(name = "generator_parameters")
+@Table(name = "generator_parameters", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "id")
+})
 public class GeneratorParameter implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -16,8 +18,8 @@ public class GeneratorParameter implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "parameter_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private long id;
     @Column(name = "parameter_name")
     private String parameterName;

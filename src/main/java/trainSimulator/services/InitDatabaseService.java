@@ -60,46 +60,42 @@ public class InitDatabaseService {
         passengersCount.setParameterName("passengers_count");
         passengersCount.setParameterValue("50");
         generatorParametersService.saveGeneratorParameter(passengersCount);
-        //Prepared infrastructure for train simulator
+        //Prepared infrastructure for train simulator, something bad happens here
         Route firstRoute = new Route();
         List<Station> stationsOnFirstRoute = new ArrayList<>();
         Route secondRoute = new Route();
         List<Station> stationsOnSecondRoute = new ArrayList<>();
         Station wroclaw = new Station();
         wroclaw.setName("Wroclaw");
-        wroclaw.setRoute(firstRoute);
-        stationService.saveStation(wroclaw);
         Station poznan = new Station();
         poznan.setName("Poznan");
-        poznan.setRoute(firstRoute);
-        stationService.saveStation(poznan);
         Station szczecin = new Station();
         szczecin.setName("Szczecin");
-        szczecin.setRoute(firstRoute);
         Station wroclaw2 = new Station();
         wroclaw2.setName("Wroclaw");
-        wroclaw2.setRoute(secondRoute);
-        stationService.saveStation(szczecin);
         Station krakow = new Station();
         krakow.setName("Krakow");
-        krakow.setRoute(secondRoute);
-        stationService.saveStation(krakow);
         Station warszawa = new Station();
         warszawa.setName("Warszawa");
-        warszawa.setRoute(secondRoute);
-        stationService.saveStation(warszawa);
-
         stationsOnFirstRoute.add(wroclaw);
         stationsOnFirstRoute.add(poznan);
         stationsOnFirstRoute.add(szczecin);
+        firstRoute.setName("Wroclaw -> Szczecin");
         firstRoute.setStationsOnRoute(stationsOnFirstRoute);
         firstRoute.setAvailable(true);
         routeService.saveRoute(firstRoute);
         stationsOnSecondRoute.add(wroclaw2);
         stationsOnSecondRoute.add(krakow);
         stationsOnSecondRoute.add(warszawa);
+        secondRoute.setName("Wroclaw -> Warszawa");
         secondRoute.setStationsOnRoute(stationsOnSecondRoute);
         secondRoute.setAvailable(true);
         routeService.saveRoute(secondRoute);
+        stationService.saveStation(wroclaw);
+        stationService.saveStation(poznan);
+        stationService.saveStation(szczecin);
+        stationService.saveStation(wroclaw2);
+        stationService.saveStation(krakow);
+        stationService.saveStation(warszawa);
     }
 }

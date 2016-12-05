@@ -8,7 +8,9 @@ import java.util.Date;
  * Created by mitron-wojtek on 18.11.16.
  */
 @Entity
-@Table(name = "event_register")
+@Table(name = "event_register", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "id")
+})
 public class EventLog implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -17,8 +19,8 @@ public class EventLog implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "eventlog_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private long id;
     @Column(name = "type")
     private String type;

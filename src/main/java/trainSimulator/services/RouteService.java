@@ -52,5 +52,12 @@ public class RouteService {
         }
     }
 
+//    public void addStationToRoute(final Station station, final long id) {
+//        Route route = routesDaoInterface.findOne(id);
+//        List<Station> stationsOnRoute = new ArrayList<>();
+//        stationsOnRoute.add(station);
+//        route.setStationsOnRoute(stationsOnRoute);
+//    }
+
 
 }

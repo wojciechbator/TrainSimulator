@@ -7,7 +7,9 @@ import java.io.Serializable;
  * Created by mitron-wojtek on 17.11.16.
  */
 @Entity
-@Table(name = "tickets")
+@Table(name = "tickets", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "id")
+})
 public class Ticket implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -16,11 +18,10 @@ public class Ticket implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ticket_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private long id;
-    @ManyToOne(targetEntity = Passenger.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "passenger_id")
+    @ManyToOne
     private Passenger passenger;
     @Column(name = "price")
     private double price;

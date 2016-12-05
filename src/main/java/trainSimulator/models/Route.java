@@ -8,7 +8,9 @@ import java.util.List;
  * Created by mitron-wojtek on 17.11.16.
  */
 @Entity
-@Table(name = "routes")
+@Table(name = "routes", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "id")
+})
 public class Route implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -17,12 +19,16 @@ public class Route implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "route_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
-    @OneToMany(mappedBy = "route", targetEntity = Station.class)
+    @Column(name = "name")
+    private String name;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn
     private List<Station> stationsOnRoute;
-    @OneToMany(mappedBy = "route", targetEntity = Train.class)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn
     private List<Train> trainsOnRoute;
     @Column(name = "is_available")
     private boolean available;
@@ -57,5 +63,13 @@ public class Route implements Serializable {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

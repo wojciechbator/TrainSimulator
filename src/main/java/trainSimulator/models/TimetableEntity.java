@@ -8,7 +8,9 @@ import java.util.Date;
  * Created by mitron-wojtek on 17.11.16.
  */
 @Entity
-@Table(name = "timetable")
+@Table(name = "timetable", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "id")
+})
 public class TimetableEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -17,14 +19,12 @@ public class TimetableEntity implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "timetable_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private long id;
-    @ManyToOne(targetEntity = Train.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "train_id")
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Train train;
-    @ManyToOne(targetEntity = Station.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "station_id")
+    @ManyToOne
     private Station station;
     @Column(name = "arrival_time")
     private Date arrivalTime;
