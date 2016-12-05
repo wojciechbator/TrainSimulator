@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import trainSimulator.services.TimetableGeneratorService;
 import trainSimulator.services.TrainService;
+import trainSimulator.services.EventLogService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -15,15 +16,17 @@ import java.io.IOException;
  * Created by mitron-wojtek on 27.11.16.
  */
 @Controller
-@RequestMapping("/generator")
-public class GeneratorController {
+@RequestMapping("/adminPanel")
+public class AdminPanelController {
     private final TimetableGeneratorService timetableGeneratorService;
     private final TrainService trainService;
+    private final EventLogService eventLogService;
 
     @Autowired
-    public GeneratorController(TimetableGeneratorService timetableGeneratorService, TrainService trainService) {
+    public AdminPanelController(TimetableGeneratorService timetableGeneratorService, TrainService trainService, EventLogService eventLogService) {
         this.timetableGeneratorService = timetableGeneratorService;
         this.trainService = trainService;
+        this.eventLogService = eventLogService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -38,11 +41,18 @@ public class GeneratorController {
         httpServletResponse.sendRedirect("/timetable");
     }
 
-    @RequestMapping("/clear")
+    @RequestMapping("/clearTimetable")
     @ResponseBody
     public void clearTimetable(HttpServletResponse httpServletResponse) throws IOException {
         trainService.clearTrains();
         httpServletResponse.sendRedirect("/timetable");
+    }
+
+    @RequestMapping("/clearLogs")
+    @ResponseBody
+    public void clearLogs(HttpServletResponse httpServletResponse) throws IOException {
+        eventLogService.clearEvents();
+        httpServletResponse.sendRedirect("/adminPanel");
     }
 
 }

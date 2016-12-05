@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-class EventLogService {
+public class EventLogService {
     private final EventLogsDaoInterface eventLogsDao;
 
     @Autowired
@@ -45,7 +45,7 @@ class EventLogService {
         eventLogsDao.delete(eventLog);
     }
 
-    void clearEvents() {
+    public void clearEvents() {
         List<EventLog> eventLogs = eventLogsDao.findAll();
         for (EventLog eventLog : eventLogs) {
             deleteEventLog(eventLog);

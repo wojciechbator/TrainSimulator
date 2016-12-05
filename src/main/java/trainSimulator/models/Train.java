@@ -23,7 +23,7 @@ public class Train implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private long id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Route route;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn
@@ -31,7 +31,7 @@ public class Train implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn
     private Set<Passenger> passengers;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Station station;
 
     public long getId() {

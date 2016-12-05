@@ -21,7 +21,7 @@ public class Ticket implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private long id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Passenger passenger;
     @Column(name = "price")
     private double price;

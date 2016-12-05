@@ -52,7 +52,6 @@ public class TimetableGeneratorService {
             List<Train> allTrains = trainService.getAllTrains();
             Route firstRoute = routeService.findRouteById(1);
             Route secondRoute = routeService.findRouteById(2);
-            //TODO: fix routes, now routeService goes on 1 route
             if(allTrains.size() > 0) {
                 if(allTrains.get(allTrains.size() - 1).getRoute() == firstRoute && secondRoute.isAvailable()) {
                     train.setRoute(secondRoute);
@@ -85,7 +84,7 @@ public class TimetableGeneratorService {
                 passenger.setTrain(train);
             }
             train.setPassengers(passengers);
-            //train.setStation(stationsOnRoute.get(0));
+            train.setStation(stationsOnRoute.get(0));
             EventLog eventLog = new EventLog();
             eventLog.setType("INFO");
             eventLog.setTimestamp(new Date());

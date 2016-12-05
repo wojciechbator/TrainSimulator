@@ -29,7 +29,7 @@ public class Passenger implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn
     private Set<Ticket> tickets;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Train train;
 
     public long getId() {

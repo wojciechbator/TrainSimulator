@@ -7,11 +7,14 @@
 </head>
 <section class="mdl-layout__tab-panel" id="generatorTabPanel">
     <div class="page-content">
-        <a href="<spring:url value="/generator/generate"/>" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="generateTrainsButton">
+        <a href="<spring:url value="/adminPanel/generate"/>" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="generateTrainsButton">
             Wygeneruj pociągi
         </a>
-        <a href="<spring:url value="/generator/clear"/> " class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="clearTrainsButton">
+        <a href="<spring:url value="/adminPanel/clearTimetable"/> " class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="clearTrainsButton">
             Wyczyść pociągi
+        </a>
+        <a href="<spring:url value="/adminPanel/clearLogs"/> " class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="clearLogsButton">
+            Wyczyść logi
         </a>
     </div>
     <script type="text/javascript" src="../../resources/js/generatorUtilities.js"></script>

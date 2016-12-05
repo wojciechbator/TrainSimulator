@@ -22,9 +22,9 @@ public class TimetableEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private long id;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Train train;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Station station;
     @Column(name = "arrival_time")
     private Date arrivalTime;

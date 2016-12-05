@@ -27,7 +27,7 @@ public class Station implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn
     private Set<Train> trainsOnStation;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Route route;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn
