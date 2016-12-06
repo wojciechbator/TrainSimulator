@@ -41,6 +41,14 @@ html, body {
     text-align: center;
 }
 
+p {
+    /*TODO: Beznadzieja, do poprawki*/
+    margin-left: 2cm;
+    margin-right: 2cm;
+    text-align: center;
+    font-size: 15px;
+}
+
 /*.mdl-data-table__cell--non-numeric {*/
     /*text-align: center;*/
 /*}*/
