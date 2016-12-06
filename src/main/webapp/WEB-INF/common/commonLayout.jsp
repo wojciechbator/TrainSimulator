@@ -27,7 +27,7 @@
         </div>
         <!-- Tabs -->
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-            <a href="<spring:url value="/" />" class="mdl-layout__tab is-active" id="indexTabPanel" style="text-align: center">Strona główna</a>
+            <a href="<spring:url value="/" />" class="mdl-layout__tab" id="indexTabPanel" style="text-align: center">Strona główna</a>
             <a href="<spring:url value="/timetable" />" class="mdl-layout__tab" id="timetableTabPanel" style="text-align: center">Rozkład jazdy</a>
             <a href="<spring:url value="/simulation" />" class="mdl-layout__tab" id="simulationTabPanel" style="text-align: center">Bieżący stan</a>
             <a href="<spring:url value="/adminPanel" /> " class="mdl-layout__tab" id="generatorTabPanel" style="text-align: center">Panel Admina</a>

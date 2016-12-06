@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <main class="mdl-layout__content">
-    <section class="mdl-layout__tab-panel" id="simulationTabPanel">
+    <section class="mdl-layout__tab-panel is-active" id="simulationTabPanel">
     </section>
 </main>
 <body>

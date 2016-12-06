@@ -31,7 +31,7 @@ public class AdminPanelController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String generatorView() {
-        return "generator";
+        return "adminPanel";
     }
 
     @RequestMapping("/generate")

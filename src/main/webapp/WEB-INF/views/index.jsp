@@ -2,7 +2,7 @@
 
 <div>
     <main class="mdl-layout__content">
-        <section class="mdl-layout__tab-panel" id="indexTabPanel">
+        <section class="mdl-layout__tab-panel is-active" id="indexTabPanel">
             <br/>
             <div style="text-align: center; font-size: large">Witaj na naszej stronie, brzydkiej jak noc w tym momencie! Ale robimy, także spokojnie!</div>
             <br/>
