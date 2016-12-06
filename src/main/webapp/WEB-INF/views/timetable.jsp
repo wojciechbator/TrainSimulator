@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+
 <main class="mdl-layout__content">
     <section class="mdl-layout__tab-panel is-active" id="timetableTabPanel">
         <div class="page-content">

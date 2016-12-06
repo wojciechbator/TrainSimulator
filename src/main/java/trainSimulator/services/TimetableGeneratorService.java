@@ -77,7 +77,7 @@ public class TimetableGeneratorService {
                 timetableEntity.setStation(station);
                 startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterById(3).getParameterValue()));
                 timetable.add(timetableEntity);
-                timetableEntityService.saveTimetableEntity(timetableEntity);
+                timetableEntityService.createTimetableEntity(timetableEntity);
             }
             train.setTimetable(timetable);
             for (Passenger passenger : passengers) {

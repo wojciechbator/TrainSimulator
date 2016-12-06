@@ -35,3 +35,12 @@ html, body {
     color: midnightblue;
     font-family:"DejaVu Sans", sans-serif;
 }
+
+
+.mdl-data-table td, thead {
+    text-align: center;
+}
+
+/*.mdl-data-table__cell--non-numeric {*/
+    /*text-align: center;*/
+/*}*/

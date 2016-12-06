@@ -25,13 +25,13 @@ public class Station implements Serializable {
     @Column(name = "name")
     private String name;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn(name = "station_id")
     private Set<Train> trainsOnStation;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Route route;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn
-    private Set<TimetableEntity> timetableForStation;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn
+//    private Set<TimetableEntity> timetableForStation;
 
     public long getId() {
         return id;
@@ -65,11 +65,11 @@ public class Station implements Serializable {
         this.route = route;
     }
 
-    public Set<TimetableEntity> getTimetableForStation() {
-        return timetableForStation;
-    }
-
-    public void setTimetableForStation(Set<TimetableEntity> timetableForStation) {
-        this.timetableForStation = timetableForStation;
-    }
+//    public Set<TimetableEntity> getTimetableForStation() {
+//        return timetableForStation;
+//    }
+//
+//    public void setTimetableForStation(Set<TimetableEntity> timetableForStation) {
+//        this.timetableForStation = timetableForStation;
+//    }
 }

@@ -26,10 +26,10 @@ public class Train implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Route route;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn(name = "train_id")
     private List<TimetableEntity> timetable;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn(name = "train_id")
     private Set<Passenger> passengers;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Station station;

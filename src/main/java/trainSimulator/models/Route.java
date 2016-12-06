@@ -25,10 +25,10 @@ public class Route implements Serializable {
     @Column(name = "name")
     private String name;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn(name = "route_id")
     private List<Station> stationsOnRoute;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn(name = "route_id")
     private List<Train> trainsOnRoute;
     @Column(name = "is_available")
     private boolean available;

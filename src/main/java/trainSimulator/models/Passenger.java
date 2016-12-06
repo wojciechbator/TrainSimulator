@@ -27,7 +27,7 @@ public class Passenger implements Serializable {
     @Column(name = "name")
     private String name;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn(name = "passenger_id")
     private Set<Ticket> tickets;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Train train;
