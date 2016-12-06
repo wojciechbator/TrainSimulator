@@ -21,7 +21,7 @@ public class TimetableController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String listTrains(ModelMap modelMap) {
+    public String getTimetable(ModelMap modelMap) {
         modelMap.addAttribute("trainsList", trainService.getAllTrains());
         return "timetable";
     }
