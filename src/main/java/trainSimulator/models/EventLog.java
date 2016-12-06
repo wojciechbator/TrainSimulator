@@ -18,6 +18,13 @@ public class EventLog implements Serializable {
         super();
     }
 
+    public EventLog(String type, String stationName, Date timestamp, String comment) {
+        this.type = type;
+        this.stationName = stationName;
+        this.timestamp = timestamp;
+        this.comment = comment;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
