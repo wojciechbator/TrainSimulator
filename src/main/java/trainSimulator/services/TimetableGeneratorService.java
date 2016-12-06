@@ -88,9 +88,9 @@ public class TimetableGeneratorService {
             EventLog eventLog = new EventLog();
             eventLog.setType("INFO");
             eventLog.setTimestamp(new Date());
-            eventLog.setStationName("");
+            eventLog.setStationName(train.getStation().getName());
             eventLog.setComment("Created train with ID: " + train.getId() + ", on route id: " + train.getRoute().getId() +
-                    ", with " + train.getPassengers().size() + " passengers on board!");
+                     ", with " + train.getPassengers().size() + " passengers on board!");
             eventLogService.saveEvent(eventLog);
             trainService.saveTrain(train);
             startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterById(2).getParameterValue()));

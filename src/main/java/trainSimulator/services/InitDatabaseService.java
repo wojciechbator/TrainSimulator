@@ -91,11 +91,11 @@ public class InitDatabaseService {
         secondRoute.setStationsOnRoute(stationsOnSecondRoute);
         secondRoute.setAvailable(true);
         routeService.saveRoute(secondRoute);
-        stationService.saveStation(wroclaw);
-        stationService.saveStation(poznan);
-        stationService.saveStation(szczecin);
-        stationService.saveStation(wroclaw2);
-        stationService.saveStation(krakow);
-        stationService.saveStation(warszawa);
+        stationService.createStation(wroclaw);
+        stationService.createStation(poznan);
+        stationService.createStation(szczecin);
+        stationService.createStation(wroclaw2);
+        stationService.createStation(krakow);
+        stationService.createStation(warszawa);
     }
 }
