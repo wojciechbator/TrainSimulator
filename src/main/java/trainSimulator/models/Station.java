@@ -1,8 +1,7 @@
 package trainSimulator.models;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by mitron-wojtek on 17.11.16.
@@ -26,12 +25,9 @@ public class Station implements Serializable {
     private String name;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "station_id")
-    private Set<Train> trainsOnStation;
+    private List<Train> trainsOnStation;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Route route;
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn
-//    private Set<TimetableEntity> timetableForStation;
 
     public long getId() {
         return id;
@@ -49,11 +45,11 @@ public class Station implements Serializable {
         this.name = name;
     }
 
-    public Set<Train> getTrainsOnStation() {
+    public List<Train> getTrainsOnStation() {
         return trainsOnStation;
     }
 
-    public void setTrainsOnStation(Set<Train> trainsOnStation) {
+    public void setTrainsOnStation(List<Train> trainsOnStation) {
         this.trainsOnStation = trainsOnStation;
     }
 
@@ -64,12 +60,4 @@ public class Station implements Serializable {
     public void setRoute(Route route) {
         this.route = route;
     }
-
-//    public Set<TimetableEntity> getTimetableForStation() {
-//        return timetableForStation;
-//    }
-//
-//    public void setTimetableForStation(Set<TimetableEntity> timetableForStation) {
-//        this.timetableForStation = timetableForStation;
-//    }
 }

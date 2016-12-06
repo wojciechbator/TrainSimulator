@@ -23,6 +23,8 @@ public class Train implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private long id;
+    @Column(name = "name")
+    private String name;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Route route;
     @OneToMany(cascade = CascadeType.ALL)
@@ -65,6 +67,14 @@ public class Train implements Serializable {
 
     public TrainState getState() {
         return state;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setState(TrainState state) {

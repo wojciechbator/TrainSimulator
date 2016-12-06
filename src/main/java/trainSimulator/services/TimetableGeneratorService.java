@@ -46,8 +46,12 @@ public class TimetableGeneratorService {
     }
 
     public void createTrains(Date startingTime, Date endingTime, int passengersCount) {
+        String[] trainNames = {"Matejko", "Malczewski", "Batory", "Kossak", "Rejtan", "Błyskawica", "Komancz", "Andrzej",
+        "Moniuszko", "Sienkiewicz", "Mickiewicz", "Jagiełło", "Łokietek", "Dmowski", "Piłsudski", "Mieszko"};
         while (startingTime.getTime() < endingTime.getTime()) {
+            int index = new Random().nextInt(trainNames.length);
             Train train = new Train();
+            train.setName(trainNames[index]);
             Set<Passenger> passengers = passengersForTrain(passengersCount);
             List<Train> allTrains = trainService.getAllTrains();
             Route firstRoute = routeService.findRouteById(1);

@@ -31,7 +31,7 @@ public class EventLog implements Serializable {
     private long id;
     @Column(name = "type")
     private String type;
-    @Column(name = "Station_name")
+    @Column(name = "station_name")
     private String stationName;
     @Column(name = "timestamp")
     private Date timestamp;

@@ -1,5 +1,6 @@
 package trainSimulator.services;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +20,7 @@ import java.util.List;
 @Transactional
 @Service
 public class InitDatabaseService {
+    private static Logger logger = Logger.getLogger(InitDatabaseService.class);
     private final EventLogService eventLogService;
     private final StationService stationService;
     private final RouteService routeService;
@@ -38,12 +40,9 @@ public class InitDatabaseService {
     @PostConstruct
     public void init() {
         eventLogService.clearEvents();
-        EventLog eventLog = new EventLog();
-        eventLog.setComment("A new session started!");
-        eventLog.setStationName("All stations active");
-        eventLog.setTimestamp(new Date());
-        eventLog.setType("INFO");
-        eventLogService.saveEvent(eventLog);
+        String logText = "A new session started!";
+        logger.info(logText);
+        eventLogService.saveEvent(new EventLog("INFO", "", new Date(), logText));
         GeneratorParameter onStationStopTime = new GeneratorParameter();
         onStationStopTime.setParameterName("on_station_stop_time");
         onStationStopTime.setParameterValue("60");
@@ -103,11 +102,11 @@ public class InitDatabaseService {
         secondRoute.setStationsOnRoute(stationsOnSecondRoute);
         secondRoute.setAvailable(true);
         routeService.saveRoute(secondRoute);
-        stationService.createStation(wroclaw);
-        stationService.createStation(poznan);
-        stationService.createStation(szczecin);
-        stationService.createStation(wroclaw2);
-        stationService.createStation(krakow);
-        stationService.createStation(warszawa);
+        stationService.saveStation(wroclaw);
+        stationService.saveStation(poznan);
+        stationService.saveStation(szczecin);
+        stationService.saveStation(wroclaw2);
+        stationService.saveStation(krakow);
+        stationService.saveStation(warszawa);
     }
 }
