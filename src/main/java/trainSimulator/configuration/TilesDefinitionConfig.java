@@ -23,7 +23,7 @@ public final class TilesDefinitionConfig implements DefinitionsFactory {
         addDefaultLayoutDefinition("index", "Start", "/WEB-INF/views/index.jsp", "index");
         addDefaultLayoutDefinition("timetable", "Displayed Timetable", "/WEB-INF/views/timetable.jsp", "timetable");
         addDefaultLayoutDefinition("adminPanel", "Admin Panel", "/WEB-INF/views/adminPanel.jsp", "adminPanel");
-        addDefaultLayoutDefinition("simulation", "Simulation", "/WEB-INF/views/simulation.jsp", "simulation");
+//        addDefaultLayoutDefinition("simulation", "Simulation", "/WEB-INF/views/someView.jsp", "simulation");
 
     }
 

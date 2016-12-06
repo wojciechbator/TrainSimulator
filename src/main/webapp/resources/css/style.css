@@ -37,7 +37,7 @@ html, body {
 }
 
 
-.mdl-data-table td, thead {
+.mdl-data-table td, th {
     text-align: center;
 }
 

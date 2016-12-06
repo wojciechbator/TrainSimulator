@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by mitron-wojtek on 06.12.16.
  */
 @Controller
-@RequestMapping("/simulation")
-public class SimulationController {
+@RequestMapping("/someURL")
+public class SomeUnusedController {
     @RequestMapping(method = RequestMethod.GET)
     public String getSimulation() {
-        return "simulation";
+        return "someView";
     }
 }

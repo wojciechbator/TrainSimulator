@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@include file="../common/commonTaglibs.jsp"%>
 
 <main class="mdl-layout__content">
     <section class="mdl-layout__tab-panel is-active" id="timetableTabPanel">
@@ -10,21 +10,22 @@
                     <th class="mdl-data-table__cell--non-numeric">ID pociągu</th>
                     <th>ID trasy</th>
                     <th>Bieżąca stacja</th>
+                    <th>Stan pociągu</th>
+                    <th>Godzina odjazdu</th>
                 </tr>
                 </thead>
                 <c:forEach items="${trainsList}" var="train">
-                    <c:if test="${train == null}">
+                    <c:if test="${train != null}">
                         <tbody>
-                        Na razie nie ma tu żadnych pociągów
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">${train.id}</td>
+                            <td class="mdl-data-table__cell--non-numeric">${train.route.id}</td>
+                            <td>${train.station.name}</td>
+                            <td>${train.state}</td>
+                            <td>${train.timetable.get(0).departureTime}</td>
+                        </tr>
                         </tbody>
                     </c:if>
-                    <tbody>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">${train.id}</td>
-                        <td class="mdl-data-table__cell--non-numeric">${train.route.id}</td>
-                        <td>${train.station.name}</td>
-                    </tr>
-                    </tbody>
                 </c:forEach>
             </table>
         </div>

@@ -3,6 +3,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles-extras" prefix="tilesx" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,7 @@
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
             <a href="<spring:url value="/" />" class="mdl-layout__tab" id="indexTabPanel" style="text-align: center">Strona główna</a>
             <a href="<spring:url value="/timetable" />" class="mdl-layout__tab" id="timetableTabPanel" style="text-align: center">Rozkład jazdy</a>
-            <a href="<spring:url value="/simulation" />" class="mdl-layout__tab" id="simulationTabPanel" style="text-align: center">Bieżący stan</a>
+            <%--<a href="<spring:url value="/simulation" />" class="mdl-layout__tab" id="simulationTabPanel" style="text-align: center">Bieżący stan</a>--%>
             <a href="<spring:url value="/adminPanel" /> " class="mdl-layout__tab" id="generatorTabPanel" style="text-align: center">Panel Admina</a>
         </div>
     </header>
@@ -38,7 +39,7 @@
         <nav class="mdl-navigation">
             <a class="mdl-navigation__link" href="<spring:url value="/" />">Indeks</a>
             <a class="mdl-navigation__link" href="<spring:url value="/timetable" />">Rozkład</a>
-            <a class="mdl-navigation__link" href="<spring:url value="/simulation" />">Bieżące stany</a>
+            <%--<a class="mdl-navigation__link" href="<spring:url value="/simulation" />">Bieżące stany</a>--%>
             <a class="mdl-navigation__link" href="<spring:url value="/adminPanel" />">Panel Admina</a>
         </nav>
     </div>
