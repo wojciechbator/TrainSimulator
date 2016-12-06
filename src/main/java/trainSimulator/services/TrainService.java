@@ -52,5 +52,4 @@ public class TrainService {
         return trainsDaoInterface.findAll();
     }
 
-    //TODO: Do more stuff with trains, for example delete from route, IDK
 }
