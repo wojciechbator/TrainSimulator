@@ -60,6 +60,14 @@ public class InitDatabaseService {
         passengersCount.setParameterName("passengers_count");
         passengersCount.setParameterValue("50");
         generatorParametersService.saveGeneratorParameter(passengersCount);
+        GeneratorParameter stateArriving = new GeneratorParameter();
+        passengersCount.setParameterName("arriving_period");
+        passengersCount.setParameterValue("90");
+        generatorParametersService.saveGeneratorParameter(stateArriving);
+        GeneratorParameter stateOnStation = new GeneratorParameter();
+        passengersCount.setParameterName("on_station_period");
+        passengersCount.setParameterValue("30");
+        generatorParametersService.saveGeneratorParameter(stateOnStation);
         //Prepared infrastructure for train simulator, something bad happens here
         Route firstRoute = new Route();
         List<Station> stationsOnFirstRoute = new ArrayList<>();

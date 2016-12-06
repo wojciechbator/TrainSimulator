@@ -85,7 +85,7 @@ public class TimetableGeneratorService {
             }
             train.setPassengers(passengers);
             train.setStation(stationsOnRoute.get(0));
-            train.setState("PLANNED");
+            train.setState(TrainState.PLANNED);
             EventLog eventLog = new EventLog();
             eventLog.setType("INFO");
             eventLog.setTimestamp(new Date());

@@ -34,7 +34,7 @@ public class Train implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Station station;
     @Column(name = "state")
-    private String state;
+    private TrainState state;
 
     public long getId() {
         return id;
@@ -63,12 +63,12 @@ public class Train implements Serializable {
         }
     }
 
-    public String getState() {
+    public TrainState getState() {
         return state;
     }
 
-    public void setState(String trainState) {
-        this.state = trainState;
+    public void setState(TrainState state) {
+        this.state = state;
     }
 
     public Set<Passenger> getPassengers() {
