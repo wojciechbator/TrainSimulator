@@ -14,7 +14,6 @@ import java.util.List;
  */
 @Service
 public class SimulationService implements Runnable {
-    private final StationService stationService;
     private final TrainService trainService;
     private final GeneratorParametersService generatorParametersService;
     private final EventLogService eventLogService;
@@ -24,9 +23,8 @@ public class SimulationService implements Runnable {
     private boolean isRunning = true;
     private Station station;
 
-    public SimulationService(StationService stationService, TrainService trainService,
-                             GeneratorParametersService generatorParametersService, EventLogService eventLogService, Station station) {
-        this.stationService = stationService;
+    public SimulationService(TrainService trainService, GeneratorParametersService generatorParametersService,
+                             EventLogService eventLogService, Station station) {
         this.trainService = trainService;
         this.generatorParametersService = generatorParametersService;
         this.eventLogService = eventLogService;
@@ -37,7 +35,7 @@ public class SimulationService implements Runnable {
     @Override
     public void run() {
         boolean runFlag = true;
-        List<Train> allTrains = new ArrayList<>();
+        List<Train> allTrains;
         while(runFlag) {
             synchronized (mutexObject) {
                 runFlag = isRunning;
