@@ -6,6 +6,7 @@ import trainSimulator.models.EventLog;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Created by mitron-wojtek on 25.11.16.
@@ -24,4 +25,12 @@ public class EventLogsDao extends AbstractJpaDao<EventLog> implements EventLogsD
     public EventLog findOne(final long id) {
         return entityManager.find(EventLog.class, id);
     }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    @Cacheable("eventLogs")
+    public List<EventLog> findAll() {
+        return entityManager.createQuery("from " + EventLog.class.getName()).getResultList();
+    }
+
 }
