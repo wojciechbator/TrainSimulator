@@ -25,11 +25,11 @@ public class TimetableEntityService {
         timetableEntitiesDaoInterface.update(timetableEntity);
     }
 
-    public void createTimetableEntity(final TimetableEntity timetableEntity) {
+    void createTimetableEntity(final TimetableEntity timetableEntity) {
         timetableEntitiesDaoInterface.create(timetableEntity);
     }
 
-    public void deleteTimetableEntity(final TimetableEntity timetableEntity) {
+    private void deleteTimetableEntity(final TimetableEntity timetableEntity) {
         timetableEntitiesDaoInterface.delete(timetableEntity);
     }
 

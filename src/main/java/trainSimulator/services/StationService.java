@@ -25,7 +25,7 @@ public class StationService {
         stationsDaoInterface.update(Station);
     }
 
-    public void deleteStation(final Station station) {
+    private void deleteStation(final Station station) {
         stationsDaoInterface.delete(station);
     }
 

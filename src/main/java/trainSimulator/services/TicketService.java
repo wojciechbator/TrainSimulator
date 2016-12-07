@@ -21,11 +21,11 @@ public class TicketService {
         this.ticketsDaoInterface = ticketsDao;
     }
 
-    public void saveTicket(final Ticket ticket) {
+    void saveTicket(final Ticket ticket) {
         ticketsDaoInterface.update(ticket);
     }
 
-    public void deleteTicket(final Ticket ticket) {
+    private void deleteTicket(final Ticket ticket) {
         ticketsDaoInterface.delete(ticket);
     }
 

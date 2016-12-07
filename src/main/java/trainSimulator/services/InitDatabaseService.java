@@ -22,18 +22,14 @@ import java.util.List;
 public class InitDatabaseService {
     private static Logger logger = Logger.getLogger(InitDatabaseService.class);
     private final EventLogService eventLogService;
-    private final StationService stationService;
     private final RouteService routeService;
-    private final TimetableGeneratorService timetableGeneratorService;
     private final GeneratorParametersService generatorParametersService;
 
     @Autowired
-    public InitDatabaseService(EventLogService eventLogService, StationService stationService, RouteService routeService,
-                               TimetableGeneratorService timetableGeneratorService, GeneratorParametersService generatorParametersService) {
+    public InitDatabaseService(EventLogService eventLogService, RouteService routeService,
+                               GeneratorParametersService generatorParametersService) {
         this.eventLogService = eventLogService;
-        this.stationService = stationService;
         this.routeService = routeService;
-        this.timetableGeneratorService = timetableGeneratorService;
         this.generatorParametersService = generatorParametersService;
     }
 

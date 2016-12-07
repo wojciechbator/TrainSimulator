@@ -1,6 +1,7 @@
 package trainSimulator.configuration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import trainSimulator.BootApplication;
 
 /**
  * Created by mitron-wojtek on 15.11.16.

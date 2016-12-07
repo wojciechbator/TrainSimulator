@@ -25,7 +25,7 @@ public class EventLogService {
         eventLogsDao.update(eventLog);
     }
 
-    public void createEvent(final EventLog eventLog) {
+    void createEvent(final EventLog eventLog) {
         eventLogsDao.create(eventLog);
     }
 

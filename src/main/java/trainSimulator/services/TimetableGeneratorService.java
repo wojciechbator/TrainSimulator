@@ -18,18 +18,18 @@ public class TimetableGeneratorService {
     private final RouteService routeService;
     private final TimetableEntityService timetableEntityService;
     private final TrainService trainService;
-    private final PassengerService passengerService;
     private final GeneratorParametersService generatorParametersService;
+    private List<GeneratorParameter> generatorParameters;
 
     @Autowired
     public TimetableGeneratorService(EventLogService eventLogService, RouteService routeService, TimetableEntityService timetableEntityService,
-                                     TrainService trainService, PassengerService passengerService, GeneratorParametersService generatorParametersService) {
+                                     TrainService trainService, GeneratorParametersService generatorParametersService) {
         this.eventLogService = eventLogService;
         this.routeService = routeService;
         this.timetableEntityService = timetableEntityService;
         this.trainService = trainService;
-        this.passengerService = passengerService;
         this.generatorParametersService = generatorParametersService;
+        this.generatorParameters = generatorParametersService.findAll();
     }
 
     private Set<Passenger> passengersForTrain(int passengersCount) {
@@ -45,7 +45,7 @@ public class TimetableGeneratorService {
         return passengers;
     }
 
-    public void createTrains(Date startingTime, Date endingTime, int passengersCount) {
+    private void createTrains(Date startingTime, Date endingTime, int passengersCount) {
         String[] trainNames = {"Matejko", "Malczewski", "Batory", "Kossak", "Rejtan", "Błyskawica", "Komancz", "Andrzej",
         "Moniuszko", "Sienkiewicz", "Mickiewicz", "Jagiełło", "Łokietek", "Dmowski", "Piłsudski", "Mieszko"};
         while (startingTime.getTime() < endingTime.getTime()) {

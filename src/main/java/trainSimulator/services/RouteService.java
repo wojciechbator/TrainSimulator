@@ -21,11 +21,11 @@ public class RouteService {
         this.routesDaoInterface = routesDaoInterface;
     }
 
-    public void saveRoute(final Route route) {
+    void saveRoute(final Route route) {
         routesDaoInterface.update(route);
     }
 
-    public List<Route> getAllRoutes() {
+    List<Route> getAllRoutes() {
         return routesDaoInterface.findAll();
     }
 
@@ -33,11 +33,11 @@ public class RouteService {
         routesDaoInterface.create(route);
     }
 
-    public void deleteRoute(final Route route) {
+    private void deleteRoute(final Route route) {
         routesDaoInterface.delete(route);
     }
 
-    public Route findRouteById(final long id) {
+    Route findRouteById(final long id) {
         return routesDaoInterface.findOne(id);
     }
 
@@ -51,13 +51,4 @@ public class RouteService {
             deleteRoute(route);
         }
     }
-
-//    public void addStationToRoute(final Station station, final long id) {
-//        Route route = routesDaoInterface.findOne(id);
-//        List<Station> stationsOnRoute = new ArrayList<>();
-//        stationsOnRoute.add(station);
-//        route.setStationsOnRoute(stationsOnRoute);
-//    }
-
-
 }

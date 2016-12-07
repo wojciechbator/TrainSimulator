@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Passenger;
 import trainSimulator.models.Ticket;
 import trainSimulator.repositories.PassengersDaoInterface;
-import trainSimulator.repositories.TicketsDaoInterface;
 
 import java.util.List;
 import java.util.Random;
@@ -19,16 +18,11 @@ import java.util.Random;
 public class PassengerService {
     private final PassengersDaoInterface passengersDaoInterface;
     private final TicketService ticketService;
-    private final EventLogService eventLogService;
-    private final TicketsDaoInterface ticketsDaoInterface;
 
     @Autowired
-    public PassengerService(PassengersDaoInterface passengersDaoInterface, TicketService ticketService, EventLogService eventLogService,
-                            TicketsDaoInterface ticketsDaoInterface) {
+    public PassengerService(PassengersDaoInterface passengersDaoInterface, TicketService ticketService) {
         this.passengersDaoInterface = passengersDaoInterface;
         this.ticketService = ticketService;
-        this.eventLogService = eventLogService;
-        this.ticketsDaoInterface = ticketsDaoInterface;
     }
 
     public List<Passenger> findAll() {
