@@ -29,7 +29,6 @@ public final class TilesDefinitionConfig implements DefinitionsFactory {
     private static void addDefaultLayoutDefinition(String name, String title, String body, String current) {
 
         Map<String, Attribute> attributes = new HashMap<>();
-
         attributes.put("title", new Attribute(title));
         attributes.put("header", new Attribute("/WEB-INF/common/commonHeader.jsp"));
         attributes.put("body", new Attribute(body));
@@ -37,7 +36,6 @@ public final class TilesDefinitionConfig implements DefinitionsFactory {
         attributes.put("current", new Attribute(current));
 
         Attribute baseTemplate = new Attribute("/WEB-INF/common/commonLayout.jsp");
-
         TILES_DEFINITIONS.put(name, new Definition(name, baseTemplate, attributes));
     }
 }

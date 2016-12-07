@@ -17,7 +17,7 @@
             Wyczyść logi
         </a>
         <a href="<spring:url value="/adminPanel/runSimulation"/> " class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="runSimulationButton">
-            Odpal symulację
+            Włącz symulację
         </a>
         <a href="<spring:url value="/adminPanel/stopSimulation"/> " class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="stopSimulationButton">
             Wyłącz symulację

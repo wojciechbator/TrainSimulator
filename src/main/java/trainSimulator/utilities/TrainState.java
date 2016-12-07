@@ -1,4 +1,4 @@
-package trainSimulator.models;
+package trainSimulator.utilities;
 
 /**
  * Created by mitron-wojtek on 06.12.16.

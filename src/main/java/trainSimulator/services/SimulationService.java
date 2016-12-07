@@ -4,6 +4,7 @@ import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import trainSimulator.models.*;
+import trainSimulator.utilities.TrainState;
 
 import java.util.ArrayList;
 import java.util.Date;

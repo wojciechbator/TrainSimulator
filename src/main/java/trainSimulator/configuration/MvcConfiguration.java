@@ -6,9 +6,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.servlet.config.annotation.*;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 /**
  * Created by mitron-wojtek on 15.11.16.
@@ -28,7 +28,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
-        UrlBasedViewResolver viewResolver = new UrlBasedViewResolver();
+        TilesViewResolver viewResolver = new TilesViewResolver();
         viewResolver.setViewClass(TilesView.class);
         registry.viewResolver(viewResolver);
     }

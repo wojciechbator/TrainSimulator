@@ -1,5 +1,7 @@
 package trainSimulator.models;
 
+import trainSimulator.utilities.TrainState;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;

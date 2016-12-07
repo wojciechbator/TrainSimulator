@@ -21,7 +21,7 @@ public class TrainService {
         this.trainsDaoInterface = trainsDaoInterface;
     }
 
-    public void saveTrain(final Train Train) {
+    void saveTrain(final Train Train) {
         trainsDaoInterface.update(Train);
     }
 
@@ -29,7 +29,7 @@ public class TrainService {
         trainsDaoInterface.create(train);
     }
 
-    public void deleteTrain(final Train train) {
+    private void deleteTrain(final Train train) {
         trainsDaoInterface.delete(train);
     }
 

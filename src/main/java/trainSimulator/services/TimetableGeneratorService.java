@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.*;
+import trainSimulator.utilities.TrainState;
 
 import java.util.*;
 
@@ -19,7 +20,6 @@ public class TimetableGeneratorService {
     private final TimetableEntityService timetableEntityService;
     private final TrainService trainService;
     private final GeneratorParametersService generatorParametersService;
-    private List<GeneratorParameter> generatorParameters;
 
     @Autowired
     public TimetableGeneratorService(EventLogService eventLogService, RouteService routeService, TimetableEntityService timetableEntityService,
@@ -29,7 +29,6 @@ public class TimetableGeneratorService {
         this.timetableEntityService = timetableEntityService;
         this.trainService = trainService;
         this.generatorParametersService = generatorParametersService;
-        this.generatorParameters = generatorParametersService.findAll();
     }
 
     private Set<Passenger> passengersForTrain(int passengersCount) {
@@ -75,7 +74,6 @@ public class TimetableGeneratorService {
             for (Station station : stationsOnRoute) {
                 TimetableEntity timetableEntity = new TimetableEntity();
                 timetableEntity.setArrivalTime(startingTime);
-
                 startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterById(1).getParameterValue()));
                 timetableEntity.setDepartureTime(startingTime);
                 timetableEntity.setStation(station);
