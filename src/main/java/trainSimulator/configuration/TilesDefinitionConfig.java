@@ -18,11 +18,11 @@ public final class TilesDefinitionConfig implements DefinitionsFactory {
         return TILES_DEFINITIONS.get(name);
     }
 
-    public static void addDefinitions() {
+    static void addDefinitions() {
 
-        addDefaultLayoutDefinition("index", "Start", "/WEB-INF/views/index.jsp", "index");
-        addDefaultLayoutDefinition("timetable", "Displayed Timetable", "/WEB-INF/views/timetable.jsp", "timetable");
-        addDefaultLayoutDefinition("adminPanel", "Admin Panel", "/WEB-INF/views/adminPanel.jsp", "adminPanel");
+        addDefaultLayoutDefinition("index", "Train Simulator", "/WEB-INF/views/index.jsp", "index");
+        addDefaultLayoutDefinition("timetable", "Timetable", "/WEB-INF/views/timetable.jsp", "timetable");
+        addDefaultLayoutDefinition("adminPanel", "Admin panel", "/WEB-INF/views/adminPanel.jsp", "adminPanel");
 //        addDefaultLayoutDefinition("simulation", "Simulation", "/WEB-INF/views/someView.jsp", "simulation");
 
     }
