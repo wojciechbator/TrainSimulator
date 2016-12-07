@@ -1,5 +1,6 @@
 package trainSimulator.repositories;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
