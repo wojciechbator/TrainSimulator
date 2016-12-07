@@ -16,28 +16,23 @@ import java.util.List;
 public class SimulationService implements Runnable {
     private final TrainService trainService;
     private final GeneratorParametersService generatorParametersService;
-    private final StationService stationService;
     private final EventLogService eventLogService;
     //mutex object, for synchronizing threads
     private static Logger logger = Logger.getLogger(SimulationService.class);
     private final Object mutexObject = new Object();
     private boolean isRunning = true;
-    private Station station;
 
     public SimulationService(TrainService trainService, GeneratorParametersService generatorParametersService,
-                             StationService stationService, EventLogService eventLogService, Station station) {
+                             EventLogService eventLogService) {
         this.trainService = trainService;
         this.generatorParametersService = generatorParametersService;
-        this.stationService = stationService;
         this.eventLogService = eventLogService;
-        this.station = station;
     }
 
     //Simulation will be in thread pool for every station, easy ExecutorService
     @Override
     public void run() {
         boolean runFlag = true;
-        List<Station> allStations = stationService.findAllStations();
         List<Train> allTrains = trainService.getAllTrains();
         while (runFlag) {
             synchronized (mutexObject) {
@@ -88,13 +83,11 @@ public class SimulationService implements Runnable {
     private List<Train> getNearestTrains(List<Train> allTrains) {
         List<Train> nearestTrains = new ArrayList<>();
         for (Train train : allTrains) {
-            if (train.getStation() == station) {
-                for (TimetableEntity timetableEntity : train.getTimetable()) {
-                    if (timetableEntity.getArrivalTime().getTime() < DateUtils.addMinutes(new Date(),
-                            Integer.valueOf(generatorParametersService.findGeneratorParameterById(7).getParameterValue())).getTime()
-                            && train.getState() != TrainState.DEPARTED) {
-                        nearestTrains.add(train);
-                    }
+            for (TimetableEntity timetableEntity : train.getTimetable()) {
+                if (timetableEntity.getArrivalTime().getTime() < DateUtils.addMinutes(new Date(),
+                        Integer.valueOf(generatorParametersService.findGeneratorParameterById(7).getParameterValue())).getTime()
+                        && train.getState() != TrainState.DEPARTED) {
+                    nearestTrains.add(train);
                 }
             }
         }

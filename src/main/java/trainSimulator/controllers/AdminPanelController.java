@@ -72,8 +72,7 @@ public class AdminPanelController {
         List<Station> allStations = stationService.findAllStations();
         for (Station station : allStations) {
             if (station.getTrainsOnStation().size() > 0) {
-                Runnable simulationWorker = new SimulationService(trainService, generatorParametersService,
-                        stationService, eventLogService, station);
+                Runnable simulationWorker = new SimulationService(trainService, generatorParametersService, eventLogService);
                 executorService.execute(simulationWorker);
             }
         }

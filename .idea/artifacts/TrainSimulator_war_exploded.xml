@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="TrainSimulator:war exploded">
-    <output-path>$PROJECT_DIR$/target/SpringStub</output-path>
+    <output-path>$PROJECT_DIR$/target/TrainSimulator</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -73,13 +73,13 @@
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:8.0.20" />
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:8.0.20" />
           <element id="library" level="project" name="Maven: org.eclipse.jdt.core.compiler:ecj:4.4.1" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.4.5" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.4.0" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.4.5" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.5" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.5" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/SpringStub/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/TrainSimulator/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="TrainSimulator/web/Web" />
     </root>

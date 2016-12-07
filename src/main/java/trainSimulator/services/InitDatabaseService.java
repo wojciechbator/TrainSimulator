@@ -102,11 +102,5 @@ public class InitDatabaseService {
         secondRoute.setStationsOnRoute(stationsOnSecondRoute);
         secondRoute.setAvailable(true);
         routeService.saveRoute(secondRoute);
-        stationService.saveStation(wroclaw);
-        stationService.saveStation(poznan);
-        stationService.saveStation(szczecin);
-        stationService.saveStation(wroclaw2);
-        stationService.saveStation(krakow);
-        stationService.saveStation(warszawa);
     }
 }
