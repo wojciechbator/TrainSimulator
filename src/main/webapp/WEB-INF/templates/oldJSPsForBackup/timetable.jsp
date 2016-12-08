@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@include file="../common/commonTaglibs.jsp"%>
+<%@include file="../oldCommonForBackup/commonTaglibs.jsp"%>
 
 <main class="mdl-layout__content">
     <section class="mdl-layout__tab-panel is-active" id="timetableTabPanel">

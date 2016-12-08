@@ -29,7 +29,7 @@ public class GeneratorParametersService {
         return generatorParametersDao.findAll();
     }
 
-    GeneratorParameter findGeneratorParameterById(final long id) {
+    public GeneratorParameter findGeneratorParameterById(final long id) {
         return generatorParametersDao.findOne(id);
     }
 
