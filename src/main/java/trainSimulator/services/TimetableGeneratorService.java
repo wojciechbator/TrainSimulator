@@ -105,13 +105,8 @@ public class TimetableGeneratorService {
         Date endingDate = DateUtils.addHours(startingDate, 24);
         //First of all - clear old timetable and data
         trainService.clearTrains();
-        EventLog eventLog = new EventLog();
-        eventLog.setStationName("");
-        eventLog.setType("INFO");
-        eventLog.setTimestamp(new Date());
-        eventLog.setComment("Cleared old trains, timetable for them, passengers and tickets!");
-        eventLogService.saveEvent(eventLog);
-
+        String comment = "Cleared old trains, timetable for them, passengers and tickets!";
+        eventLogService.saveEvent(new EventLog("INFO", "", new Date(), comment));
         //TODO: Get param by ID somehow, for now it will be hardcoded :(
         createTrains(startingDate, endingDate, Integer.valueOf(generatorParametersService.findGeneratorParameterById(4).getParameterValue()));
     }
