@@ -32,25 +32,25 @@ public class AdminPanelController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String generatorView() {
-        return "pages/adminPanel";
+        return "adminPanel";
     }
 
     @ResponseBody
     public String generatorUtilities(ModelMap modelMap) throws IOException {
         modelMap.addAttribute("timetableGeneratorService", timetableGeneratorService);
-        return "pages/timetable";
+        return "timetable";
     }
 
     @ResponseBody
     public String eventLogsUtilities(ModelMap modelMap) throws IOException {
         modelMap.addAttribute("eventLogService", eventLogService);
-        return "pages/adminPanel";
+        return "adminPanel";
     }
 
     @ResponseBody
     public String simulationUtilities(ModelMap modelMap) throws IOException {
         modelMap.addAttribute("runSimulationService", runSimulationService);
-        return "pages/timetable";
+        return "timetable";
     }
 
 }
