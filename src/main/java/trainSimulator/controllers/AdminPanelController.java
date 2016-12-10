@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import trainSimulator.services.EventLogService;
 import trainSimulator.services.RunSimulationService;
 import trainSimulator.services.TimetableGeneratorService;
+import trainSimulator.services.TrainService;
 
 import java.io.IOException;
 
@@ -21,13 +22,15 @@ public class AdminPanelController {
     private final TimetableGeneratorService timetableGeneratorService;
     private final EventLogService eventLogService;
     private final RunSimulationService runSimulationService;
+    private final TrainService trainService;
 
     @Autowired
     public AdminPanelController(TimetableGeneratorService timetableGeneratorService, EventLogService eventLogService,
-                                RunSimulationService runSimulationService) {
+                                RunSimulationService runSimulationService, TrainService trainService) {
         this.timetableGeneratorService = timetableGeneratorService;
         this.runSimulationService = runSimulationService;
         this.eventLogService = eventLogService;
+        this.trainService = trainService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -38,6 +41,7 @@ public class AdminPanelController {
     @ResponseBody
     public String generatorUtilities(ModelMap modelMap) throws IOException {
         modelMap.addAttribute("timetableGeneratorService", timetableGeneratorService);
+        modelMap.addAttribute("trainService", trainService);
         return "timetable";
     }
 

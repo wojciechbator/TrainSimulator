@@ -2,10 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Rozklad jazdy</title>
+    <title>Rozkład jazdy</title>
 </head>
 <body>
-<div th:insert="~{commonLayout}"></div>
+<div th:include="commonLayout"></div>
 <main class="mdl-layout__content">
     <section class="mdl-layout__tab-panel is-active" id="timetableTabPanel">
         <div class="page-content">
@@ -36,6 +36,6 @@
         </div>
     </section>
 </main>
-<div th:insert="commonFooter" style="text-align: center;">&copy; Wojtek B & Wojtek S</div>
+<div th:include="commonFooter" style="text-align: center;">&copy; Wojtek B & Wojtek S</div>
 </body>
 </html>

@@ -7,31 +7,31 @@
     <meta charset="UTF-8">
     <title>Panel admina</title>
 </head>
-<div th:insert="~{commonLayout}"></div>
+<div th:include="commonLayout"></div>
 <section class="mdl-layout__tab-panel is-active" id="generatorTabPanel">
     <div class="page-content">
-        <a th:href="/adminPanel/generate" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+        <a th:onclick="${timetableGeneratorService.generateTimetable()}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
            id="generateTrainsButton">
             Wygeneruj pociągi
         </a>
-        <a th:href="/adminPanel/clearTimetable" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+        <a th:onclick="${trainService.clearTrains()}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
            id="clearTrainsButton">
             Wyczyść pociągi
         </a>
-        <a th:href="/adminPanel/clearLogs" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+        <a th:onclick="${eventLogService.clearEvents()}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
            id="clearLogsButton">
             Wyczyść logi
         </a>
-        <a th:href="/adminPanel/runSimulation" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+        <a th:onclick="${runSimulationService.runSimulation()}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
            id="runSimulationButton">
             Włącz symulację
         </a>
-        <a th:href="/adminPanel/stopSimulation" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+        <a th:onclick="${runSimulationService.stopSimulation()}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
            id="stopSimulationButton">
             Wyłącz symulację
         </a>
     </div>
     <script type="text/javascript" src="../../resources/js/generatorUtilities.js"></script>
-    <div th:insert="~{commonFooter}"></div>
+    <div th:include="commonFooter"></div>
 </section>
 </html>
