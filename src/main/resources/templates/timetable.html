@@ -2,10 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Rozkład jazdy</title>
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}">
+    <link rel="stylesheet" th:href="@{https://code.getmdl.io/1.2.1/material.indigo-pink.min.css}">
+    <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Roboto:300,400,500,700}" type="text/css">
+    <link rel="stylesheet" th:href="@{/resources/css/style.css}" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>    <title>Rozkład jazdy</title>
 </head>
 <body>
-<div th:include="commonLayout"></div>
+<div th:include="commonLayout :: commonNavbar"></div>
 <main class="mdl-layout__content">
     <section class="mdl-layout__tab-panel is-active" id="timetableTabPanel">
         <div class="page-content">

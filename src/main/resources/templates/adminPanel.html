@@ -5,28 +5,39 @@
         Zainstaluj wtyczkę JavaScript, żeby oglądać dynamiczną zawartość tej strony!
     </noscript>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}">
+    <link rel="stylesheet" th:href="@{https://code.getmdl.io/1.2.1/material.indigo-pink.min.css}">
+    <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Roboto:300,400,500,700}" type="text/css">
+    <link rel="stylesheet" th:href="@{/resources/css/style.css}" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <title>Panel admina</title>
 </head>
-<div th:include="commonLayout"></div>
+<div th:include="commonLayout :: commonNavbar"></div>
 <section class="mdl-layout__tab-panel is-active" id="generatorTabPanel">
     <div class="page-content">
-        <a th:onclick="${timetableGeneratorService.generateTimetable()}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+        <a th:onclick="${timetableGeneratorService.generateTimetable()}"
+           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
            id="generateTrainsButton">
             Wygeneruj pociągi
         </a>
-        <a th:onclick="${trainService.clearTrains()}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+        <a th:onclick="${trainService.clearTrains()}"
+           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
            id="clearTrainsButton">
             Wyczyść pociągi
         </a>
-        <a th:onclick="${eventLogService.clearEvents()}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+        <a th:onclick="${eventLogService.clearEvents()}"
+           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
            id="clearLogsButton">
             Wyczyść logi
         </a>
-        <a th:onclick="${runSimulationService.runSimulation()}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+        <a th:onclick="${runSimulationService.runSimulation()}"
+           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
            id="runSimulationButton">
             Włącz symulację
         </a>
-        <a th:onclick="${runSimulationService.stopSimulation()}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+        <a th:onclick="${runSimulationService.stopSimulation()}"
+           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
            id="stopSimulationButton">
             Wyłącz symulację
         </a>
