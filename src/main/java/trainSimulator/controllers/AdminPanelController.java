@@ -41,7 +41,7 @@ public class AdminPanelController {
     @ResponseBody
     public String generatorUtilities(ModelMap modelMap) throws IOException {
         modelMap.addAttribute("timetableGeneratorService", timetableGeneratorService);
-        modelMap.addAttribute("trainService", trainService);
+        modelMap.addAttribute("allTrains", trainService.getAllTrains());
         return "timetable";
     }
 

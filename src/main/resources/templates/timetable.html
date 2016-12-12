@@ -7,14 +7,16 @@
     <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Roboto:300,400,500,700}" type="text/css">
     <link rel="stylesheet" th:href="@{/resources/css/style.css}" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>    <title>Rozkład jazdy</title>
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    <title>Rozkład jazdy</title>
 </head>
 <body>
 <div th:include="commonLayout :: commonNavbar"></div>
 <main class="mdl-layout__content">
     <section class="mdl-layout__tab-panel is-active" id="timetableTabPanel">
         <div class="page-content">
-            <div class="trainList" th:unless="${#lists.isEmpty(trainsList)}">
+             <!--<div class="trainsList" th:unless="${#lists.isEmpty(allTrains)}">-->
+             <div class="trainsList" th:unless="${#lists.isEmpty(@trainService.getAllTrains())}">
                 <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                     <thead>
                     <tr>
@@ -27,7 +29,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="train : ${trainsList}">
+                    <tr th:each="train : ${@trainService.getAllTrains()}">
                         <td class="mdl-data-table__cell--non-numeric">${train.id}</td>
                         <td>${train.name}</td>
                         <td class="mdl-data-table__cell--non-numeric">${train.route.id}</td>
@@ -41,6 +43,6 @@
         </div>
     </section>
 </main>
-<div th:include="commonFooter" style="text-align: center;">&copy; Wojtek B & Wojtek S</div>
+<div th:include="commonFooter" style="text-align: center;">&copy; Wojtek B &amp; Wojtek S</div>
 </body>
 </html>

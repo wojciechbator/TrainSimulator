@@ -18,7 +18,7 @@ public class RunSimulationService {
     private final GeneratorParametersService generatorParametersService;
     private final TrainService trainService;
     private final EventLogService eventLogService;
-    ExecutorService executorService;
+    private ExecutorService executorService;
 
     @Autowired
     public RunSimulationService(StationService stationService, GeneratorParametersService generatorParametersService, TrainService trainService, EventLogService eventLogService) {
