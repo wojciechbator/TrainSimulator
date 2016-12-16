@@ -1,0 +1,53 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Lato Light", sans-serif;
+}
+
+.mdl-button--raised.mdl-button--colored {
+    background: darkslategray;
+}
+
+.mdl-layout-title {
+    font-size: large;
+}
+
+.mdl-data-table {
+    width: 100%;
+}
+
+.author-table-row {
+    padding-top: 5px;
+    display: table;
+    height: 48px;
+    width: 100%;
+}
+
+.author-table-cell {
+    background-color: darkolivegreen;
+    height: 100%;
+    margin: 3px;
+    border: black solid 1px;
+    display: table-cell;
+    text-align:center;
+    vertical-align: middle;
+    color: midnightblue;
+}
+
+
+.mdl-data-table td, th {
+    text-align: center;
+}
+
+p {
+    /*TODO: Beznadzieja, do poprawki*/
+    margin-left: 2cm;
+    margin-right: 2cm;
+    text-align: center;
+    font-size: 15px;
+}
+
+/*.mdl-data-table__cell--non-numeric {*/
+    /*text-align: center;*/
+/*}*/
