@@ -1,6 +1,5 @@
 package trainSimulator.repositories;
 
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
@@ -16,7 +15,7 @@ public abstract class AbstractJpaDao<T extends Serializable> {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public final void setClazz(final Class<T> clazzToSet) {
+    final void setClazz(final Class<T> clazzToSet) {
         this.clazz = clazzToSet;
     }
 

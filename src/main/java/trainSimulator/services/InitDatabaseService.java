@@ -67,7 +67,6 @@ public class InitDatabaseService {
         timeForNearestTrainMinutes.setParameterName("time_for_nearest_trains_minutes");
         timeForNearestTrainMinutes.setParameterValue("20");
         generatorParametersService.saveGeneratorParameter(timeForNearestTrainMinutes);
-        //Prepared infrastructure for train simulator, something bad happens here
         Route firstRoute = new Route();
         List<Station> stationsOnFirstRoute = new ArrayList<>();
         Route secondRoute = new Route();

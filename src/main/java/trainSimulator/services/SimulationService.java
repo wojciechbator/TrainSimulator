@@ -18,7 +18,6 @@ public class SimulationService implements Runnable {
     private final TrainService trainService;
     private final GeneratorParametersService generatorParametersService;
     private final EventLogService eventLogService;
-    //mutex object, for synchronizing threads
     private static Logger logger = Logger.getLogger(SimulationService.class);
     private final Object mutexObject = new Object();
     private boolean isRunning = true;
@@ -30,7 +29,6 @@ public class SimulationService implements Runnable {
         this.eventLogService = eventLogService;
     }
 
-    //Simulation will be in thread pool for every station, easy ExecutorService
     @Override
     public void run() {
         boolean runFlag = true;
