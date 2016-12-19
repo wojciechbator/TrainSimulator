@@ -11,7 +11,6 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="SpringStub" target="1.8" />
       <module name="TrainSimulator" target="1.8" />
     </bytecodeTargetLevel>
   </component>
