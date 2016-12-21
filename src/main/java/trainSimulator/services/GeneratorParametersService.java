@@ -1,5 +1,6 @@
 package trainSimulator.services;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,7 @@ import java.util.List;
 @Service
 @Transactional
 public class GeneratorParametersService {
+    private static final Logger logger = Logger.getLogger(GeneratorParametersService.class);
     private final GeneratorParametersDaoInterface generatorParametersDao;
 
     @Autowired
@@ -29,19 +31,23 @@ public class GeneratorParametersService {
         return generatorParametersDao.findAll();
     }
 
-    public GeneratorParameter findGeneratorParameterById(final long id) {
+    GeneratorParameter findGeneratorParameterById(final long id) {
+        logger.info("Found generator parameter with id: " + id);
         return generatorParametersDao.findOne(id);
     }
 
     public void createParameter(final GeneratorParameter generatorParameter) {
+        logger.info("Created parameter with id: " + generatorParameter.getId());
         generatorParametersDao.create(generatorParameter);
     }
 
     public void deleteGeneratorParameterById(final long id) {
+        logger.info("Deleted generator parameter by id with id: " + id);
         generatorParametersDao.deleteById(id);
     }
 
     private void deleteGeneratorParameter(GeneratorParameter generatorParameter) {
+        logger.info("Deleted generator parameter with id: " + generatorParameter.getId());
         generatorParametersDao.delete(generatorParameter);
     }
 
@@ -50,6 +56,7 @@ public class GeneratorParametersService {
         for (GeneratorParameter generatorParameter : generatorParameters) {
             deleteGeneratorParameter(generatorParameter);
         }
+        logger.info("Cleared parameters!");
     }
 
 }

@@ -1,5 +1,6 @@
 package trainSimulator.services;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,7 @@ import java.util.List;
 @Service
 @Transactional
 public class TimetableEntityService {
+    private static final Logger logger = Logger.getLogger(TimetableEntityService.class);
     private final TimetableEntitiesDaoInterface timetableEntitiesDaoInterface;
 
     @Autowired
@@ -23,18 +25,22 @@ public class TimetableEntityService {
 
     public void saveTimetableEntity(final TimetableEntity timetableEntity) {
         timetableEntitiesDaoInterface.update(timetableEntity);
+        logger.info("Saved timetable entity: " + timetableEntity.getId());
     }
 
     void createTimetableEntity(final TimetableEntity timetableEntity) {
         timetableEntitiesDaoInterface.create(timetableEntity);
+        logger.info("Created timetable entity: " + timetableEntity.getId());
     }
 
     private void deleteTimetableEntity(final TimetableEntity timetableEntity) {
         timetableEntitiesDaoInterface.delete(timetableEntity);
+        logger.info("Deleted timetable entity: " + timetableEntity.getId());
     }
 
     public void deleteTimetableEntityById(final long id) {
         timetableEntitiesDaoInterface.deleteById(id);
+        logger.info("Deleted timetable entity by id: " + id);
     }
 
     public List<TimetableEntity> getAllTimetableEntities() {
@@ -42,6 +48,7 @@ public class TimetableEntityService {
     }
 
     public TimetableEntity findTimetableEntity(final long id) {
+        logger.info("Found timetable entity with id: " + id);
         return timetableEntitiesDaoInterface.findOne(id);
     }
 
@@ -50,5 +57,6 @@ public class TimetableEntityService {
         for (TimetableEntity timetableEntity : allTimetableEntities) {
             deleteTimetableEntity(timetableEntity);
         }
+        logger.info("Cleared all timetable entities!");
     }
 }

@@ -1,6 +1,7 @@
 package trainSimulator.services;
 
 import org.apache.commons.lang3.time.DateUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +16,7 @@ import java.util.*;
 @Service
 @Transactional
 public class TimetableGeneratorService {
+    private static final Logger logger = Logger.getLogger(TimetableGeneratorService.class);
     private final EventLogService eventLogService;
     private final RouteService routeService;
     private final TimetableEntityService timetableEntityService;
@@ -41,6 +43,7 @@ public class TimetableGeneratorService {
             passenger.setName(names[index]);
             passengers.add(passenger);
         }
+        logger.info("Passengers prepared for train!");
         return passengers;
     }
 
@@ -58,17 +61,25 @@ public class TimetableGeneratorService {
             if(allTrains.size() > 0) {
                 if(allTrains.get(allTrains.size() - 1).getRoute() == firstRoute && secondRoute.isAvailable()) {
                     train.setRoute(secondRoute);
+                    logger.info("Route: " + secondRoute.getName() + " set for train: " + train.getId());
                 }
                 else if(allTrains.get(allTrains.size() - 1).getRoute() == secondRoute && firstRoute.isAvailable()) {
                     train.setRoute(firstRoute);
+                    logger.info("Route: " + firstRoute.getName() + " set for train: " + train.getId());
                 }
                 else {
                     for (Route route : routeService.getAllRoutes()) {
-                        if(route.isAvailable()) train.setRoute(route);
+                        if(route.isAvailable()) {
+                            train.setRoute(route);
+                            logger.info("Route: " + route.getName() + " set for train: " + train.getId());
+                        }
                     }
                 }
             }
-            else train.setRoute(firstRoute);
+            else {
+                train.setRoute(firstRoute);
+                logger.info("Route: " + firstRoute.getName() + " set for train: " + train.getId());
+            }
             List<Station> stationsOnRoute = train.getRoute().getStationsOnRoute();
             List<TimetableEntity> timetable = new ArrayList<>();
             for (Station station : stationsOnRoute) {
@@ -82,10 +93,12 @@ public class TimetableGeneratorService {
                 timetableEntityService.createTimetableEntity(timetableEntity);
             }
             train.setTimetable(timetable);
+            logger.info("Timetable has been set for train: " + train.getId());
             for (Passenger passenger : passengers) {
                 passenger.setTrain(train);
             }
             train.setPassengers(passengers);
+            logger.info("Passengers has been set for train: " + train.getId());
             train.setStation(stationsOnRoute.get(0));
             train.setState(TrainState.PLANNED);
             EventLog eventLog = new EventLog();
@@ -106,6 +119,7 @@ public class TimetableGeneratorService {
         //First of all - clear old timetable and data
         trainService.clearTrains();
         String comment = "Cleared old trains, timetable for them, passengers and tickets!";
+        logger.info(comment);
         eventLogService.saveEvent(new EventLog("INFO", "", new Date(), comment));
         //TODO: Get param by ID somehow, for now it will be hardcoded :(
         createTrains(startingDate, endingDate, Integer.valueOf(generatorParametersService.findGeneratorParameterById(4).getParameterValue()));

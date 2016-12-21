@@ -31,13 +31,14 @@ public class SimulationService implements Runnable {
 
     @Override
     public void run() {
+        logger.info("Running simulation instance.");
         boolean runFlag = true;
         List<Train> allTrains = trainService.getAllTrains();
+        List<Train> nearestTrainsOnThisStation = getNearestTrains(allTrains);
         while (runFlag) {
             synchronized (mutexObject) {
                 runFlag = isRunning;
             }
-            List<Train> nearestTrainsOnThisStation = getNearestTrains(allTrains);
             if (nearestTrainsOnThisStation != null) {
                 for (Train train : nearestTrainsOnThisStation) {
                     if (train.getState() != TrainState.CANCELLED) {
@@ -90,6 +91,7 @@ public class SimulationService implements Runnable {
                 }
             }
         }
+        logger.info("Got nearest trains for simulation.");
         return nearestTrains;
     }
 }

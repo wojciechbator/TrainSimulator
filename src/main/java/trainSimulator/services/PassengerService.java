@@ -1,5 +1,6 @@
 package trainSimulator.services;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ import java.util.Random;
 @Service
 @Transactional
 public class PassengerService {
+    private static final Logger logger = Logger.getLogger(PassengerService.class);
     private final PassengersDaoInterface passengersDaoInterface;
     private final TicketService ticketService;
 
@@ -35,6 +37,7 @@ public class PassengerService {
 
     public void createPassenger(final Passenger passenger) {
         passengersDaoInterface.create(passenger);
+        logger.info("Created passenger with id: " + passenger.getId());
     }
 
     public void deletePassengerById(final long id) {
@@ -45,10 +48,12 @@ public class PassengerService {
         //more things to set for passenger when saving, etc: give him some ticket, some params
         //passenger.setTickets();
         passengersDaoInterface.update(passenger);
+        logger.info("Saved passenger with id: " + passenger.getId());
     }
 
     public void delete(final Passenger passenger) {
         passengersDaoInterface.delete(passenger);
+        logger.info("Passenger with id: " + passenger.getId() + " deleted!");
     }
 
     public void buyTicket(Passenger passenger, Ticket ticket) {
@@ -56,11 +61,13 @@ public class PassengerService {
         ticket.setPassenger(passenger);
         ticket.setPrice(random.nextInt(30) + 10);
         ticketService.saveTicket(ticket);
+        logger.info("Passenger with id: " + passenger.getId() + " has bought a ticket with id: " + ticket.getId());
     }
 
     public void removePassengers() {
         for (Passenger passenger : passengersDaoInterface.findAll()) {
             delete(passenger);
         }
+        logger.info("All passengers removed!");
     }
 }

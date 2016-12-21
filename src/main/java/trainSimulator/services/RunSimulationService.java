@@ -1,5 +1,6 @@
 package trainSimulator.services;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import trainSimulator.models.Station;
@@ -14,6 +15,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Service
 public class RunSimulationService {
+    private static final Logger logger = Logger.getLogger(RunSimulationService.class);
     private final StationService stationService;
     private final GeneratorParametersService generatorParametersService;
     private final TrainService trainService;
@@ -30,11 +32,13 @@ public class RunSimulationService {
 
     public void runSimulation() {
         executorService = Executors.newFixedThreadPool(stationService.findAllStations().size());
+        logger.info("Created executor service for simulation!");
         List<Station> allStations = stationService.findAllStations();
         for (Station station : allStations) {
             if (station.getTrainsOnStation().size() > 0) {
                 Runnable simulationWorker = new SimulationService(trainService, generatorParametersService, eventLogService);
                 executorService.execute(simulationWorker);
+                logger.info("New instance of executor service is working!");
             }
         }
     }
@@ -45,7 +49,7 @@ public class RunSimulationService {
             try {
                 executorService.awaitTermination(3, TimeUnit.SECONDS);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.error("An error happened when stopping simulation: " + e.getMessage());
             }
         }
     }

@@ -67,6 +67,9 @@ public class InitDatabaseService {
         timeForNearestTrainMinutes.setParameterName("time_for_nearest_trains_minutes");
         timeForNearestTrainMinutes.setParameterValue("20");
         generatorParametersService.saveGeneratorParameter(timeForNearestTrainMinutes);
+        String generatedParametersLog = "Generator parameters are set.";
+        logger.info(generatedParametersLog);
+        eventLogService.saveEvent(new EventLog("INFO", "", new Date(), generatedParametersLog));
         Route firstRoute = new Route();
         List<Station> stationsOnFirstRoute = new ArrayList<>();
         Route secondRoute = new Route();
@@ -97,5 +100,6 @@ public class InitDatabaseService {
         secondRoute.setStationsOnRoute(stationsOnSecondRoute);
         secondRoute.setAvailable(true);
         routeService.saveRoute(secondRoute);
+        logger.info("Init method done!");
     }
 }
