@@ -1,4 +1,4 @@
 TUTAJ WRZUCAMY WSZYSTKIE ZAŻALENIA: CO NIE DZIAŁA, CO MA DZIAŁAĆ I JAK, WSZYSTKIE SPOSTRZEŻENIA BĘDĄ CENNE
 
 - symulacja: tylko jeśli stan pociągu jest planned to można kupic bilet!
-- korzystac z thymeleafa do oporu
+- korzystac z thymeleafa do oporu (jest do bani, ale już zaczęliśmy)

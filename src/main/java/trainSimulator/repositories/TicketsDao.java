@@ -20,16 +20,4 @@ public class TicketsDao extends AbstractJpaDao<Ticket> implements TicketsDaoInte
         setClazz(Ticket.class);
     }
 
-    @Override
-    @Cacheable("ticket")
-    public Ticket findOne(final long id) {
-        return entityManager.find(Ticket.class, id);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    @Cacheable("tickets")
-    public List<Ticket> findAll() {
-        return entityManager.createQuery("from " + Ticket.class.getName()).getResultList();
-    }
 }

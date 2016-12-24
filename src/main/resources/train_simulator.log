@@ -1,127 +1,75 @@
-[2016-12-23 10:42:13,792] 0    [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-[2016-12-23 10:42:13,805] 13   [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [servletContextInitParams] PropertySource with lowest search precedence
-[2016-12-23 10:42:13,811] 19   [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [systemProperties] PropertySource with lowest search precedence
-[2016-12-23 10:42:13,813] 21   [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [systemEnvironment] PropertySource with lowest search precedence
-[2016-12-23 10:42:13,814] 22   [restartedMain] DEBUG (AbstractEnvironment.java:124) - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-[2016-12-23 10:42:13,814] 22   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
-[2016-12-23 10:42:13,816] 24   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
-[2016-12-23 10:42:13,816] 24   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
-[2016-12-23 10:42:13,817] 25   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
-[2016-12-23 10:42:13,817] 25   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
-[2016-12-23 10:42:13,817] 25   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
-[2016-12-23 10:42:13,818] 26   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
-[2016-12-23 10:42:13,818] 26   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
-[2016-12-23 10:42:13,824] 32   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
-[2016-12-23 10:42:13,825] 33   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
-[2016-12-23 10:42:13,846] 54   [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.boot.env.EnvironmentPostProcessor] names: [org.springframework.boot.devtools.env.DevToolsHomePropertiesPostProcessor, org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor, org.springframework.boot.cloud.CloudFoundryVcapEnvironmentPostProcessor, org.springframework.boot.env.SpringApplicationJsonEnvironmentPostProcessor]
-[2016-12-23 10:42:14,276] 484  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [servletConfigInitParams]
-[2016-12-23 10:42:14,276] 484  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [servletContextInitParams]
-[2016-12-23 10:42:14,277] 485  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [systemProperties]
-[2016-12-23 10:42:14,277] 485  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [systemEnvironment]
-[2016-12-23 10:42:14,278] 486  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'SPRING_APPLICATION_JSON:' in any property source
-[2016-12-23 10:42:14,278] 486  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [servletConfigInitParams]
-[2016-12-23 10:42:14,278] 486  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [servletContextInitParams]
-[2016-12-23 10:42:14,279] 487  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [systemProperties]
-[2016-12-23 10:42:14,280] 488  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [systemEnvironment]
-[2016-12-23 10:42:14,280] 488  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'SPRING_APPLICATION_JSON' in any property source
-[2016-12-23 10:42:14,280] 488  [restartedMain] TRACE (PropertyPlaceholderHelper.java:165) - Resolved placeholder 'SPRING_APPLICATION_JSON:'
-[2016-12-23 10:42:14,281] 489  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [servletConfigInitParams]
-[2016-12-23 10:42:14,281] 489  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [servletContextInitParams]
-[2016-12-23 10:42:14,281] 489  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [systemProperties]
-[2016-12-23 10:42:14,282] 490  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [systemEnvironment]
-[2016-12-23 10:42:14,282] 490  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.application.json:' in any property source
-[2016-12-23 10:42:14,282] 490  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [servletConfigInitParams]
-[2016-12-23 10:42:14,282] 490  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [servletContextInitParams]
-[2016-12-23 10:42:14,295] 503  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [systemProperties]
-[2016-12-23 10:42:14,296] 504  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [systemEnvironment]
-[2016-12-23 10:42:14,296] 504  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.application.json' in any property source
-[2016-12-23 10:42:14,296] 504  [restartedMain] TRACE (PropertyPlaceholderHelper.java:165) - Resolved placeholder 'spring.application.json:'
-[2016-12-23 10:42:14,299] 507  [restartedMain] DEBUG (MutablePropertySources.java:137) - Adding [random] PropertySource with search precedence immediately lower than [systemEnvironment]
-[2016-12-23 10:42:14,299] 507  [restartedMain] TRACE (RandomValuePropertySource.java:143) - RandomValuePropertySource add to Environment
-[2016-12-23 10:42:14,306] 514  [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.boot.env.PropertySourceLoader] names: [org.springframework.boot.env.PropertiesPropertySourceLoader, org.springframework.boot.env.YamlPropertySourceLoader]
-[2016-12-23 10:42:14,308] 516  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
-[2016-12-23 10:42:14,308] 516  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
-[2016-12-23 10:42:14,309] 517  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
-[2016-12-23 10:42:14,309] 517  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
-[2016-12-23 10:42:14,309] 517  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [random]
-[2016-12-23 10:42:14,309] 517  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
-[2016-12-23 10:42:14,310] 518  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [servletConfigInitParams]
-[2016-12-23 10:42:14,310] 518  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [servletContextInitParams]
-[2016-12-23 10:42:14,311] 519  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [systemProperties]
-[2016-12-23 10:42:14,312] 520  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [systemEnvironment]
-[2016-12-23 10:42:14,312] 520  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [random]
-[2016-12-23 10:42:14,312] 520  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.default' in any property source
-[2016-12-23 10:42:14,319] 527  [restartedMain] TRACE (PropertySourcesLoader.java:170) - Adding PropertySource: PropertiesPropertySource@1286643266 [name='applicationConfig: [classpath:/application.properties]', properties={logging.config=classpath:log4j.properties}] in group: applicationConfig: [profile=]
-[2016-12-23 10:42:14,319] 527  [restartedMain] DEBUG (MutablePropertySources.java:97) - Adding [applicationConfig: [profile=]] PropertySource with highest search precedence
-[2016-12-23 10:42:14,334] 542  [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [applicationConfigurationProperties] PropertySource with lowest search precedence
-[2016-12-23 10:42:14,347] 555  [restartedMain] TRACE (PropertiesConfigurationFactory.java:252) - Property Sources: [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment,random,applicationConfigurationProperties]
-[2016-12-23 10:42:14,372] 580  [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.beans.BeanInfoFactory] names: [org.springframework.beans.ExtendedBeanInfoFactory]
-[2016-12-23 10:42:14,376] 584  [restartedMain] TRACE (CachedIntrospectionResults.java:265) - Getting BeanInfo for class [org.springframework.boot.SpringApplication]
-[2016-12-23 10:42:14,390] 598  [restartedMain] TRACE (CachedIntrospectionResults.java:284) - Caching PropertyDescriptors for class [org.springframework.boot.SpringApplication]
-[2016-12-23 10:42:14,390] 598  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'addCommandLineProperties' of type [boolean]
-[2016-12-23 10:42:14,394] 602  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'additionalProfiles' of type [[Ljava.lang.String;]
-[2016-12-23 10:42:14,394] 602  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'applicationContextClass' of type [java.lang.Class]
-[2016-12-23 10:42:14,395] 603  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'banner' of type [org.springframework.boot.Banner]
-[2016-12-23 10:42:14,395] 603  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'bannerMode' of type [org.springframework.boot.Banner$Mode]
-[2016-12-23 10:42:14,395] 603  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'beanNameGenerator' of type [org.springframework.beans.factory.support.BeanNameGenerator]
-[2016-12-23 10:42:14,396] 604  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'class' of type [java.lang.Class]
-[2016-12-23 10:42:14,396] 604  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'classLoader' of type [java.lang.ClassLoader]
-[2016-12-23 10:42:14,396] 604  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'defaultProperties' of type [java.util.Properties]
-[2016-12-23 10:42:14,398] 606  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'environment' of type [org.springframework.core.env.ConfigurableEnvironment]
-[2016-12-23 10:42:14,398] 606  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'headless' of type [boolean]
-[2016-12-23 10:42:14,398] 606  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'initializers' of type [java.util.Set]
-[2016-12-23 10:42:14,400] 608  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'listeners' of type [java.util.Set]
-[2016-12-23 10:42:14,401] 609  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'logStartupInfo' of type [boolean]
-[2016-12-23 10:42:14,403] 611  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'mainApplicationClass' of type [java.lang.Class]
-[2016-12-23 10:42:14,405] 613  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'registerShutdownHook' of type [boolean]
-[2016-12-23 10:42:14,405] 613  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'resourceLoader' of type [org.springframework.core.io.ResourceLoader]
-[2016-12-23 10:42:14,405] 613  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'sources' of type [java.util.Set]
-[2016-12-23 10:42:14,406] 614  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'webEnvironment' of type [boolean]
-[2016-12-23 10:42:14,469] 677  [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [refresh] PropertySource with lowest search precedence
-[2016-12-23 10:42:14,471] 679  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [servletConfigInitParams]
-[2016-12-23 10:42:14,471] 679  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [servletContextInitParams]
-[2016-12-23 10:42:14,472] 680  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [systemProperties]
-[2016-12-23 10:42:14,472] 680  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:151) - Found key 'spring.output.ansi.enabled' in [systemProperties] with type [String]
-[2016-12-23 10:42:14,491] 699  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [servletConfigInitParams]
-[2016-12-23 10:42:14,491] 699  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [servletContextInitParams]
-[2016-12-23 10:42:14,491] 699  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [systemProperties]
-[2016-12-23 10:42:14,491] 699  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [systemEnvironment]
-[2016-12-23 10:42:14,491] 699  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [random]
-[2016-12-23 10:42:14,492] 700  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [applicationConfigurationProperties]
-[2016-12-23 10:42:14,492] 700  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [refresh]
-[2016-12-23 10:42:14,492] 700  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'logging.file' in any property source
-[2016-12-23 10:42:14,492] 700  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [servletConfigInitParams]
-[2016-12-23 10:42:14,492] 700  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [servletContextInitParams]
-[2016-12-23 10:42:14,493] 701  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [systemProperties]
-[2016-12-23 10:42:14,493] 701  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [systemEnvironment]
-[2016-12-23 10:42:14,493] 701  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [random]
-[2016-12-23 10:42:14,493] 701  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [applicationConfigurationProperties]
-[2016-12-23 10:42:14,493] 701  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [refresh]
-[2016-12-23 10:42:14,494] 702  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'logging.path' in any property source
-[2016-12-23 10:42:14,494] 702  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [servletConfigInitParams]
-[2016-12-23 10:42:14,494] 702  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [servletContextInitParams]
-[2016-12-23 10:42:14,494] 702  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [systemProperties]
-[2016-12-23 10:42:14,495] 703  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [systemEnvironment]
-[2016-12-23 10:42:14,496] 704  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [random]
-[2016-12-23 10:42:14,496] 704  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [applicationConfigurationProperties]
-[2016-12-23 10:42:14,496] 704  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [refresh]
-[2016-12-23 10:42:14,496] 704  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'debug' in any property source
-[2016-12-23 10:42:14,496] 704  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [servletConfigInitParams]
-[2016-12-23 10:42:14,497] 705  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [servletContextInitParams]
-[2016-12-23 10:42:14,497] 705  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [systemProperties]
-[2016-12-23 10:42:14,497] 705  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [systemEnvironment]
-[2016-12-23 10:42:14,497] 705  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [random]
-[2016-12-23 10:42:14,497] 705  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [applicationConfigurationProperties]
-[2016-12-23 10:42:14,498] 706  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [refresh]
-[2016-12-23 10:42:14,498] 706  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'trace' in any property source
-[2016-12-23 10:42:14,499] 707  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [servletConfigInitParams]
-[2016-12-23 10:42:14,500] 708  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [servletContextInitParams]
-[2016-12-23 10:42:14,502] 710  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [systemProperties]
-[2016-12-23 10:42:14,502] 710  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [systemEnvironment]
-[2016-12-23 10:42:14,502] 710  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [random]
-[2016-12-23 10:42:14,502] 710  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [applicationConfigurationProperties]
-[2016-12-23 10:42:14,503] 711  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:151) - Found key 'logging.config' in [applicationConfigurationProperties] with type [String]
-[2016-12-23 10:42:14,521] 729  [restartedMain] ERROR (SpringApplicationRunListeners.java:86) - Error handling failed
+[2016-12-23 13:42:40,128] 361  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.default' in any property source
+[2016-12-23 13:42:40,141] 374  [restartedMain] TRACE (PropertySourcesLoader.java:170) - Adding PropertySource: PropertiesPropertySource@1136751777 [name='applicationConfig: [classpath:/application.properties]', properties={logging.config=classpath:log4j2.xml}] in group: applicationConfig: [profile=]
+[2016-12-23 13:42:40,142] 375  [restartedMain] DEBUG (MutablePropertySources.java:97) - Adding [applicationConfig: [profile=]] PropertySource with highest search precedence
+[2016-12-23 13:42:40,169] 402  [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [applicationConfigurationProperties] PropertySource with lowest search precedence
+[2016-12-23 13:42:40,186] 419  [restartedMain] TRACE (PropertiesConfigurationFactory.java:252) - Property Sources: [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment,random,applicationConfigurationProperties]
+[2016-12-23 13:42:40,218] 451  [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.beans.BeanInfoFactory] names: [org.springframework.beans.ExtendedBeanInfoFactory]
+[2016-12-23 13:42:40,220] 453  [restartedMain] TRACE (CachedIntrospectionResults.java:265) - Getting BeanInfo for class [org.springframework.boot.SpringApplication]
+[2016-12-23 13:42:40,237] 470  [restartedMain] TRACE (CachedIntrospectionResults.java:284) - Caching PropertyDescriptors for class [org.springframework.boot.SpringApplication]
+[2016-12-23 13:42:40,243] 476  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'addCommandLineProperties' of type [boolean]
+[2016-12-23 13:42:40,247] 480  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'additionalProfiles' of type [[Ljava.lang.String;]
+[2016-12-23 13:42:40,248] 481  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'applicationContextClass' of type [java.lang.Class]
+[2016-12-23 13:42:40,249] 482  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'banner' of type [org.springframework.boot.Banner]
+[2016-12-23 13:42:40,249] 482  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'bannerMode' of type [org.springframework.boot.Banner$Mode]
+[2016-12-23 13:42:40,249] 482  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'beanNameGenerator' of type [org.springframework.beans.factory.support.BeanNameGenerator]
+[2016-12-23 13:42:40,249] 482  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'class' of type [java.lang.Class]
+[2016-12-23 13:42:40,250] 483  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'classLoader' of type [java.lang.ClassLoader]
+[2016-12-23 13:42:40,250] 483  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'defaultProperties' of type [java.util.Properties]
+[2016-12-23 13:42:40,251] 484  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'environment' of type [org.springframework.core.env.ConfigurableEnvironment]
+[2016-12-23 13:42:40,251] 484  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'headless' of type [boolean]
+[2016-12-23 13:42:40,251] 484  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'initializers' of type [java.util.Set]
+[2016-12-23 13:42:40,252] 485  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'listeners' of type [java.util.Set]
+[2016-12-23 13:42:40,253] 486  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'logStartupInfo' of type [boolean]
+[2016-12-23 13:42:40,253] 486  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'mainApplicationClass' of type [java.lang.Class]
+[2016-12-23 13:42:40,253] 486  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'registerShutdownHook' of type [boolean]
+[2016-12-23 13:42:40,254] 487  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'resourceLoader' of type [org.springframework.core.io.ResourceLoader]
+[2016-12-23 13:42:40,254] 487  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'sources' of type [java.util.Set]
+[2016-12-23 13:42:40,254] 487  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'webEnvironment' of type [boolean]
+[2016-12-23 13:42:40,358] 591  [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [refresh] PropertySource with lowest search precedence
+[2016-12-23 13:42:40,364] 597  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [servletConfigInitParams]
+[2016-12-23 13:42:40,364] 597  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [servletContextInitParams]
+[2016-12-23 13:42:40,365] 598  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [systemProperties]
+[2016-12-23 13:42:40,365] 598  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:151) - Found key 'spring.output.ansi.enabled' in [systemProperties] with type [String]
+[2016-12-23 13:42:40,385] 618  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [servletConfigInitParams]
+[2016-12-23 13:42:40,386] 619  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [servletContextInitParams]
+[2016-12-23 13:42:40,386] 619  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [systemProperties]
+[2016-12-23 13:42:40,386] 619  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [systemEnvironment]
+[2016-12-23 13:42:40,387] 620  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [random]
+[2016-12-23 13:42:40,387] 620  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [applicationConfigurationProperties]
+[2016-12-23 13:42:40,387] 620  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [refresh]
+[2016-12-23 13:42:40,387] 620  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'logging.file' in any property source
+[2016-12-23 13:42:40,387] 620  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [servletConfigInitParams]
+[2016-12-23 13:42:40,388] 621  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [servletContextInitParams]
+[2016-12-23 13:42:40,388] 621  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [systemProperties]
+[2016-12-23 13:42:40,388] 621  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [systemEnvironment]
+[2016-12-23 13:42:40,388] 621  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [random]
+[2016-12-23 13:42:40,389] 622  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [applicationConfigurationProperties]
+[2016-12-23 13:42:40,389] 622  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [refresh]
+[2016-12-23 13:42:40,389] 622  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'logging.path' in any property source
+[2016-12-23 13:42:40,389] 622  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [servletConfigInitParams]
+[2016-12-23 13:42:40,389] 622  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [servletContextInitParams]
+[2016-12-23 13:42:40,390] 623  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [systemProperties]
+[2016-12-23 13:42:40,391] 624  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [systemEnvironment]
+[2016-12-23 13:42:40,391] 624  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [random]
+[2016-12-23 13:42:40,392] 625  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [applicationConfigurationProperties]
+[2016-12-23 13:42:40,392] 625  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [refresh]
+[2016-12-23 13:42:40,392] 625  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'debug' in any property source
+[2016-12-23 13:42:40,393] 626  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [servletConfigInitParams]
+[2016-12-23 13:42:40,393] 626  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [servletContextInitParams]
+[2016-12-23 13:42:40,393] 626  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [systemProperties]
+[2016-12-23 13:42:40,393] 626  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [systemEnvironment]
+[2016-12-23 13:42:40,393] 626  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [random]
+[2016-12-23 13:42:40,394] 627  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [applicationConfigurationProperties]
+[2016-12-23 13:42:40,394] 627  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [refresh]
+[2016-12-23 13:42:40,394] 627  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'trace' in any property source
+[2016-12-23 13:42:40,395] 628  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [servletConfigInitParams]
+[2016-12-23 13:42:40,395] 628  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [servletContextInitParams]
+[2016-12-23 13:42:40,396] 629  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [systemProperties]
+[2016-12-23 13:42:40,396] 629  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [systemEnvironment]
+[2016-12-23 13:42:40,396] 629  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [random]
+[2016-12-23 13:42:40,397] 630  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [applicationConfigurationProperties]
+[2016-12-23 13:42:40,398] 631  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:151) - Found key 'logging.config' in [applicationConfigurationProperties] with type [String]
+[2016-12-23 13:42:40,428] 661  [restartedMain] ERROR (SpringApplicationRunListeners.java:86) - Error handling failed
 java.lang.NullPointerException
 	at org.springframework.boot.context.event.EventPublishingRunListener.finished(EventPublishingRunListener.java:93)
 	at org.springframework.boot.SpringApplicationRunListeners.callFinishedListener(SpringApplicationRunListeners.java:79)
@@ -136,7 +84,7 @@ java.lang.NullPointerException
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-[2016-12-23 10:42:14,524] 732  [restartedMain] ERROR (SpringApplication.java:839) - Application startup failed
+[2016-12-23 13:42:40,433] 666  [restartedMain] ERROR (SpringApplication.java:839) - Application startup failed
 java.lang.NoSuchMethodError: org.apache.logging.log4j.core.config.ConfigurationFactory.getConfiguration(Lorg/apache/logging/log4j/core/config/ConfigurationSource;)Lorg/apache/logging/log4j/core/config/Configuration;
 	at org.springframework.boot.logging.log4j2.Log4J2LoggingSystem.loadConfiguration(Log4J2LoggingSystem.java:176)
 	at org.springframework.boot.logging.log4j2.Log4J2LoggingSystem.loadConfiguration(Log4J2LoggingSystem.java:167)
@@ -162,130 +110,130 @@ java.lang.NoSuchMethodError: org.apache.logging.log4j.core.config.ConfigurationF
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-[2016-12-23 10:45:05,420] 0    [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-[2016-12-23 10:45:05,423] 3    [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [servletContextInitParams] PropertySource with lowest search precedence
-[2016-12-23 10:45:05,428] 8    [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [systemProperties] PropertySource with lowest search precedence
-[2016-12-23 10:45:05,430] 10   [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [systemEnvironment] PropertySource with lowest search precedence
-[2016-12-23 10:45:05,433] 13   [restartedMain] DEBUG (AbstractEnvironment.java:124) - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-[2016-12-23 10:45:05,434] 14   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
-[2016-12-23 10:45:05,434] 14   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
-[2016-12-23 10:45:05,434] 14   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
-[2016-12-23 10:45:05,434] 14   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
-[2016-12-23 10:45:05,435] 15   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
-[2016-12-23 10:45:05,435] 15   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
-[2016-12-23 10:45:05,435] 15   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
-[2016-12-23 10:45:05,435] 15   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
-[2016-12-23 10:45:05,436] 16   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
-[2016-12-23 10:45:05,436] 16   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
-[2016-12-23 10:45:05,439] 19   [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.boot.env.EnvironmentPostProcessor] names: [org.springframework.boot.devtools.env.DevToolsHomePropertiesPostProcessor, org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor, org.springframework.boot.cloud.CloudFoundryVcapEnvironmentPostProcessor, org.springframework.boot.env.SpringApplicationJsonEnvironmentPostProcessor]
-[2016-12-23 10:45:05,673] 253  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [servletConfigInitParams]
-[2016-12-23 10:45:05,674] 254  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [servletContextInitParams]
-[2016-12-23 10:45:05,674] 254  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [systemProperties]
-[2016-12-23 10:45:05,677] 257  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [systemEnvironment]
-[2016-12-23 10:45:05,678] 258  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'SPRING_APPLICATION_JSON:' in any property source
-[2016-12-23 10:45:05,679] 259  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [servletConfigInitParams]
-[2016-12-23 10:45:05,680] 260  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [servletContextInitParams]
-[2016-12-23 10:45:05,680] 260  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [systemProperties]
-[2016-12-23 10:45:05,680] 260  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [systemEnvironment]
-[2016-12-23 10:45:05,682] 262  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'SPRING_APPLICATION_JSON' in any property source
-[2016-12-23 10:45:05,683] 263  [restartedMain] TRACE (PropertyPlaceholderHelper.java:165) - Resolved placeholder 'SPRING_APPLICATION_JSON:'
-[2016-12-23 10:45:05,686] 266  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [servletConfigInitParams]
-[2016-12-23 10:45:05,687] 267  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [servletContextInitParams]
-[2016-12-23 10:45:05,687] 267  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [systemProperties]
-[2016-12-23 10:45:05,688] 268  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [systemEnvironment]
-[2016-12-23 10:45:05,688] 268  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.application.json:' in any property source
-[2016-12-23 10:45:05,689] 269  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [servletConfigInitParams]
-[2016-12-23 10:45:05,690] 270  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [servletContextInitParams]
-[2016-12-23 10:45:05,691] 271  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [systemProperties]
-[2016-12-23 10:45:05,691] 271  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [systemEnvironment]
-[2016-12-23 10:45:05,691] 271  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.application.json' in any property source
-[2016-12-23 10:45:05,692] 272  [restartedMain] TRACE (PropertyPlaceholderHelper.java:165) - Resolved placeholder 'spring.application.json:'
-[2016-12-23 10:45:05,696] 276  [restartedMain] DEBUG (MutablePropertySources.java:137) - Adding [random] PropertySource with search precedence immediately lower than [systemEnvironment]
-[2016-12-23 10:45:05,697] 277  [restartedMain] TRACE (RandomValuePropertySource.java:143) - RandomValuePropertySource add to Environment
-[2016-12-23 10:45:05,707] 287  [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.boot.env.PropertySourceLoader] names: [org.springframework.boot.env.PropertiesPropertySourceLoader, org.springframework.boot.env.YamlPropertySourceLoader]
-[2016-12-23 10:45:05,709] 289  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
-[2016-12-23 10:45:05,712] 292  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
-[2016-12-23 10:45:05,712] 292  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
-[2016-12-23 10:45:05,713] 293  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
-[2016-12-23 10:45:05,713] 293  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [random]
-[2016-12-23 10:45:05,713] 293  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
-[2016-12-23 10:45:05,714] 294  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [servletConfigInitParams]
-[2016-12-23 10:45:05,715] 295  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [servletContextInitParams]
-[2016-12-23 10:45:05,716] 296  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [systemProperties]
-[2016-12-23 10:45:05,720] 300  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [systemEnvironment]
-[2016-12-23 10:45:05,720] 300  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [random]
-[2016-12-23 10:45:05,721] 301  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.default' in any property source
-[2016-12-23 10:45:05,734] 314  [restartedMain] TRACE (PropertySourcesLoader.java:170) - Adding PropertySource: PropertiesPropertySource@351377087 [name='applicationConfig: [classpath:/application.properties]', properties={logging.config=classpath:log4j.properties}] in group: applicationConfig: [profile=]
-[2016-12-23 10:45:05,735] 315  [restartedMain] DEBUG (MutablePropertySources.java:97) - Adding [applicationConfig: [profile=]] PropertySource with highest search precedence
-[2016-12-23 10:45:05,751] 331  [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [applicationConfigurationProperties] PropertySource with lowest search precedence
-[2016-12-23 10:45:05,771] 351  [restartedMain] TRACE (PropertiesConfigurationFactory.java:252) - Property Sources: [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment,random,applicationConfigurationProperties]
-[2016-12-23 10:45:05,801] 381  [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.beans.BeanInfoFactory] names: [org.springframework.beans.ExtendedBeanInfoFactory]
-[2016-12-23 10:45:05,802] 382  [restartedMain] TRACE (CachedIntrospectionResults.java:265) - Getting BeanInfo for class [org.springframework.boot.SpringApplication]
-[2016-12-23 10:45:05,812] 392  [restartedMain] TRACE (CachedIntrospectionResults.java:284) - Caching PropertyDescriptors for class [org.springframework.boot.SpringApplication]
-[2016-12-23 10:45:05,812] 392  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'addCommandLineProperties' of type [boolean]
-[2016-12-23 10:45:05,819] 399  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'additionalProfiles' of type [[Ljava.lang.String;]
-[2016-12-23 10:45:05,820] 400  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'applicationContextClass' of type [java.lang.Class]
-[2016-12-23 10:45:05,820] 400  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'banner' of type [org.springframework.boot.Banner]
-[2016-12-23 10:45:05,825] 405  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'bannerMode' of type [org.springframework.boot.Banner$Mode]
-[2016-12-23 10:45:05,825] 405  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'beanNameGenerator' of type [org.springframework.beans.factory.support.BeanNameGenerator]
-[2016-12-23 10:45:05,826] 406  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'class' of type [java.lang.Class]
-[2016-12-23 10:45:05,826] 406  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'classLoader' of type [java.lang.ClassLoader]
-[2016-12-23 10:45:05,826] 406  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'defaultProperties' of type [java.util.Properties]
-[2016-12-23 10:45:05,826] 406  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'environment' of type [org.springframework.core.env.ConfigurableEnvironment]
-[2016-12-23 10:45:05,827] 407  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'headless' of type [boolean]
-[2016-12-23 10:45:05,827] 407  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'initializers' of type [java.util.Set]
-[2016-12-23 10:45:05,829] 409  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'listeners' of type [java.util.Set]
-[2016-12-23 10:45:05,830] 410  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'logStartupInfo' of type [boolean]
-[2016-12-23 10:45:05,833] 413  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'mainApplicationClass' of type [java.lang.Class]
-[2016-12-23 10:45:05,834] 414  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'registerShutdownHook' of type [boolean]
-[2016-12-23 10:45:05,834] 414  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'resourceLoader' of type [org.springframework.core.io.ResourceLoader]
-[2016-12-23 10:45:05,834] 414  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'sources' of type [java.util.Set]
-[2016-12-23 10:45:05,835] 415  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'webEnvironment' of type [boolean]
-[2016-12-23 10:45:05,921] 501  [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [refresh] PropertySource with lowest search precedence
-[2016-12-23 10:45:05,922] 502  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [servletConfigInitParams]
-[2016-12-23 10:45:05,922] 502  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [servletContextInitParams]
-[2016-12-23 10:45:05,923] 503  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [systemProperties]
-[2016-12-23 10:45:05,923] 503  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:151) - Found key 'spring.output.ansi.enabled' in [systemProperties] with type [String]
-[2016-12-23 10:45:05,976] 556  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [servletConfigInitParams]
-[2016-12-23 10:45:05,976] 556  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [servletContextInitParams]
-[2016-12-23 10:45:05,978] 558  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [systemProperties]
-[2016-12-23 10:45:05,978] 558  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [systemEnvironment]
-[2016-12-23 10:45:05,978] 558  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [random]
-[2016-12-23 10:45:05,978] 558  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [applicationConfigurationProperties]
-[2016-12-23 10:45:05,978] 558  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [refresh]
-[2016-12-23 10:45:05,979] 559  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'logging.file' in any property source
-[2016-12-23 10:45:05,979] 559  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [servletConfigInitParams]
-[2016-12-23 10:45:05,979] 559  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [servletContextInitParams]
-[2016-12-23 10:45:05,979] 559  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [systemProperties]
-[2016-12-23 10:45:05,979] 559  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [systemEnvironment]
-[2016-12-23 10:45:05,980] 560  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [random]
-[2016-12-23 10:45:05,980] 560  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [applicationConfigurationProperties]
-[2016-12-23 10:45:05,980] 560  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [refresh]
-[2016-12-23 10:45:05,980] 560  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'logging.path' in any property source
-[2016-12-23 10:45:05,980] 560  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [servletConfigInitParams]
-[2016-12-23 10:45:05,981] 561  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [servletContextInitParams]
-[2016-12-23 10:45:05,981] 561  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [systemProperties]
-[2016-12-23 10:45:05,981] 561  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [systemEnvironment]
-[2016-12-23 10:45:05,981] 561  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [random]
-[2016-12-23 10:45:05,981] 561  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [applicationConfigurationProperties]
-[2016-12-23 10:45:05,982] 562  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [refresh]
-[2016-12-23 10:45:05,982] 562  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'debug' in any property source
-[2016-12-23 10:45:05,982] 562  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [servletConfigInitParams]
-[2016-12-23 10:45:05,982] 562  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [servletContextInitParams]
-[2016-12-23 10:45:05,982] 562  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [systemProperties]
-[2016-12-23 10:45:05,983] 563  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [systemEnvironment]
-[2016-12-23 10:45:05,983] 563  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [random]
-[2016-12-23 10:45:05,991] 571  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [applicationConfigurationProperties]
-[2016-12-23 10:45:05,992] 572  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [refresh]
-[2016-12-23 10:45:05,992] 572  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'trace' in any property source
-[2016-12-23 10:45:05,993] 573  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [servletConfigInitParams]
-[2016-12-23 10:45:05,993] 573  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [servletContextInitParams]
-[2016-12-23 10:45:05,994] 574  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [systemProperties]
-[2016-12-23 10:45:05,994] 574  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [systemEnvironment]
-[2016-12-23 10:45:05,994] 574  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [random]
-[2016-12-23 10:45:05,994] 574  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [applicationConfigurationProperties]
-[2016-12-23 10:45:05,995] 575  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:151) - Found key 'logging.config' in [applicationConfigurationProperties] with type [String]
-[2016-12-23 10:45:06,001] 581  [restartedMain] ERROR (SpringApplicationRunListeners.java:86) - Error handling failed
+[2016-12-23 13:43:24,468] 0    [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+[2016-12-23 13:43:24,472] 4    [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [servletContextInitParams] PropertySource with lowest search precedence
+[2016-12-23 13:43:24,477] 9    [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [systemProperties] PropertySource with lowest search precedence
+[2016-12-23 13:43:24,479] 11   [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [systemEnvironment] PropertySource with lowest search precedence
+[2016-12-23 13:43:24,479] 11   [restartedMain] DEBUG (AbstractEnvironment.java:124) - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+[2016-12-23 13:43:24,480] 12   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
+[2016-12-23 13:43:24,480] 12   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
+[2016-12-23 13:43:24,481] 13   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
+[2016-12-23 13:43:24,481] 13   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
+[2016-12-23 13:43:24,481] 13   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
+[2016-12-23 13:43:24,482] 14   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
+[2016-12-23 13:43:24,488] 20   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
+[2016-12-23 13:43:24,488] 20   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
+[2016-12-23 13:43:24,489] 21   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
+[2016-12-23 13:43:24,489] 21   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
+[2016-12-23 13:43:24,521] 53   [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.boot.env.EnvironmentPostProcessor] names: [org.springframework.boot.devtools.env.DevToolsHomePropertiesPostProcessor, org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor, org.springframework.boot.cloud.CloudFoundryVcapEnvironmentPostProcessor, org.springframework.boot.env.SpringApplicationJsonEnvironmentPostProcessor]
+[2016-12-23 13:43:24,831] 363  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [servletConfigInitParams]
+[2016-12-23 13:43:24,834] 366  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [servletContextInitParams]
+[2016-12-23 13:43:24,835] 367  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [systemProperties]
+[2016-12-23 13:43:24,838] 370  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [systemEnvironment]
+[2016-12-23 13:43:24,839] 371  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'SPRING_APPLICATION_JSON:' in any property source
+[2016-12-23 13:43:24,840] 372  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [servletConfigInitParams]
+[2016-12-23 13:43:24,840] 372  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [servletContextInitParams]
+[2016-12-23 13:43:24,841] 373  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [systemProperties]
+[2016-12-23 13:43:24,841] 373  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [systemEnvironment]
+[2016-12-23 13:43:24,842] 374  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'SPRING_APPLICATION_JSON' in any property source
+[2016-12-23 13:43:24,843] 375  [restartedMain] TRACE (PropertyPlaceholderHelper.java:165) - Resolved placeholder 'SPRING_APPLICATION_JSON:'
+[2016-12-23 13:43:24,843] 375  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [servletConfigInitParams]
+[2016-12-23 13:43:24,844] 376  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [servletContextInitParams]
+[2016-12-23 13:43:24,845] 377  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [systemProperties]
+[2016-12-23 13:43:24,845] 377  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [systemEnvironment]
+[2016-12-23 13:43:24,846] 378  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.application.json:' in any property source
+[2016-12-23 13:43:24,847] 379  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [servletConfigInitParams]
+[2016-12-23 13:43:24,847] 379  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [servletContextInitParams]
+[2016-12-23 13:43:24,848] 380  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [systemProperties]
+[2016-12-23 13:43:24,848] 380  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [systemEnvironment]
+[2016-12-23 13:43:24,849] 381  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.application.json' in any property source
+[2016-12-23 13:43:24,849] 381  [restartedMain] TRACE (PropertyPlaceholderHelper.java:165) - Resolved placeholder 'spring.application.json:'
+[2016-12-23 13:43:24,852] 384  [restartedMain] DEBUG (MutablePropertySources.java:137) - Adding [random] PropertySource with search precedence immediately lower than [systemEnvironment]
+[2016-12-23 13:43:24,852] 384  [restartedMain] TRACE (RandomValuePropertySource.java:143) - RandomValuePropertySource add to Environment
+[2016-12-23 13:43:24,866] 398  [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.boot.env.PropertySourceLoader] names: [org.springframework.boot.env.PropertiesPropertySourceLoader, org.springframework.boot.env.YamlPropertySourceLoader]
+[2016-12-23 13:43:24,869] 401  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
+[2016-12-23 13:43:24,872] 404  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
+[2016-12-23 13:43:24,873] 405  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
+[2016-12-23 13:43:24,873] 405  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
+[2016-12-23 13:43:24,874] 406  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [random]
+[2016-12-23 13:43:24,874] 406  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
+[2016-12-23 13:43:24,876] 408  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [servletConfigInitParams]
+[2016-12-23 13:43:24,877] 409  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [servletContextInitParams]
+[2016-12-23 13:43:24,877] 409  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [systemProperties]
+[2016-12-23 13:43:24,882] 414  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [systemEnvironment]
+[2016-12-23 13:43:24,883] 415  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [random]
+[2016-12-23 13:43:24,888] 420  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.default' in any property source
+[2016-12-23 13:43:24,902] 434  [restartedMain] TRACE (PropertySourcesLoader.java:170) - Adding PropertySource: PropertiesPropertySource@2107856733 [name='applicationConfig: [classpath:/application.properties]', properties={logging.config=classpath:log4j2.xml}] in group: applicationConfig: [profile=]
+[2016-12-23 13:43:24,903] 435  [restartedMain] DEBUG (MutablePropertySources.java:97) - Adding [applicationConfig: [profile=]] PropertySource with highest search precedence
+[2016-12-23 13:43:24,925] 457  [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [applicationConfigurationProperties] PropertySource with lowest search precedence
+[2016-12-23 13:43:24,936] 468  [restartedMain] TRACE (PropertiesConfigurationFactory.java:252) - Property Sources: [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment,random,applicationConfigurationProperties]
+[2016-12-23 13:43:24,953] 485  [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.beans.BeanInfoFactory] names: [org.springframework.beans.ExtendedBeanInfoFactory]
+[2016-12-23 13:43:24,954] 486  [restartedMain] TRACE (CachedIntrospectionResults.java:265) - Getting BeanInfo for class [org.springframework.boot.SpringApplication]
+[2016-12-23 13:43:24,977] 509  [restartedMain] TRACE (CachedIntrospectionResults.java:284) - Caching PropertyDescriptors for class [org.springframework.boot.SpringApplication]
+[2016-12-23 13:43:24,977] 509  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'addCommandLineProperties' of type [boolean]
+[2016-12-23 13:43:24,981] 513  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'additionalProfiles' of type [[Ljava.lang.String;]
+[2016-12-23 13:43:24,982] 514  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'applicationContextClass' of type [java.lang.Class]
+[2016-12-23 13:43:24,982] 514  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'banner' of type [org.springframework.boot.Banner]
+[2016-12-23 13:43:24,982] 514  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'bannerMode' of type [org.springframework.boot.Banner$Mode]
+[2016-12-23 13:43:24,983] 515  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'beanNameGenerator' of type [org.springframework.beans.factory.support.BeanNameGenerator]
+[2016-12-23 13:43:24,983] 515  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'class' of type [java.lang.Class]
+[2016-12-23 13:43:24,984] 516  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'classLoader' of type [java.lang.ClassLoader]
+[2016-12-23 13:43:24,984] 516  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'defaultProperties' of type [java.util.Properties]
+[2016-12-23 13:43:24,984] 516  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'environment' of type [org.springframework.core.env.ConfigurableEnvironment]
+[2016-12-23 13:43:24,984] 516  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'headless' of type [boolean]
+[2016-12-23 13:43:24,985] 517  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'initializers' of type [java.util.Set]
+[2016-12-23 13:43:24,985] 517  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'listeners' of type [java.util.Set]
+[2016-12-23 13:43:24,986] 518  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'logStartupInfo' of type [boolean]
+[2016-12-23 13:43:24,986] 518  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'mainApplicationClass' of type [java.lang.Class]
+[2016-12-23 13:43:24,986] 518  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'registerShutdownHook' of type [boolean]
+[2016-12-23 13:43:24,987] 519  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'resourceLoader' of type [org.springframework.core.io.ResourceLoader]
+[2016-12-23 13:43:24,987] 519  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'sources' of type [java.util.Set]
+[2016-12-23 13:43:24,987] 519  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'webEnvironment' of type [boolean]
+[2016-12-23 13:43:25,105] 637  [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [refresh] PropertySource with lowest search precedence
+[2016-12-23 13:43:25,114] 646  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [servletConfigInitParams]
+[2016-12-23 13:43:25,114] 646  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [servletContextInitParams]
+[2016-12-23 13:43:25,114] 646  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [systemProperties]
+[2016-12-23 13:43:25,115] 647  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:151) - Found key 'spring.output.ansi.enabled' in [systemProperties] with type [String]
+[2016-12-23 13:43:25,144] 676  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [servletConfigInitParams]
+[2016-12-23 13:43:25,146] 678  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [servletContextInitParams]
+[2016-12-23 13:43:25,146] 678  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [systemProperties]
+[2016-12-23 13:43:25,146] 678  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [systemEnvironment]
+[2016-12-23 13:43:25,147] 679  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [random]
+[2016-12-23 13:43:25,147] 679  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [applicationConfigurationProperties]
+[2016-12-23 13:43:25,147] 679  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [refresh]
+[2016-12-23 13:43:25,147] 679  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'logging.file' in any property source
+[2016-12-23 13:43:25,148] 680  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [servletConfigInitParams]
+[2016-12-23 13:43:25,148] 680  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [servletContextInitParams]
+[2016-12-23 13:43:25,148] 680  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [systemProperties]
+[2016-12-23 13:43:25,148] 680  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [systemEnvironment]
+[2016-12-23 13:43:25,148] 680  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [random]
+[2016-12-23 13:43:25,149] 681  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [applicationConfigurationProperties]
+[2016-12-23 13:43:25,149] 681  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [refresh]
+[2016-12-23 13:43:25,149] 681  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'logging.path' in any property source
+[2016-12-23 13:43:25,149] 681  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [servletConfigInitParams]
+[2016-12-23 13:43:25,150] 682  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [servletContextInitParams]
+[2016-12-23 13:43:25,150] 682  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [systemProperties]
+[2016-12-23 13:43:25,150] 682  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [systemEnvironment]
+[2016-12-23 13:43:25,150] 682  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [random]
+[2016-12-23 13:43:25,150] 682  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [applicationConfigurationProperties]
+[2016-12-23 13:43:25,151] 683  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [refresh]
+[2016-12-23 13:43:25,151] 683  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'debug' in any property source
+[2016-12-23 13:43:25,151] 683  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [servletConfigInitParams]
+[2016-12-23 13:43:25,151] 683  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [servletContextInitParams]
+[2016-12-23 13:43:25,151] 683  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [systemProperties]
+[2016-12-23 13:43:25,151] 683  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [systemEnvironment]
+[2016-12-23 13:43:25,152] 684  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [random]
+[2016-12-23 13:43:25,152] 684  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [applicationConfigurationProperties]
+[2016-12-23 13:43:25,152] 684  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [refresh]
+[2016-12-23 13:43:25,152] 684  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'trace' in any property source
+[2016-12-23 13:43:25,153] 685  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [servletConfigInitParams]
+[2016-12-23 13:43:25,154] 686  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [servletContextInitParams]
+[2016-12-23 13:43:25,154] 686  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [systemProperties]
+[2016-12-23 13:43:25,155] 687  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [systemEnvironment]
+[2016-12-23 13:43:25,155] 687  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [random]
+[2016-12-23 13:43:25,155] 687  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [applicationConfigurationProperties]
+[2016-12-23 13:43:25,155] 687  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:151) - Found key 'logging.config' in [applicationConfigurationProperties] with type [String]
+[2016-12-23 13:43:25,173] 705  [restartedMain] ERROR (SpringApplicationRunListeners.java:86) - Error handling failed
 java.lang.NullPointerException
 	at org.springframework.boot.context.event.EventPublishingRunListener.finished(EventPublishingRunListener.java:93)
 	at org.springframework.boot.SpringApplicationRunListeners.callFinishedListener(SpringApplicationRunListeners.java:79)
@@ -300,7 +248,7 @@ java.lang.NullPointerException
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-[2016-12-23 10:45:06,021] 601  [restartedMain] ERROR (SpringApplication.java:839) - Application startup failed
+[2016-12-23 13:43:25,184] 716  [restartedMain] ERROR (SpringApplication.java:839) - Application startup failed
 java.lang.NoSuchMethodError: org.apache.logging.log4j.core.config.ConfigurationFactory.getConfiguration(Lorg/apache/logging/log4j/core/config/ConfigurationSource;)Lorg/apache/logging/log4j/core/config/Configuration;
 	at org.springframework.boot.logging.log4j2.Log4J2LoggingSystem.loadConfiguration(Log4J2LoggingSystem.java:176)
 	at org.springframework.boot.logging.log4j2.Log4J2LoggingSystem.loadConfiguration(Log4J2LoggingSystem.java:167)
@@ -326,130 +274,130 @@ java.lang.NoSuchMethodError: org.apache.logging.log4j.core.config.ConfigurationF
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-[2016-12-23 12:51:49,871] 0    [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-[2016-12-23 12:51:49,875] 4    [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [servletContextInitParams] PropertySource with lowest search precedence
-[2016-12-23 12:51:49,881] 10   [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [systemProperties] PropertySource with lowest search precedence
-[2016-12-23 12:51:49,883] 12   [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [systemEnvironment] PropertySource with lowest search precedence
-[2016-12-23 12:51:49,884] 13   [restartedMain] DEBUG (AbstractEnvironment.java:124) - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-[2016-12-23 12:51:49,884] 13   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
-[2016-12-23 12:51:49,884] 13   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
-[2016-12-23 12:51:49,885] 14   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
-[2016-12-23 12:51:49,885] 14   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
-[2016-12-23 12:51:49,886] 15   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
-[2016-12-23 12:51:49,886] 15   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
-[2016-12-23 12:51:49,886] 15   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
-[2016-12-23 12:51:49,886] 15   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
-[2016-12-23 12:51:49,887] 16   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
-[2016-12-23 12:51:49,887] 16   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
-[2016-12-23 12:51:49,892] 21   [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.boot.env.EnvironmentPostProcessor] names: [org.springframework.boot.devtools.env.DevToolsHomePropertiesPostProcessor, org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor, org.springframework.boot.cloud.CloudFoundryVcapEnvironmentPostProcessor, org.springframework.boot.env.SpringApplicationJsonEnvironmentPostProcessor]
-[2016-12-23 12:51:49,904] 33   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [servletConfigInitParams]
-[2016-12-23 12:51:49,905] 34   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [servletContextInitParams]
-[2016-12-23 12:51:49,905] 34   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [systemProperties]
-[2016-12-23 12:51:49,906] 35   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [systemEnvironment]
-[2016-12-23 12:51:49,906] 35   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'SPRING_APPLICATION_JSON:' in any property source
-[2016-12-23 12:51:49,906] 35   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [servletConfigInitParams]
-[2016-12-23 12:51:49,907] 36   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [servletContextInitParams]
-[2016-12-23 12:51:49,907] 36   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [systemProperties]
-[2016-12-23 12:51:49,907] 36   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [systemEnvironment]
-[2016-12-23 12:51:49,907] 36   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'SPRING_APPLICATION_JSON' in any property source
-[2016-12-23 12:51:49,919] 48   [restartedMain] TRACE (PropertyPlaceholderHelper.java:165) - Resolved placeholder 'SPRING_APPLICATION_JSON:'
-[2016-12-23 12:51:49,920] 49   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [servletConfigInitParams]
-[2016-12-23 12:51:49,921] 50   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [servletContextInitParams]
-[2016-12-23 12:51:49,922] 51   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [systemProperties]
-[2016-12-23 12:51:49,922] 51   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [systemEnvironment]
-[2016-12-23 12:51:49,922] 51   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.application.json:' in any property source
-[2016-12-23 12:51:49,923] 52   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [servletConfigInitParams]
-[2016-12-23 12:51:49,924] 53   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [servletContextInitParams]
-[2016-12-23 12:51:49,925] 54   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [systemProperties]
-[2016-12-23 12:51:49,925] 54   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [systemEnvironment]
-[2016-12-23 12:51:49,927] 56   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.application.json' in any property source
-[2016-12-23 12:51:49,927] 56   [restartedMain] TRACE (PropertyPlaceholderHelper.java:165) - Resolved placeholder 'spring.application.json:'
-[2016-12-23 12:51:49,931] 60   [restartedMain] DEBUG (MutablePropertySources.java:137) - Adding [random] PropertySource with search precedence immediately lower than [systemEnvironment]
-[2016-12-23 12:51:49,932] 61   [restartedMain] TRACE (RandomValuePropertySource.java:143) - RandomValuePropertySource add to Environment
-[2016-12-23 12:51:49,950] 79   [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.boot.env.PropertySourceLoader] names: [org.springframework.boot.env.PropertiesPropertySourceLoader, org.springframework.boot.env.YamlPropertySourceLoader]
-[2016-12-23 12:51:49,954] 83   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
-[2016-12-23 12:51:49,956] 85   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
-[2016-12-23 12:51:49,957] 86   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
-[2016-12-23 12:51:49,958] 87   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
-[2016-12-23 12:51:49,958] 87   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [random]
-[2016-12-23 12:51:49,959] 88   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
-[2016-12-23 12:51:49,960] 89   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [servletConfigInitParams]
-[2016-12-23 12:51:49,963] 92   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [servletContextInitParams]
-[2016-12-23 12:51:49,964] 93   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [systemProperties]
-[2016-12-23 12:51:49,966] 95   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [systemEnvironment]
-[2016-12-23 12:51:49,967] 96   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [random]
-[2016-12-23 12:51:49,968] 97   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.default' in any property source
-[2016-12-23 12:51:49,991] 120  [restartedMain] TRACE (PropertySourcesLoader.java:170) - Adding PropertySource: PropertiesPropertySource@1566920502 [name='applicationConfig: [classpath:/application.properties]', properties={logging.config=classpath:log4j2.json}] in group: applicationConfig: [profile=]
-[2016-12-23 12:51:49,991] 120  [restartedMain] DEBUG (MutablePropertySources.java:97) - Adding [applicationConfig: [profile=]] PropertySource with highest search precedence
-[2016-12-23 12:51:50,037] 166  [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [applicationConfigurationProperties] PropertySource with lowest search precedence
-[2016-12-23 12:51:50,058] 187  [restartedMain] TRACE (PropertiesConfigurationFactory.java:252) - Property Sources: [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment,random,applicationConfigurationProperties]
-[2016-12-23 12:51:50,072] 201  [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.beans.BeanInfoFactory] names: [org.springframework.beans.ExtendedBeanInfoFactory]
-[2016-12-23 12:51:50,074] 203  [restartedMain] TRACE (CachedIntrospectionResults.java:265) - Getting BeanInfo for class [org.springframework.boot.SpringApplication]
-[2016-12-23 12:51:50,093] 222  [restartedMain] TRACE (CachedIntrospectionResults.java:284) - Caching PropertyDescriptors for class [org.springframework.boot.SpringApplication]
-[2016-12-23 12:51:50,093] 222  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'addCommandLineProperties' of type [boolean]
-[2016-12-23 12:51:50,096] 225  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'additionalProfiles' of type [[Ljava.lang.String;]
-[2016-12-23 12:51:50,096] 225  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'applicationContextClass' of type [java.lang.Class]
-[2016-12-23 12:51:50,097] 226  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'banner' of type [org.springframework.boot.Banner]
-[2016-12-23 12:51:50,097] 226  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'bannerMode' of type [org.springframework.boot.Banner$Mode]
-[2016-12-23 12:51:50,097] 226  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'beanNameGenerator' of type [org.springframework.beans.factory.support.BeanNameGenerator]
-[2016-12-23 12:51:50,097] 226  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'class' of type [java.lang.Class]
-[2016-12-23 12:51:50,098] 227  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'classLoader' of type [java.lang.ClassLoader]
-[2016-12-23 12:51:50,098] 227  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'defaultProperties' of type [java.util.Properties]
-[2016-12-23 12:51:50,098] 227  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'environment' of type [org.springframework.core.env.ConfigurableEnvironment]
-[2016-12-23 12:51:50,099] 228  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'headless' of type [boolean]
-[2016-12-23 12:51:50,099] 228  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'initializers' of type [java.util.Set]
-[2016-12-23 12:51:50,099] 228  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'listeners' of type [java.util.Set]
-[2016-12-23 12:51:50,100] 229  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'logStartupInfo' of type [boolean]
-[2016-12-23 12:51:50,100] 229  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'mainApplicationClass' of type [java.lang.Class]
-[2016-12-23 12:51:50,100] 229  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'registerShutdownHook' of type [boolean]
-[2016-12-23 12:51:50,101] 230  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'resourceLoader' of type [org.springframework.core.io.ResourceLoader]
-[2016-12-23 12:51:50,101] 230  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'sources' of type [java.util.Set]
-[2016-12-23 12:51:50,101] 230  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'webEnvironment' of type [boolean]
-[2016-12-23 12:51:50,185] 314  [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [refresh] PropertySource with lowest search precedence
-[2016-12-23 12:51:50,187] 316  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [servletConfigInitParams]
-[2016-12-23 12:51:50,187] 316  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [servletContextInitParams]
-[2016-12-23 12:51:50,187] 316  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [systemProperties]
-[2016-12-23 12:51:50,187] 316  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:151) - Found key 'spring.output.ansi.enabled' in [systemProperties] with type [String]
-[2016-12-23 12:51:50,214] 343  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [servletConfigInitParams]
-[2016-12-23 12:51:50,214] 343  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [servletContextInitParams]
-[2016-12-23 12:51:50,215] 344  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [systemProperties]
-[2016-12-23 12:51:50,215] 344  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [systemEnvironment]
-[2016-12-23 12:51:50,215] 344  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [random]
-[2016-12-23 12:51:50,215] 344  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [applicationConfigurationProperties]
-[2016-12-23 12:51:50,215] 344  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [refresh]
-[2016-12-23 12:51:50,216] 345  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'logging.file' in any property source
-[2016-12-23 12:51:50,216] 345  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [servletConfigInitParams]
-[2016-12-23 12:51:50,216] 345  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [servletContextInitParams]
-[2016-12-23 12:51:50,216] 345  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [systemProperties]
-[2016-12-23 12:51:50,216] 345  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [systemEnvironment]
-[2016-12-23 12:51:50,217] 346  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [random]
-[2016-12-23 12:51:50,217] 346  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [applicationConfigurationProperties]
-[2016-12-23 12:51:50,217] 346  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [refresh]
-[2016-12-23 12:51:50,217] 346  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'logging.path' in any property source
-[2016-12-23 12:51:50,217] 346  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [servletConfigInitParams]
-[2016-12-23 12:51:50,217] 346  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [servletContextInitParams]
-[2016-12-23 12:51:50,218] 347  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [systemProperties]
-[2016-12-23 12:51:50,218] 347  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [systemEnvironment]
-[2016-12-23 12:51:50,218] 347  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [random]
-[2016-12-23 12:51:50,218] 347  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [applicationConfigurationProperties]
-[2016-12-23 12:51:50,218] 347  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [refresh]
-[2016-12-23 12:51:50,219] 348  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'debug' in any property source
-[2016-12-23 12:51:50,219] 348  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [servletConfigInitParams]
-[2016-12-23 12:51:50,219] 348  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [servletContextInitParams]
-[2016-12-23 12:51:50,219] 348  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [systemProperties]
-[2016-12-23 12:51:50,220] 349  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [systemEnvironment]
-[2016-12-23 12:51:50,220] 349  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [random]
-[2016-12-23 12:51:50,220] 349  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [applicationConfigurationProperties]
-[2016-12-23 12:51:50,220] 349  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [refresh]
-[2016-12-23 12:51:50,220] 349  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'trace' in any property source
-[2016-12-23 12:51:50,221] 350  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [servletConfigInitParams]
-[2016-12-23 12:51:50,221] 350  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [servletContextInitParams]
-[2016-12-23 12:51:50,221] 350  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [systemProperties]
-[2016-12-23 12:51:50,221] 350  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [systemEnvironment]
-[2016-12-23 12:51:50,221] 350  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [random]
-[2016-12-23 12:51:50,221] 350  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [applicationConfigurationProperties]
-[2016-12-23 12:51:50,221] 350  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:151) - Found key 'logging.config' in [applicationConfigurationProperties] with type [String]
-[2016-12-23 12:51:50,226] 355  [restartedMain] ERROR (SpringApplicationRunListeners.java:86) - Error handling failed
+[2016-12-23 13:44:34,086] 0    [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+[2016-12-23 13:44:34,090] 4    [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [servletContextInitParams] PropertySource with lowest search precedence
+[2016-12-23 13:44:34,095] 9    [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [systemProperties] PropertySource with lowest search precedence
+[2016-12-23 13:44:34,097] 11   [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [systemEnvironment] PropertySource with lowest search precedence
+[2016-12-23 13:44:34,098] 12   [restartedMain] DEBUG (AbstractEnvironment.java:124) - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+[2016-12-23 13:44:34,103] 17   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
+[2016-12-23 13:44:34,104] 18   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
+[2016-12-23 13:44:34,105] 19   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
+[2016-12-23 13:44:34,105] 19   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
+[2016-12-23 13:44:34,107] 21   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
+[2016-12-23 13:44:34,107] 21   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
+[2016-12-23 13:44:34,107] 21   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
+[2016-12-23 13:44:34,108] 22   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
+[2016-12-23 13:44:34,109] 23   [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
+[2016-12-23 13:44:34,109] 23   [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
+[2016-12-23 13:44:34,119] 33   [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.boot.env.EnvironmentPostProcessor] names: [org.springframework.boot.devtools.env.DevToolsHomePropertiesPostProcessor, org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor, org.springframework.boot.cloud.CloudFoundryVcapEnvironmentPostProcessor, org.springframework.boot.env.SpringApplicationJsonEnvironmentPostProcessor]
+[2016-12-23 13:44:34,516] 430  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [servletConfigInitParams]
+[2016-12-23 13:44:34,516] 430  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [servletContextInitParams]
+[2016-12-23 13:44:34,517] 431  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [systemProperties]
+[2016-12-23 13:44:34,520] 434  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON:' in [systemEnvironment]
+[2016-12-23 13:44:34,520] 434  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'SPRING_APPLICATION_JSON:' in any property source
+[2016-12-23 13:44:34,522] 436  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [servletConfigInitParams]
+[2016-12-23 13:44:34,522] 436  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [servletContextInitParams]
+[2016-12-23 13:44:34,522] 436  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [systemProperties]
+[2016-12-23 13:44:34,523] 437  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'SPRING_APPLICATION_JSON' in [systemEnvironment]
+[2016-12-23 13:44:34,523] 437  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'SPRING_APPLICATION_JSON' in any property source
+[2016-12-23 13:44:34,524] 438  [restartedMain] TRACE (PropertyPlaceholderHelper.java:165) - Resolved placeholder 'SPRING_APPLICATION_JSON:'
+[2016-12-23 13:44:34,524] 438  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [servletConfigInitParams]
+[2016-12-23 13:44:34,525] 439  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [servletContextInitParams]
+[2016-12-23 13:44:34,532] 446  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [systemProperties]
+[2016-12-23 13:44:34,532] 446  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json:' in [systemEnvironment]
+[2016-12-23 13:44:34,532] 446  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.application.json:' in any property source
+[2016-12-23 13:44:34,533] 447  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [servletConfigInitParams]
+[2016-12-23 13:44:34,533] 447  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [servletContextInitParams]
+[2016-12-23 13:44:34,533] 447  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [systemProperties]
+[2016-12-23 13:44:34,534] 448  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.application.json' in [systemEnvironment]
+[2016-12-23 13:44:34,534] 448  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.application.json' in any property source
+[2016-12-23 13:44:34,534] 448  [restartedMain] TRACE (PropertyPlaceholderHelper.java:165) - Resolved placeholder 'spring.application.json:'
+[2016-12-23 13:44:34,539] 453  [restartedMain] DEBUG (MutablePropertySources.java:137) - Adding [random] PropertySource with search precedence immediately lower than [systemEnvironment]
+[2016-12-23 13:44:34,540] 454  [restartedMain] TRACE (RandomValuePropertySource.java:143) - RandomValuePropertySource add to Environment
+[2016-12-23 13:44:34,576] 490  [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.boot.env.PropertySourceLoader] names: [org.springframework.boot.env.PropertiesPropertySourceLoader, org.springframework.boot.env.YamlPropertySourceLoader]
+[2016-12-23 13:44:34,580] 494  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
+[2016-12-23 13:44:34,582] 496  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [servletContextInitParams]
+[2016-12-23 13:44:34,582] 496  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemProperties]
+[2016-12-23 13:44:34,582] 496  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [systemEnvironment]
+[2016-12-23 13:44:34,583] 497  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.active' in [random]
+[2016-12-23 13:44:34,592] 506  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.active' in any property source
+[2016-12-23 13:44:34,593] 507  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [servletConfigInitParams]
+[2016-12-23 13:44:34,593] 507  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [servletContextInitParams]
+[2016-12-23 13:44:34,594] 508  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [systemProperties]
+[2016-12-23 13:44:34,598] 512  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [systemEnvironment]
+[2016-12-23 13:44:34,599] 513  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.profiles.default' in [random]
+[2016-12-23 13:44:34,600] 514  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'spring.profiles.default' in any property source
+[2016-12-23 13:44:34,615] 529  [restartedMain] TRACE (PropertySourcesLoader.java:170) - Adding PropertySource: PropertiesPropertySource@779072645 [name='applicationConfig: [classpath:/application.properties]', properties={logging.config=classpath:log4j2.xml}] in group: applicationConfig: [profile=]
+[2016-12-23 13:44:34,616] 530  [restartedMain] DEBUG (MutablePropertySources.java:97) - Adding [applicationConfig: [profile=]] PropertySource with highest search precedence
+[2016-12-23 13:44:34,652] 566  [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [applicationConfigurationProperties] PropertySource with lowest search precedence
+[2016-12-23 13:44:34,669] 583  [restartedMain] TRACE (PropertiesConfigurationFactory.java:252) - Property Sources: [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment,random,applicationConfigurationProperties]
+[2016-12-23 13:44:34,703] 617  [restartedMain] TRACE (SpringFactoriesLoader.java:89) - Loaded [org.springframework.beans.BeanInfoFactory] names: [org.springframework.beans.ExtendedBeanInfoFactory]
+[2016-12-23 13:44:34,709] 623  [restartedMain] TRACE (CachedIntrospectionResults.java:265) - Getting BeanInfo for class [org.springframework.boot.SpringApplication]
+[2016-12-23 13:44:34,732] 646  [restartedMain] TRACE (CachedIntrospectionResults.java:284) - Caching PropertyDescriptors for class [org.springframework.boot.SpringApplication]
+[2016-12-23 13:44:34,733] 647  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'addCommandLineProperties' of type [boolean]
+[2016-12-23 13:44:34,756] 670  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'additionalProfiles' of type [[Ljava.lang.String;]
+[2016-12-23 13:44:34,757] 671  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'applicationContextClass' of type [java.lang.Class]
+[2016-12-23 13:44:34,757] 671  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'banner' of type [org.springframework.boot.Banner]
+[2016-12-23 13:44:34,763] 677  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'bannerMode' of type [org.springframework.boot.Banner$Mode]
+[2016-12-23 13:44:34,767] 681  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'beanNameGenerator' of type [org.springframework.beans.factory.support.BeanNameGenerator]
+[2016-12-23 13:44:34,767] 681  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'class' of type [java.lang.Class]
+[2016-12-23 13:44:34,768] 682  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'classLoader' of type [java.lang.ClassLoader]
+[2016-12-23 13:44:34,772] 686  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'defaultProperties' of type [java.util.Properties]
+[2016-12-23 13:44:34,773] 687  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'environment' of type [org.springframework.core.env.ConfigurableEnvironment]
+[2016-12-23 13:44:34,773] 687  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'headless' of type [boolean]
+[2016-12-23 13:44:34,773] 687  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'initializers' of type [java.util.Set]
+[2016-12-23 13:44:34,784] 698  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'listeners' of type [java.util.Set]
+[2016-12-23 13:44:34,789] 703  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'logStartupInfo' of type [boolean]
+[2016-12-23 13:44:34,790] 704  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'mainApplicationClass' of type [java.lang.Class]
+[2016-12-23 13:44:34,790] 704  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'registerShutdownHook' of type [boolean]
+[2016-12-23 13:44:34,790] 704  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'resourceLoader' of type [org.springframework.core.io.ResourceLoader]
+[2016-12-23 13:44:34,790] 704  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'sources' of type [java.util.Set]
+[2016-12-23 13:44:34,793] 707  [restartedMain] TRACE (CachedIntrospectionResults.java:297) - Found bean property 'webEnvironment' of type [boolean]
+[2016-12-23 13:44:34,954] 868  [restartedMain] DEBUG (MutablePropertySources.java:109) - Adding [refresh] PropertySource with lowest search precedence
+[2016-12-23 13:44:34,968] 882  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [servletConfigInitParams]
+[2016-12-23 13:44:34,968] 882  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [servletContextInitParams]
+[2016-12-23 13:44:34,971] 885  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'spring.output.ansi.enabled' in [systemProperties]
+[2016-12-23 13:44:34,974] 888  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:151) - Found key 'spring.output.ansi.enabled' in [systemProperties] with type [String]
+[2016-12-23 13:44:35,011] 925  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [servletConfigInitParams]
+[2016-12-23 13:44:35,011] 925  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [servletContextInitParams]
+[2016-12-23 13:44:35,012] 926  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [systemProperties]
+[2016-12-23 13:44:35,012] 926  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [systemEnvironment]
+[2016-12-23 13:44:35,012] 926  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [random]
+[2016-12-23 13:44:35,013] 927  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [applicationConfigurationProperties]
+[2016-12-23 13:44:35,013] 927  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.file' in [refresh]
+[2016-12-23 13:44:35,013] 927  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'logging.file' in any property source
+[2016-12-23 13:44:35,014] 928  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [servletConfigInitParams]
+[2016-12-23 13:44:35,014] 928  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [servletContextInitParams]
+[2016-12-23 13:44:35,015] 929  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [systemProperties]
+[2016-12-23 13:44:35,016] 930  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [systemEnvironment]
+[2016-12-23 13:44:35,016] 930  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [random]
+[2016-12-23 13:44:35,016] 930  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [applicationConfigurationProperties]
+[2016-12-23 13:44:35,016] 930  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.path' in [refresh]
+[2016-12-23 13:44:35,017] 931  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'logging.path' in any property source
+[2016-12-23 13:44:35,017] 931  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [servletConfigInitParams]
+[2016-12-23 13:44:35,017] 931  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [servletContextInitParams]
+[2016-12-23 13:44:35,017] 931  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [systemProperties]
+[2016-12-23 13:44:35,018] 932  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [systemEnvironment]
+[2016-12-23 13:44:35,018] 932  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [random]
+[2016-12-23 13:44:35,019] 933  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [applicationConfigurationProperties]
+[2016-12-23 13:44:35,019] 933  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'debug' in [refresh]
+[2016-12-23 13:44:35,020] 934  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'debug' in any property source
+[2016-12-23 13:44:35,020] 934  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [servletConfigInitParams]
+[2016-12-23 13:44:35,021] 935  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [servletContextInitParams]
+[2016-12-23 13:44:35,022] 936  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [systemProperties]
+[2016-12-23 13:44:35,023] 937  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [systemEnvironment]
+[2016-12-23 13:44:35,023] 937  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [random]
+[2016-12-23 13:44:35,024] 938  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [applicationConfigurationProperties]
+[2016-12-23 13:44:35,024] 938  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'trace' in [refresh]
+[2016-12-23 13:44:35,024] 938  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:91) - Could not find key 'trace' in any property source
+[2016-12-23 13:44:35,025] 939  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [servletConfigInitParams]
+[2016-12-23 13:44:35,026] 940  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [servletContextInitParams]
+[2016-12-23 13:44:35,026] 940  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [systemProperties]
+[2016-12-23 13:44:35,026] 940  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [systemEnvironment]
+[2016-12-23 13:44:35,027] 941  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [random]
+[2016-12-23 13:44:35,027] 941  [restartedMain] TRACE (PropertySourcesPropertyResolver.java:78) - Searching for key 'logging.config' in [applicationConfigurationProperties]
+[2016-12-23 13:44:35,027] 941  [restartedMain] DEBUG (PropertySourcesPropertyResolver.java:151) - Found key 'logging.config' in [applicationConfigurationProperties] with type [String]
+[2016-12-23 13:44:35,060] 974  [restartedMain] ERROR (SpringApplicationRunListeners.java:86) - Error handling failed
 java.lang.NullPointerException
 	at org.springframework.boot.context.event.EventPublishingRunListener.finished(EventPublishingRunListener.java:93)
 	at org.springframework.boot.SpringApplicationRunListeners.callFinishedListener(SpringApplicationRunListeners.java:79)
@@ -464,7 +412,7 @@ java.lang.NullPointerException
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-[2016-12-23 12:51:50,231] 360  [restartedMain] ERROR (SpringApplication.java:839) - Application startup failed
+[2016-12-23 13:44:35,063] 977  [restartedMain] ERROR (SpringApplication.java:839) - Application startup failed
 java.lang.NoSuchMethodError: org.apache.logging.log4j.core.config.ConfigurationFactory.getConfiguration(Lorg/apache/logging/log4j/core/config/ConfigurationSource;)Lorg/apache/logging/log4j/core/config/Configuration;
 	at org.springframework.boot.logging.log4j2.Log4J2LoggingSystem.loadConfiguration(Log4J2LoggingSystem.java:176)
 	at org.springframework.boot.logging.log4j2.Log4J2LoggingSystem.loadConfiguration(Log4J2LoggingSystem.java:167)

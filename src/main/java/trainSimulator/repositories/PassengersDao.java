@@ -20,16 +20,4 @@ public class PassengersDao extends AbstractJpaDao<Passenger> implements Passenge
         setClazz(Passenger.class);
     }
 
-    @Override
-    @Cacheable("passenger")
-    public Passenger findOne(final long id) {
-        return entityManager.find(Passenger.class, id);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    @Cacheable("passengers")
-    public List<Passenger> findAll() {
-        return entityManager.createQuery("from " + Passenger.class.getName()).getResultList();
-    }
 }

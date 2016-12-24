@@ -20,17 +20,4 @@ public class EventLogsDao extends AbstractJpaDao<EventLog> implements EventLogsD
         setClazz(EventLog.class);
     }
 
-    @Override
-    @Cacheable("eventLog")
-    public EventLog findOne(final long id) {
-        return entityManager.find(EventLog.class, id);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    @Cacheable("eventLogs")
-    public List<EventLog> findAll() {
-        return entityManager.createQuery("from " + EventLog.class.getName()).getResultList();
-    }
-
 }
