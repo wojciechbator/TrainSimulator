@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="../static/semantic/dist/semantic.min.css"
           th:href="@{/semantic/dist/semantic.min.css}"/>
     <!--<link rel="stylesheet" href="/static/css/style.css"  th:href="@{/css/style.css}" type="text/css">-->
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/icon.min.css'>
     <title>Rozkład jazdy</title>
 </head>
 <body>
@@ -25,12 +26,12 @@
             </thead>
             <tbody>
             <tr th:each="train : ${@trainService.getAllTrains()}">
-                <td>${train.id}</td>
-                <td>${train.name}</td>
-                <td>${train.route.id}</td>
-                <td>${train.station.name}</td>
-                <td>${train.state}</td>
-                <td>${train.timetable.get(0).departureTime}</td>
+                <td>#{train.id}</td>
+                <td>#{train.name}</td>
+                <td>#{train.route.id}</td>
+                <td>#{train.station.name}</td>
+                <td>#{train.state}</td>
+                <td>#{train.timetable.get(0).departureTime}</td>
             </tr>
             </tbody>
         </table>

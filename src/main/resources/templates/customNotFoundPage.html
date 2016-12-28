@@ -2,17 +2,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../static/semantic/dist/semantic.min.css" th:href="@{/semantic/dist/semantic.min.css}" />
-    <!--<link rel="stylesheet" href="/static/css/style.css"  th:href="@{/css/style.css}" type="text/css">-->
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/icon.min.css'>
-    <title>Start</title>
+    <title>404 - UPS!</title>
 </head>
 <body>
 <div th:include="commonLayout :: commonNavbar"></div>
 <div class="ui raised very padded container segment">
-    <h2 class="ui header">Witamy w symulatorze pociągów</h2>
-    <p>
-        Jest on co prawda bardzo biedny od strony front endowej, ale jak mawiają - liczy się wnętrze!
-    </p>
+    <h2 class="ui header">404 - Nie znaleziono :(</h2>
+    <i class="bomb icon"></i>
 </div>
 <div th:include="commonFooter" style="text-align: center;">Domyślna stopka</div>
 </body>
