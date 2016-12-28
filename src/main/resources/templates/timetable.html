@@ -1,47 +1,41 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <link rel="stylesheet" href="/static/css/style.css"  th:href="@{/css/style.css}" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/semantic/dist/semantic.min.css"
+          th:href="@{/semantic/dist/semantic.min.css}"/>
+    <!--<link rel="stylesheet" href="/static/css/style.css"  th:href="@{/css/style.css}" type="text/css">-->
     <title>Rozkład jazdy</title>
 </head>
 <body>
 <div th:include="commonLayout :: commonNavbar"></div>
-<main class="mdl-layout__content">
-    <section class="mdl-layout__tab-panel is-active" id="timetableTabPanel">
-        <div class="page-content">
-             <!--<div class="trainsList" th:unless="${#lists.isEmpty(allTrains)}">-->
-            <div class="trainsList">
-                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-                    <thead>
-                    <tr>
-                        <th class="mdl-data-table__cell--non-numeric">ID pociągu</th>
-                        <th>Nazwa pociągu</th>
-                        <th>ID trasy</th>
-                        <th>Bieżąca stacja</th>
-                        <th>Stan pociągu</th>
-                        <th>Godzina odjazdu</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="train : ${@trainService.getAllTrains()}">
-                        <td class="mdl-data-table__cell--non-numeric">${train.id}</td>
-                        <td>${train.name}</td>
-                        <td class="mdl-data-table__cell--non-numeric">${train.route.id}</td>
-                        <td>${train.station.name}</td>
-                        <td>${train.state}</td>
-                        <td>${train.timetable.get(0).departureTime}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-</main>
+<div class="ui raised very padded container segment">
+    <h2 class="ui header">Rozkład jazdy:</h2>
+    <!--<div class="trainsList" th:unless="${#lists.isEmpty(allTrains)}">-->
+    <div class="trainsList">
+        <table class="ui single line table">
+            <thead>
+            <tr>
+                <th>ID pociągu</th>
+                <th>Nazwa pociągu</th>
+                <th>ID trasy</th>
+                <th>Bieżąca stacja</th>
+                <th>Stan pociągu</th>
+                <th>Godzina odjazdu</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="train : ${@trainService.getAllTrains()}">
+                <td>${train.id}</td>
+                <td>${train.name}</td>
+                <td>${train.route.id}</td>
+                <td>${train.station.name}</td>
+                <td>${train.state}</td>
+                <td>${train.timetable.get(0).departureTime}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 <div th:include="commonFooter" style="text-align: center;">&copy; Wojtek B &amp; Wojtek S</div>
 </body>
 </html>
