@@ -16,33 +16,27 @@
 <section class="mdl-layout__tab-panel is-active" id="generatorTabPanel">
     <div class="page-content">
         <h2>Panel admina taki ubogi</h2>
-        <button th:onclick="${@timetableGeneratorService.generateTimetable()}"
-           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-           id="generateTrainsButton">
+        <button type="submit" name="createTrains"
+           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
             Wygeneruj pociągi
         </button>
-        <button th:onclick="${@trainService.clearTrains()}"
-           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-           id="clearTrainsButton">
+        <button type="submit" name="clearTrains"
+           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
             Wyczyść pociągi
         </button>
-        <button th:onclick="${@eventLogService.clearEvents()}"
-           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-           id="clearLogsButton">
+        <button type="submit" name="clearLogs"
+           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
             Wyczyść logi
         </button>
-        <button th:onclick="${@runSimulationService.runSimulation()}"
-           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-           id="runSimulationButton">
+        <button type="submit" name="runSimulation"
+           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
             Włącz symulację
         </button>
-        <button th:onclick="${@runSimulationService.stopSimulation()}"
-           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-           id="stopSimulationButton">
+        <button type="submit" name="stopSimulation"
+           class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
             Wyłącz symulację
         </button>
     </div>
-    <script type="text/javascript" th:src="@{/js/generatorUtilities.js}"></script>
     <div th:include="commonFooter"></div>
 </section>
 </html>

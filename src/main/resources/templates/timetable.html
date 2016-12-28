@@ -14,8 +14,7 @@
 <main class="mdl-layout__content">
     <section class="mdl-layout__tab-panel is-active" id="timetableTabPanel">
         <div class="page-content">
-             <!--<div class="trainsList" th:unless="${#lists.isEmpty(allTrains)}">-->
-             <div class="trainsList" th:unless="${#lists.isEmpty(@trainService.getAllTrains())}">
+             <div class="trainsList" th:unless="${#lists.isEmpty(allTrains)}">
                 <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                     <thead>
                     <tr>
