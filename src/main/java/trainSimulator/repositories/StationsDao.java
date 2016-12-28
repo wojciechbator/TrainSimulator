@@ -19,17 +19,4 @@ public class StationsDao extends AbstractJpaDao<Station> implements StationsDaoI
         super();
         setClazz(Station.class);
     }
-
-    @Override
-    @Cacheable("station")
-    public Station findOne(final long id) {
-        return entityManager.find(Station.class, id);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    @Cacheable("stations")
-    public List<Station> findAll() {
-        return entityManager.createQuery("from " + Station.class.getName()).getResultList();
-    }
 }

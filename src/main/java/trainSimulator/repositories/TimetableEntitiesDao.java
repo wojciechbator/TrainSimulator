@@ -19,17 +19,4 @@ public class TimetableEntitiesDao extends AbstractJpaDao<TimetableEntity> implem
         super();
         setClazz(TimetableEntity.class);
     }
-
-    @Override
-    @Cacheable("timetableEntity")
-    public TimetableEntity findOne(final long id) {
-        return entityManager.find(TimetableEntity.class, id);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    @Cacheable("timetableEntities")
-    public List<TimetableEntity> findAll() {
-        return entityManager.createQuery("from " + TimetableEntity.class.getName()).getResultList();
-    }
 }

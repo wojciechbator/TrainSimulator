@@ -19,17 +19,4 @@ public class RoutesDao extends AbstractJpaDao<Route> implements RoutesDaoInterfa
         super();
         setClazz(Route.class);
     }
-
-    @Override
-    @Cacheable("route")
-    public Route findOne(final long id) {
-        return entityManager.find(Route.class, id);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    @Cacheable("routes")
-    public List<Route> findAll() {
-        return entityManager.createQuery("from " + Route.class.getName()).getResultList();
-    }
 }

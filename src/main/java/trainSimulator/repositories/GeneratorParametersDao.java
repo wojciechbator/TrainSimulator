@@ -22,17 +22,4 @@ public class GeneratorParametersDao extends AbstractJpaDao<GeneratorParameter> i
         super();
         setClazz(GeneratorParameter.class);
     }
-
-    @Override
-    @Cacheable("generatorParameter")
-    public GeneratorParameter findOne(final long id) {
-        return entityManager.find(GeneratorParameter.class, id);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    @Cacheable("generatorParameters")
-    public List<GeneratorParameter> findAll() {
-        return entityManager.createQuery("from " + GeneratorParameter.class.getName()).getResultList();
-    }
 }

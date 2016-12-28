@@ -19,17 +19,4 @@ public class TrainsDao extends AbstractJpaDao<Train> implements TrainsDaoInterfa
         super();
         setClazz(Train.class);
     }
-
-    @Override
-    @Cacheable("train")
-    public Train findOne(final long id) {
-        return entityManager.find(Train.class, id);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    @Cacheable("trains")
-    public List<Train> findAll() {
-        return entityManager.createQuery("from " + Train.class.getName()).getResultList();
-    }
 }
