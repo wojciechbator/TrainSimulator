@@ -25,23 +25,23 @@ public class TrainService {
         trainsDaoInterface.update(Train);
     }
 
-    public void createTrain(Train train) {
+    void createTrain(Train train) {
         trainsDaoInterface.create(train);
     }
 
-    private void deleteTrain(final Train train) {
+    void deleteTrain(final Train train) {
         trainsDaoInterface.delete(train);
     }
 
-    public void deleteTrainById(final long id) {
+    void deleteTrainById(final long id) {
         trainsDaoInterface.deleteById(id);
     }
 
-    public Train findTrain(final long id) {
+    Train findTrain(final long id) {
         return trainsDaoInterface.findOne(id);
     }
 
-    public void clearTrains() {
+    void clearTrains() {
         List<Train> allTrains = trainsDaoInterface.findAll();
         for (Train train : allTrains) {
             deleteTrain(train);

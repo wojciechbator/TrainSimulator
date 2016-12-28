@@ -13,26 +13,25 @@
 <div class="ui raised very padded container segment">
     <h2 class="ui header">Możliwości admina:</h2>
     <div class="item">
-        <button type="submit" name="createTrains"
-                class="ui secondary button">
-            Wygeneruj pociągi
-        </button>
-        <button type="submit" name="clearTrains"
-                class="ui secondary button">
-            Wyczyść pociągi
-        </button>
-        <button type="submit" name="clearLogs"
-                class="ui secondary button">
-            Wyczyść logi
-        </button>
-        <button type="submit" name="runSimulation"
-                class="ui secondary button">
-            Włącz symulację
-        </button>
-        <button type="submit" name="stopSimulation"
-                class="ui secondary button">
-            Wyłącz symulację
-        </button>
+        <table>
+        <tr>
+            <td><form th:action="@{/adminPanel/createTrains}" method="post">
+                <button type="submit" class="ui secondary button">Wygeneruj pociągi</button>
+            </form></td>
+            <td><form th:action="@{/adminPanel/clearTrains}" method="post">
+                <button type="submit" class="ui secondary button">Wyczyść pociągi</button>
+            </form></td>
+            <td><form th:action="@{/adminPanel/clearLogs}" method="post">
+                <button type="submit" class="ui secondary button">Wyczyść logi</button>
+            </form></td>
+            <td><form th:action="@{/adminPanel/runSimulation}" method="post">
+                <button type="submit" class="ui secondary button">Włącz symulację</button>
+            </form></td>
+            <td><form th:action="@{/adminPanel/stopSimulation}" method="post">
+                <button type="submit" class="ui secondary button">Wyłącz symulację</button>
+            </form></td>
+        </tr>
+        </table>
     </div>
 </div>
 <div th:include="commonFooter"></div>

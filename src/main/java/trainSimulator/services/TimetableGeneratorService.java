@@ -105,10 +105,10 @@ public class TimetableGeneratorService {
             eventLog.setType("INFO");
             eventLog.setTimestamp(new Date());
             eventLog.setStationName(train.getStation().getName());
+            trainService.saveTrain(train);
             eventLog.setComment("Created train with ID: " + train.getId() + ", on route id: " + train.getRoute().getId() +
                      ", with " + train.getPassengers().size() + " passengers on board!");
             eventLogService.saveEvent(eventLog);
-            trainService.saveTrain(train);
             startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterById(2).getParameterValue()));
         }
     }
@@ -117,11 +117,17 @@ public class TimetableGeneratorService {
         Date startingDate = new Date();
         Date endingDate = DateUtils.addHours(startingDate, 24);
         //First of all - clear old timetable and data
-        trainService.clearTrains();
+        clearTimetable();
+        createTrains(startingDate, endingDate, Integer.valueOf(generatorParametersService.findGeneratorParameterById(4).getParameterValue()));
+    }
+
+    public void clearTimetable() {
+        List<Train> allTrains = trainService.getAllTrains();
+        for(Train train : allTrains) {
+            trainService.deleteTrain(train);
+        }
         String comment = "Cleared old trains, timetable for them, passengers and tickets!";
         logger.info(comment);
         eventLogService.saveEvent(new EventLog("INFO", "", new Date(), comment));
-        //TODO: Get param by ID somehow, for now it will be hardcoded :(
-        createTrains(startingDate, endingDate, Integer.valueOf(generatorParametersService.findGeneratorParameterById(4).getParameterValue()));
     }
 }

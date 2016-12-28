@@ -7,7 +7,12 @@
 </head>
 <body>
 <div th:include="commonLayout :: commonNavbar"></div>
-<div></div>
-<div th:include="commonFooter">Domyślna stopka</div>
+<div class="ui raised very padded container segment">
+    <h2 class="ui header">Witamy w symulatorze pociągów</h2>
+    <p>
+        Jest on co prawda bardzo biedny od strony front endowej, ale jak mawiają - liczy się wnętrze!
+    </p>
+</div>
+<div th:include="commonFooter" style="text-align: center;">Domyślna stopka</div>
 </body>
 </html>
