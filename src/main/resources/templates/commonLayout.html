@@ -2,13 +2,14 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../static/semantic/dist/semantic.min.css"
           th:href="@{/semantic/dist/semantic.min.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/icon.min.css'>
 </head>
 <body>
 <div th:fragment="commonNavbar">
     <div class="ui fixed inverted menu">
         <div class="ui container">
-            <a th:href="@{/}" class="active item" id="indexTabPanel">Strona główna</a>
+            <a th:href="@{/}" class="item" id="indexTabPanel">Strona główna</a>
             <a th:href="@{/timetable}" class="item" id="timetableTabPanel">Rozkład
                 jazdy</a>
             <a th:href="@{/adminPanel}" class="item" id="generatorTabPanel">Panel
