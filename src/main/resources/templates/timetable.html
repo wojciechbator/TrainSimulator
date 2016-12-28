@@ -11,7 +11,6 @@
 <div th:include="commonLayout :: commonNavbar"></div>
 <div class="ui raised very padded container segment">
     <h2 class="ui header">Rozkład jazdy:</h2>
-    <!--<div class="trainsList" th:unless="${#lists.isEmpty(allTrains)}">-->
     <div class="trainsList">
         <table class="ui single line table">
             <thead>
@@ -26,12 +25,12 @@
             </thead>
             <tbody>
             <tr th:each="train : ${@trainService.getAllTrains()}">
-                <td>#{train.id}</td>
-                <td>#{train.name}</td>
-                <td>#{train.route.id}</td>
-                <td>#{train.station.name}</td>
-                <td>#{train.state}</td>
-                <td>#{train.timetable.get(0).departureTime}</td>
+                <td th:text="${train.id}"></td>
+                <td th:text="${train.name}"></td>
+                <td th:text="${train.route.id}"></td>
+                <td th:text="${train.station.name}"></td>
+                <td th:text="${train.state}"></td>
+                <td th:text="${train.timetable.get(0).departureTime}"></td>
             </tr>
             </tbody>
         </table>
