@@ -1,6 +1,7 @@
 package trainSimulator.services;
 
 import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +26,8 @@ public class RunSimulationService {
     private ExecutorService executorService;
 
     @Autowired
-    public RunSimulationService(StationService stationService, GeneratorParametersService generatorParametersService, TrainService trainService, EventLogService eventLogService) {
+    public RunSimulationService(StationService stationService, GeneratorParametersService generatorParametersService,
+                                TrainService trainService, EventLogService eventLogService) {
         this.stationService = stationService;
         this.generatorParametersService = generatorParametersService;
         this.trainService = trainService;

@@ -74,6 +74,7 @@ public class PersistenceConfiguration {
         properties.setProperty("hibernate.dialect", environment.getProperty("hibernate.dialect"));
         properties.setProperty("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
         properties.setProperty("hibernate.generate_statistics", environment.getProperty("hibernate.generate_statistics"));
+        properties.setProperty("hibernate.enable_lazy_load_no_trans", environment.getProperty("hibernate.enable_lazy_load_no_trans"));
         properties.setProperty("hibernate.temp.use_jdbc_metadata_defaults", environment.getProperty("hibernate.temp.use_jdbc_metadata_defaults"));
         return properties;
     }

@@ -2,11 +2,15 @@ package trainSimulator.services;
 
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.*;
 import trainSimulator.utilities.TrainState;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +27,10 @@ public class SimulationService implements Runnable {
     private static Logger logger = Logger.getLogger(SimulationService.class);
     private final Object mutexObject = new Object();
     private boolean isRunning = true;
+    @PersistenceContext
+    EntityManager entityManager;
 
+    @Autowired
     public SimulationService(TrainService trainService, GeneratorParametersService generatorParametersService,
                              EventLogService eventLogService) {
         this.trainService = trainService;
@@ -86,6 +93,7 @@ public class SimulationService implements Runnable {
     private List<Train> getNearestTrains(List<Train> allTrains) {
         List<Train> nearestTrains = new ArrayList<>();
         for (Train train : allTrains) {
+            //TODO: LazyInitializationException fix
             for (TimetableEntity timetableEntity : train.getTimetable()) {
                 if (timetableEntity.getArrivalTime().getTime() < DateUtils.addMinutes(new Date(),
                         Integer.valueOf(generatorParametersService.findGeneratorParameterById(7).getParameterValue())).getTime()
