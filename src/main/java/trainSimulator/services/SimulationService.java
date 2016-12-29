@@ -3,6 +3,7 @@ package trainSimulator.services;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.*;
 import trainSimulator.utilities.TrainState;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * Created by mitron-wojtek on 17.11.16.
  */
 @Service
+@Transactional
 public class SimulationService implements Runnable {
     private final TrainService trainService;
     private final GeneratorParametersService generatorParametersService;
@@ -78,6 +80,7 @@ public class SimulationService implements Runnable {
                 }
             }
         }
+        logger.info("Simulation is working!");
     }
 
     private List<Train> getNearestTrains(List<Train> allTrains) {

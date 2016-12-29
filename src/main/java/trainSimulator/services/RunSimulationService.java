@@ -3,6 +3,7 @@ package trainSimulator.services;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Station;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.concurrent.TimeUnit;
  * Created by mitron-wojtek on 08.12.16.
  */
 @Service
+@Transactional
 public class RunSimulationService {
     private static final Logger logger = Logger.getLogger(RunSimulationService.class);
     private final StationService stationService;
