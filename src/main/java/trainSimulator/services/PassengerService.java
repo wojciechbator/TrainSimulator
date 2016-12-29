@@ -56,18 +56,6 @@ public class PassengerService {
         logger.info("Passenger with id: " + passenger.getId() + " deleted!");
     }
 
-    public void buyTicket(Passenger passenger, Ticket ticket) {
-        if (passenger.getTickets().contains(ticket)) {
-            logger.info("Passenger with id: " + passenger.getId() + " already is an owner of the ticket: " + ticket.getId());
-        } else {
-            Random random = new Random();
-            ticket.setPassenger(passenger);
-            ticket.setPrice(random.nextInt(30) + 10);
-            ticketService.saveTicket(ticket);
-            logger.info("Passenger with id: " + passenger.getId() + " has bought a ticket with id: " + ticket.getId());
-        }
-    }
-
     public void removePassengers() {
         for (Passenger passenger : passengersDaoInterface.findAll()) {
             delete(passenger);

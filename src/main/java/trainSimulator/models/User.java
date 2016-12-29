@@ -37,9 +37,21 @@ public class User implements Serializable {
 
     private boolean enabled;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<Ticket> tickets;
+
     @ManyToMany
     @JoinTable
     private List<Role> roles;
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
 
     public boolean isEnabled() {
         return enabled;

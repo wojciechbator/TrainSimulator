@@ -2,12 +2,11 @@ package trainSimulator.services;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import trainSimulator.models.EventLog;
-import trainSimulator.models.GeneratorParameter;
-import trainSimulator.models.Route;
-import trainSimulator.models.Station;
+import trainSimulator.models.*;
+import trainSimulator.repositories.RoleDaoInterface;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -24,13 +23,18 @@ public class InitDatabaseService {
     private final EventLogService eventLogService;
     private final RouteService routeService;
     private final GeneratorParametersService generatorParametersService;
+    private final UserService userService;
+    private final RoleDaoInterface roleDaoInterface;
 
     @Autowired
     public InitDatabaseService(EventLogService eventLogService, RouteService routeService,
-                               GeneratorParametersService generatorParametersService) {
+                               GeneratorParametersService generatorParametersService,
+                               UserService userService, RoleDaoInterface roleDaoInterface) {
         this.eventLogService = eventLogService;
         this.routeService = routeService;
         this.generatorParametersService = generatorParametersService;
+        this.userService = userService;
+        this.roleDaoInterface = roleDaoInterface;
     }
 
     @PostConstruct
@@ -39,6 +43,25 @@ public class InitDatabaseService {
         String logText = "A new session started!";
         logger.info(logText);
         eventLogService.saveEvent(new EventLog("INFO", "", new Date(), logText));
+        if (roleDaoInterface.findByName("ROLE_ADMIN") == null) {
+            Role adminRole = new Role();
+            adminRole.setName("ROLE_ADMIN");
+            roleDaoInterface.update(adminRole);
+            Role userRole = new Role();
+            userRole.setName("ROLE_USER");
+            roleDaoInterface.update(userRole);
+            User admin = new User();
+            admin.setEnabled(true);
+            admin.setName("admin");
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            admin.setPassword(encoder.encode("admin"));
+            List<Role> roles = new ArrayList<>();
+            roles.add(adminRole);
+            roles.add(userRole);
+            admin.setRoles(roles);
+            userService.saveUser(admin);
+        }
+
         GeneratorParameter onStationStopTime = new GeneratorParameter();
         onStationStopTime.setParameterName("on_station_stop_time");
         onStationStopTime.setParameterValue("60");

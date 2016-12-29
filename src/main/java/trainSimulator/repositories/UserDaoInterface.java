@@ -19,4 +19,6 @@ public interface UserDaoInterface {
     User findOne(long id);
 
     void deleteById(long entityId);
+
+    User findOneByName(String name);
 }
