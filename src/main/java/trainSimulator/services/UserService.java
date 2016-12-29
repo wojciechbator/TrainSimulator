@@ -35,7 +35,7 @@ public class UserService {
         return userDaoInterface.findOne(id);
     }
 
-    void saveUser(final User user) {
+    public void saveUser(final User user) {
         user.setEnabled(true);
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(user.getPassword()));
@@ -47,6 +47,10 @@ public class UserService {
 
     public void delete(final User user) {
         userDaoInterface.delete(user);
+    }
+
+    public void deleteById(final long id) {
+        userDaoInterface.deleteById(id);
     }
 
     public User findOneByName(String name) {

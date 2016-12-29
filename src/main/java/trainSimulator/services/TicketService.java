@@ -2,12 +2,12 @@ package trainSimulator.services;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Ticket;
+import trainSimulator.models.User;
 import trainSimulator.repositories.TicketsDaoInterface;
+import trainSimulator.repositories.UserDaoInterface;
 
 import java.util.List;
 
@@ -19,10 +19,12 @@ import java.util.List;
 public class TicketService {
     private static final Logger logger = Logger.getLogger(TicketService.class);
     private final TicketsDaoInterface ticketsDaoInterface;
+    private final UserDaoInterface userDaoInterface;
 
     @Autowired
-    public TicketService(TicketsDaoInterface ticketsDao) {
+    public TicketService(TicketsDaoInterface ticketsDao, UserDaoInterface userDaoInterface) {
         this.ticketsDaoInterface = ticketsDao;
+        this.userDaoInterface = userDaoInterface;
     }
 
     void saveTicket(final Ticket ticket) {
@@ -40,8 +42,10 @@ public class TicketService {
         logger.info("Deleted ticket by id with id: " + id);
     }
 
-    public void createTicket(final Ticket ticket) {
-        ticketsDaoInterface.create(ticket);
+    public void createTicket(final Ticket ticket, String name) {
+        User user = userDaoInterface.findOneByName(name);
+        ticket.setUser(user);
+        ticketsDaoInterface.update(ticket);
         logger.info("Created ticket with id: " + ticket.getId());
     }
 

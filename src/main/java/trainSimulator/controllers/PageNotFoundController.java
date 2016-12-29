@@ -17,7 +17,7 @@ public class PageNotFoundController {
     }
 
     //Może kiedyś użyjemy do obsługi różnego rodzaju błędów (nie tylko 404), do tego przyda się status
-    private int getHttpStatusCOde(final HttpServletRequest request) {
+    private int getHttpStatusCode(final HttpServletRequest request) {
         return (int) request.getAttribute("javax.servlet.error.status_code");
     }
 }
