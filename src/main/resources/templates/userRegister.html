@@ -1,0 +1,63 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/semantic/dist/semantic.min.css"
+          th:href="@{/semantic/dist/semantic.min.css}"/>
+    <link rel='stylesheet prefetch'
+          href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/icon.min.css'>
+    <title>Start</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/js/activeButtonsSwitcher.js"
+            th:src="@{/js/activeButtonsSwitcher.js}"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+    <script src="../static/js/registrationValidation.js" th:src="@{/js/registrationValidation.js}"></script>
+</head>
+<body>
+<div th:include="commonLayout :: commonNavbar"></div>
+<div class="ui raised very padded container segment">
+    <h2 class="ui header">Zarejestruj się:</h2>
+    <form class="ui equal width form JQValidate">
+        <div th:if="${param.success} == true">
+            <div class="ui success message">
+                <i class="close icon"></i>
+                <div class="header">
+                    Rejestracja się powiodła.
+                </div>
+                <p>Teraz możesz się zalogować.</p>
+            </div>
+        </div>
+        <div class="fields">
+            <div class="field">
+                <label for="name">Nazwa użytkownika</label>
+                <input type="text" placeholder="Nazwa użytkownika">
+            </div>
+            <div class="field">
+                <label for="password">Hasło</label>
+                <input type="password">
+            </div>
+            <div class="field">
+                <label for="password_again">Hasło jeszcze raz</label>
+                <input type="password">
+            </div>
+        </div>
+        <div class="fields">
+            <div class="field">
+                <label>Imię</label>
+                <input type="text" placeholder="Imię">
+            </div>
+            <div class="field">
+                <label>Nazwisko</label>
+                <input type="text" placeholder="Nazwisko">
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="text" placeholder="Email">
+            </div>
+            <form th:action="@{redirect:/register?success=true}" method="post">
+                <button type="submit" class="ui secondary button">Zarejestruj się</button>
+            </form>
+        </div>
+    </form>
+</div>
+</body>
+</html>
