@@ -14,7 +14,8 @@ import java.util.List;
 @Repository
 public class TrainsDao extends AbstractJpaDao<Train> implements TrainsDaoInterface {
     @PersistenceContext
-    private EntityManager entityManager;
+    EntityManager entityManager;
+
     public TrainsDao() {
         super();
         setClazz(Train.class);

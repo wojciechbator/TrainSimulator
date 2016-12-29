@@ -25,7 +25,7 @@ public class TrainService {
         trainsDaoInterface.update(Train);
     }
 
-    void createTrain(Train train) {
+    void createTrain(final Train train) {
         trainsDaoInterface.create(train);
     }
 

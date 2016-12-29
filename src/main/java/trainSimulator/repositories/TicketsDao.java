@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public class TicketsDao extends AbstractJpaDao<Ticket> implements TicketsDaoInterface {
     @PersistenceContext
-    private EntityManager entityManager;
+    EntityManager entityManager;
     public TicketsDao() {
         super();
         setClazz(Ticket.class);

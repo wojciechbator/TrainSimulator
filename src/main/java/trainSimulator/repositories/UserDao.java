@@ -1,21 +1,21 @@
 package trainSimulator.repositories;
 
 import org.springframework.stereotype.Repository;
-import trainSimulator.models.Passenger;
+import trainSimulator.models.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- * Created by mitron-wojtek on 25.11.16.
+ * Created by wojciech on 29.12.16.
  */
 @Repository
-public class PassengersDao extends AbstractJpaDao<Passenger> implements PassengersDaoInterface {
+public class UserDao extends AbstractJpaDao<User> implements UserDaoInterface {
     @PersistenceContext
     EntityManager entityManager;
-    public PassengersDao() {
-        super();
-        setClazz(Passenger.class);
-    }
 
+    public UserDao() {
+        super();
+        this.setClazz(User.class);
+    }
 }

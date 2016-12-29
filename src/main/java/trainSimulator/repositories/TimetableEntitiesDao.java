@@ -14,7 +14,8 @@ import java.util.List;
 @Repository
 public class TimetableEntitiesDao extends AbstractJpaDao<TimetableEntity> implements TimetableEntitiesDaoInterface {
     @PersistenceContext
-    private EntityManager entityManager;
+    EntityManager entityManager;
+
     public TimetableEntitiesDao() {
         super();
         setClazz(TimetableEntity.class);

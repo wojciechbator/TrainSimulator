@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public class EventLogsDao extends AbstractJpaDao<EventLog> implements EventLogsDaoInterface {
     @PersistenceContext
-    private EntityManager entityManager;
+    EntityManager entityManager;
     public EventLogsDao() {
         super();
         setClazz(EventLog.class);

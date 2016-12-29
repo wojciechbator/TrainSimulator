@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public class RoutesDao extends AbstractJpaDao<Route> implements RoutesDaoInterface {
     @PersistenceContext
-    private EntityManager entityManager;
+    EntityManager entityManager;
     public RoutesDao() {
         super();
         setClazz(Route.class);

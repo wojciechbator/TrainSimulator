@@ -16,7 +16,7 @@ import java.util.List;
 @Repository
 public class GeneratorParametersDao extends AbstractJpaDao<GeneratorParameter> implements GeneratorParametersDaoInterface {
     @PersistenceContext
-    private EntityManager entityManager;
+    EntityManager entityManager;
 
     public GeneratorParametersDao() {
         super();
