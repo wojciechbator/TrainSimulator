@@ -6,7 +6,7 @@ $(document).ready(function () {
                     minlength: 3,
                     required: true,
                     remote: {
-                        url: "<spring:url value='/register/available' />",
+                        url: "<spring:url value='/register/available.html' />",
                         type: "get",
                         data: {
                             username: function () {
@@ -31,14 +31,14 @@ $(document).ready(function () {
                 }
             },
             highlight: function (element) {
-                $(element).closest('.fields').removeClass('success').addClass('error');
+                $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
             },
             unhighlight: function (element) {
-                $(element).closest('.fields').removeClass('error').addClass('success');
+                $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
             },
             messages: {
                 name: {
-                    remote: "Taka nazwa już istnieje!"
+                    remote: "Such username already exists!"
                 }
             }
         });

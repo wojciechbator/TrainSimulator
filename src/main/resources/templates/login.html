@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/semantic/dist/semantic.min.css"
+          th:href="@{/semantic/dist/semantic.min.css}"/>
+    <link rel='stylesheet prefetch'
+          href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/icon.min.css'>
+    <title>Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/js/activeButtonsSwitcher.js"
+            th:src="@{/js/activeButtonsSwitcher.js}"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+    <script src="../static/js/loginValidation.js" th:src="@{/js/loginValidation.js}"></script>
+</head>
+<body>
+<div th:include="commonLayout :: commonNavbar"></div>
+<div class="ui raised very padded container text segment">
+    <h2 class="ui header">Zaloguj się:</h2>
+    <form class="ui form">
+        <div class="field">
+            <label>Login</label>
+            <input name="login" type="text">
+        </div>
+        <div class="field">
+            <label>hasło</label>
+            <input name="password" type="password">
+        </div>
+        <div class="ui secondary submit button">Zaloguj się</div>
+        <div class="ui error message"></div>
+    </form>
+</div>
+</body>
+</html>
