@@ -31,10 +31,10 @@ $(document).ready(function () {
                 }
             },
             highlight: function (element) {
-                $(element).closest('.field').removeClass('success').addClass('error');
+                $(element).closest('.fields').removeClass('success').addClass('error');
             },
             unhighlight: function (element) {
-                $(element).closest('.field').removeClass('error').addClass('success');
+                $(element).closest('.fields').removeClass('error').addClass('success');
             },
             messages: {
                 name: {

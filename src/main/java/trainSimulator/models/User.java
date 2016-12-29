@@ -21,18 +21,18 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private long id;
-    @Size(min = 3, message = "Write at least 3 characters")
+    @Size(min = 3, message = "Przynajmniej 3 znaki")
     @Column(unique = true)
-    @UniqueUsername(message = "Such username is already registered, try another name")
+    @UniqueUsername(message = "Ta nazwa jest już zarezerwowana")
     private String name;
 
-    @Size(min = 3, message = "Invalid email, please try again")
-    @Email(message = "Invalid email, please try again")
+    @Size(min = 3, message = "Zły mail, jeszcze raz")
+    @Email(message = "Zły mail, jeszcze raz")
     @Column(unique = true)
-    @UniqueUsername(message = "Such email is already registered, try another")
+    @UniqueUsername(message = "Taki mail jest już zarezerwowany")
     private String email;
 
-    @Size(min = 5, message = "Write at least 5 characters")
+    @Size(min = 5, message = "Weź przynajmniej 5 znaków")
     private String password;
 
     private boolean enabled;
