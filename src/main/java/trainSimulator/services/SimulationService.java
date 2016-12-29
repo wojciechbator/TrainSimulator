@@ -27,8 +27,6 @@ public class SimulationService implements Runnable {
     private static Logger logger = Logger.getLogger(SimulationService.class);
     private final Object mutexObject = new Object();
     private boolean isRunning = true;
-    @PersistenceContext
-    EntityManager entityManager;
 
     @Autowired
     public SimulationService(TrainService trainService, GeneratorParametersService generatorParametersService,
