@@ -9,13 +9,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="../static/js/activeButtonsSwitcher.js"
             th:src="@{/js/activeButtonsSwitcher.js}"></script>
+    <script type="text/javascript" src="../static/js/timetableRefresher.js"
+            th:src="@{/js/timetableRefresher.js}"></script>
 </head>
 <body>
 <div th:include="commonLayout :: commonNavbar"></div>
 <div class="ui raised very padded container segment">
     <h2 class="ui header">Rozkład jazdy:</h2>
     <div class="trainsList">
-        <table class="ui single line table">
+        <table class="ui single line table" id="timetable">
             <thead>
             <tr>
                 <th>ID pociągu</th>
