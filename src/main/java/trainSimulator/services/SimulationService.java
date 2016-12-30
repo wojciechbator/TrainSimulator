@@ -91,7 +91,7 @@ public class SimulationService implements Runnable {
                 if (station.getId() < (station.getRoute().getStationsOnRoute().size() - 1)) {
                     trainService.moveToNextStation(train);
                     String switchLog = "Train with id: " + train.getId() + " is on station: " + train.getStation().getName() + " with state: " + train.getState();
-                    logger.info(logText);
+                    logger.info(switchLog);
                     eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), switchLog));
                 } else {
                     train.setState(TrainState.ENDED);

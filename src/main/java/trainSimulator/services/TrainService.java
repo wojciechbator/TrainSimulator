@@ -9,6 +9,7 @@ import trainSimulator.models.Train;
 import trainSimulator.repositories.TrainsDaoInterface;
 import trainSimulator.utilities.TrainState;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +33,9 @@ public class TrainService {
         if (train.getStation().getId() < train.getRoute().getStationsOnRoute().size() + 1) {
             train.setStation(train.getRoute().getStationsOnRoute().get((int) train.getStation().getId()));
             train.setState(TrainState.PLANNED);
+            //TODO: bad, but works, try to fix it
+            List<Train> trainsOnNextStation = train.getStation().getTrainsOnStation();
+            trainsOnNextStation.add(train);
         } else {
             train.setState(TrainState.ENDED);
         }

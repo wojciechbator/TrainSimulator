@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Station;
+import trainSimulator.models.Train;
 import trainSimulator.repositories.StationsDaoInterface;
 
 import java.util.List;
