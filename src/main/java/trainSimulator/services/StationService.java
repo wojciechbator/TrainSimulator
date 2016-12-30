@@ -18,6 +18,7 @@ import java.util.List;
 public class StationService {
     private static final Logger logger = Logger.getLogger(StationService.class);
     private final StationsDaoInterface stationsDaoInterface;
+    private List<Train> trainsOnStation;
 
     @Autowired
     public StationService(StationsDaoInterface stationsDaoInterface) {
