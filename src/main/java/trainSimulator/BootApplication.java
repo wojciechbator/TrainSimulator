@@ -8,7 +8,9 @@ import org.springframework.boot.web.servlet.ErrorPage;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 /**
@@ -16,6 +18,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
  */
 @SpringBootApplication
 @EnableWebSecurity
+@EnableAsync
 public class BootApplication extends SpringBootServletInitializer {
     private static final String PATH = "/errors";
 
@@ -35,5 +38,10 @@ public class BootApplication extends SpringBootServletInitializer {
             final ErrorPage errorPage = new ErrorPage(PATH);
             container.addErrorPages(errorPage);
         });
+    }
+
+    @Bean()
+    public ThreadPoolTaskExecutor taskExecutor() {
+        return new ThreadPoolTaskExecutor();
     }
 }

@@ -2,14 +2,14 @@ package trainSimulator.services;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Station;
 
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by mitron-wojtek on 08.12.16.
@@ -22,41 +22,35 @@ public class RunSimulationService {
     private final GeneratorParametersService generatorParametersService;
     private final TrainService trainService;
     private final EventLogService eventLogService;
-    private ExecutorService executorService;
+    private ThreadPoolTaskExecutor executorService;
 
     @Autowired
-    public RunSimulationService(StationService stationService, GeneratorParametersService generatorParametersService,
+    public RunSimulationService(ThreadPoolTaskExecutor executorService, StationService stationService,
+                                GeneratorParametersService generatorParametersService,
                                 TrainService trainService, EventLogService eventLogService) {
         this.stationService = stationService;
         this.generatorParametersService = generatorParametersService;
         this.trainService = trainService;
         this.eventLogService = eventLogService;
+        this.executorService = executorService;
     }
 
     public void runSimulation() {
-        executorService = Executors.newFixedThreadPool(stationService.findAllStations().size());
+        executorService.setCorePoolSize(stationService.findAllStations().size());
+        executorService.setMaxPoolSize(stationService.findAllStations().size() + 2);
         logger.info("Created executor service for simulation!");
         List<Station> allStations = stationService.findAllStations();
         for (Station station : allStations) {
             //In order to get this working I have to implement it asynchronously, all of this thread pool, so when
             //some trains arrives on the next station, the new thread invokes for this station and starts simulation
-            if (station.getTrainsOnStation().size() > 0) {
-                Runnable simulationWorker = new SimulationService(station, trainService, stationService,
-                        generatorParametersService, eventLogService);
-                executorService.execute(simulationWorker);
-                logger.info("New instance of executor service is working!");
-            }
+            Runnable simulationWorker = new SimulationService(station, trainService, stationService,
+                    generatorParametersService, eventLogService);
+            executorService.execute(simulationWorker);
+            logger.info("New instance of executor service is working!");
         }
     }
 
     public void stopSimulation() {
-        if (!executorService.isShutdown()) {
             executorService.shutdown();
-            try {
-                executorService.awaitTermination(3, TimeUnit.SECONDS);
-            } catch (InterruptedException e) {
-                logger.error("An error happened when stopping simulation: " + e.getMessage());
-            }
-        }
     }
 }
