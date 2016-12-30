@@ -3,8 +3,11 @@ package trainSimulator.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import trainSimulator.models.Route;
+import trainSimulator.models.Station;
 import trainSimulator.models.Train;
 import trainSimulator.repositories.TrainsDaoInterface;
+import trainSimulator.utilities.TrainState;
 
 import java.util.List;
 
@@ -23,6 +26,15 @@ public class TrainService {
 
     void saveTrain(final Train Train) {
         trainsDaoInterface.update(Train);
+    }
+
+    void moveToNextStation(Train train) {
+        if (train.getStation().getId() < train.getRoute().getStationsOnRoute().size() + 1) {
+            train.setStation(train.getRoute().getStationsOnRoute().get((int) train.getStation().getId()));
+            train.setState(TrainState.PLANNED);
+        } else {
+            train.setState(TrainState.ENDED);
+        }
     }
 
     void createTrain(final Train train) {

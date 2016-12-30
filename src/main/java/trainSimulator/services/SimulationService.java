@@ -4,7 +4,6 @@ import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.EventLog;
 import trainSimulator.models.Station;
 import trainSimulator.models.TimetableEntity;
@@ -14,31 +13,29 @@ import trainSimulator.utilities.TrainState;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 /**
  * Created by mitron-wojtek on 17.11.16.
  */
 @Service
-@Transactional
 public class SimulationService implements Runnable {
     private final StationService stationService;
-    private final TrainService trainService;
     private final GeneratorParametersService generatorParametersService;
     private final EventLogService eventLogService;
     private static Logger logger = Logger.getLogger(SimulationService.class);
     private final Object mutexObject = new Object();
     private final Station station;
+    private final TrainService trainService;
     private boolean isRunning = true;
 
     @Autowired
-    public SimulationService(Station station, TrainService trainService, StationService stationService,
-                             GeneratorParametersService generatorParametersService, EventLogService eventLogService) {
-        this.trainService = trainService;
+    public SimulationService(Station station, StationService stationService, GeneratorParametersService generatorParametersService,
+                             EventLogService eventLogService, TrainService trainService) {
         this.stationService = stationService;
         this.generatorParametersService = generatorParametersService;
         this.eventLogService = eventLogService;
         this.station = station;
+        this.trainService = trainService;
     }
 
     @Override
@@ -53,7 +50,7 @@ public class SimulationService implements Runnable {
             if (nearestTrainsOnThisStation != null) {
                 for (Train train : nearestTrainsOnThisStation) {
                     if (train.getState() != TrainState.CANCELLED) {
-                        stateMachine(train, station);
+                        stateMachine(train);
                     }
                 }
             }
@@ -65,7 +62,7 @@ public class SimulationService implements Runnable {
         }
     }
 
-    private void stateMachine(Train train, Station station) {
+    private void stateMachine(Train train) {
         Date now = new Date();
         int differenceArrival = (int) ((train.getTimetable().get(0).getArrivalTime().getTime() - now.getTime()) / 1000);
         if (differenceArrival <= Integer.valueOf(generatorParametersService.findGeneratorParameterById(5).getParameterValue()) &&
@@ -91,15 +88,8 @@ public class SimulationService implements Runnable {
                 logger.info(logText);
                 eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), logText));
                 if (station.getId() < (stationService.findAllStations().size() - 1)) {
-                    String previousStationName = station.getName();
-                    List<Train> trainsOnNextStation = new ArrayList<>();
-                    station = stationService.getNextStation(station);
-                    train.setStation(station);
-                    train.setState(TrainState.PLANNED);
-                    trainService.saveTrain(train);
-                    trainsOnNextStation.add(train);
-                    station.setTrainsOnStation(trainsOnNextStation);
-                    String switchLog = "Train with id: " + train.getId() + " switched from station: " + previousStationName + " to: " + train.getStation().getName();
+                    trainService.moveToNextStation(train);
+                    String switchLog = "Train with id: " + train.getId() + " is on station: " + train.getStation().getName();
                     logger.info(logText);
                     eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), switchLog));
                 } else {
@@ -127,4 +117,5 @@ public class SimulationService implements Runnable {
         logger.info("Got nearest trains for simulation.");
         return nearestTrains;
     }
+
 }

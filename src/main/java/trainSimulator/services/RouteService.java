@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Route;
+import trainSimulator.models.Station;
 import trainSimulator.repositories.RoutesDaoInterface;
 
 import java.util.List;
@@ -58,5 +59,10 @@ public class RouteService {
             deleteRoute(route);
         }
         logger.info("Cleared routes!");
+    }
+
+    public List<Station> getStationsOnRoute(Route route) {
+        Route r = routesDaoInterface.findOne(route.getId());
+        return r.getStationsOnRoute();
     }
 }
