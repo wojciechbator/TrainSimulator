@@ -91,9 +91,13 @@ public class SimulationService implements Runnable {
                 eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), logText));
                 if (station.getId() < (stationService.findAllStations().size() - 1)) {
                     String previousStationName = station.getName();
+                    List<Train> trainsOnNextStation = new ArrayList<>();
                     station = stationService.getNextStation(station);
                     train.setStation(station);
+                    train.setState(TrainState.PLANNED);
                     trainService.saveTrain(train);
+                    trainsOnNextStation.add(train);
+                    station.setTrainsOnStation(trainsOnNextStation);
                     String switchLog = "Train with id: " + train.getId() + " switched from station: " + previousStationName + " to: " + train.getStation().getName();
                     logger.info(logText);
                     eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), switchLog));
