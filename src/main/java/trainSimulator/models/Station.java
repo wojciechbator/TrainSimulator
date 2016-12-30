@@ -1,4 +1,6 @@
 package trainSimulator.models;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 @Table(name = "stations", uniqueConstraints = {
         @UniqueConstraint(columnNames = "id")
 })
+@Component
 public class Station implements Serializable {
     private static final long serialVersionUID = 1L;
 

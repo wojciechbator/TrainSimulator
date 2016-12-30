@@ -1,7 +1,6 @@
 package trainSimulator.services;
 
 import org.apache.log4j.Logger;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,7 +39,7 @@ public class RunSimulationService {
         List<Station> allStations = stationService.findAllStations();
         for (Station station : allStations) {
             if (station.getTrainsOnStation().size() > 0) {
-                Runnable simulationWorker = new SimulationService(stationService, trainService, generatorParametersService, eventLogService);
+                Runnable simulationWorker = new SimulationService(station, stationService, generatorParametersService, eventLogService);
                 executorService.execute(simulationWorker);
                 logger.info("New instance of executor service is working!");
             }

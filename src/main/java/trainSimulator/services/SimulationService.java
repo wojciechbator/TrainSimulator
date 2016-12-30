@@ -21,29 +21,30 @@ import java.util.List;
 @Service
 @Transactional
 public class SimulationService implements Runnable {
+    private final StationService stationService;
     private final TrainService trainService;
     private final GeneratorParametersService generatorParametersService;
     private final EventLogService eventLogService;
     private static Logger logger = Logger.getLogger(SimulationService.class);
     private final Object mutexObject = new Object();
-    private final StationService stationService;
+    private final Station station;
     private boolean isRunning = true;
 
     @Autowired
-    public SimulationService(StationService stationService, TrainService trainService, GeneratorParametersService generatorParametersService,
-                             EventLogService eventLogService) {
+    public SimulationService(Station station, TrainService trainService, StationService stationService,
+                             GeneratorParametersService generatorParametersService, EventLogService eventLogService) {
         this.trainService = trainService;
+        this.stationService = stationService;
         this.generatorParametersService = generatorParametersService;
         this.eventLogService = eventLogService;
-        this.stationService = stationService;
+        this.station = station;
     }
 
     @Override
     public void run() {
         logger.info("Running simulation instance.");
         boolean runFlag = true;
-        Station currentStation = stationService.findStation(0);
-        List<Train> nearestTrainsOnThisStation = getNearestTrains(currentStation);
+        List<Train> nearestTrainsOnThisStation = getNearestTrains(station);
         while (runFlag) {
             synchronized (mutexObject) {
                 runFlag = isRunning;
@@ -51,7 +52,7 @@ public class SimulationService implements Runnable {
             if (nearestTrainsOnThisStation != null) {
                 for (Train train : nearestTrainsOnThisStation) {
                     if (train.getState() != TrainState.CANCELLED) {
-                        stateMachine(train, currentStation);
+                        stateMachine(train, station);
                     }
                 }
             }
@@ -92,6 +93,7 @@ public class SimulationService implements Runnable {
                     String previousStationName = station.getName();
                     station = stationService.getNextStation(station);
                     train.setStation(station);
+                    trainService.saveTrain(train);
                     String switchLog = "Train with id: " + train.getId() + " switched from station: " + previousStationName + " to: " + train.getStation().getName();
                     logger.info(logText);
                     eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), switchLog));
