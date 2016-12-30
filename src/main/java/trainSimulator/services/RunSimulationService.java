@@ -40,7 +40,7 @@ public class RunSimulationService {
         List<Station> allStations = stationService.findAllStations();
         for (Station station : allStations) {
             if (station.getTrainsOnStation().size() > 0) {
-                Runnable simulationWorker = new SimulationService(trainService, generatorParametersService, eventLogService);
+                Runnable simulationWorker = new SimulationService(stationService, trainService, generatorParametersService, eventLogService);
                 executorService.execute(simulationWorker);
                 logger.info("New instance of executor service is working!");
             }

@@ -15,17 +15,17 @@
 <body>
 <div th:include="commonLayout :: commonNavbar"></div>
 <div class="ui raised very padded container segment">
+    <div th:if="${param.success} == true">
+        <div class="ui success message">
+            <i class="close icon"></i>
+            <div class="header">
+                Rejestracja się powiodła.
+            </div>
+            <p>Teraz możesz się zalogować.</p>
+        </div>
+    </div>
     <h2 class="ui header">Zarejestruj się:</h2>
     <form class="ui equal width form JQValidate">
-        <div th:if="${param.success} == true">
-            <div class="ui success message">
-                <i class="close icon"></i>
-                <div class="header">
-                    Rejestracja się powiodła.
-                </div>
-                <p>Teraz możesz się zalogować.</p>
-            </div>
-        </div>
         <div class="fields">
             <div class="field">
                 <label for="name">Nazwa użytkownika</label>

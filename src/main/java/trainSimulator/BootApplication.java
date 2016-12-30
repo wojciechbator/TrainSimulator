@@ -8,6 +8,7 @@ import org.springframework.boot.web.servlet.ErrorPage;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 /**
@@ -15,7 +16,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
  */
 @SpringBootApplication
 @EnableWebSecurity
-@EnableCaching
 public class BootApplication extends SpringBootServletInitializer {
     private static final String PATH = "/errors";
 

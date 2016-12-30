@@ -33,6 +33,11 @@ public class StationService {
         logger.info("Deleted station: " + station.getName());
     }
 
+    public Station getNextStation(Station station) {
+        //get method iterates from 0 and first id is 1, so this will actually return next station
+        return stationsDaoInterface.findAll().get((int) station.getId());
+    }
+
     public void deleteStationById(final long id) {
         stationsDaoInterface.deleteById(id);
         logger.info("Deleted station with id: " + id);
