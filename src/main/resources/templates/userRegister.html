@@ -53,7 +53,7 @@
                 <label for="email">Email</label>
                 <input type="text" placeholder="Email">
             </div>
-            <input type="submit" value="Zarejestruj się" class="ui secondary button"/>
+            <input type="submit" th:action="${@userService.saveUser()}" value="Zarejestruj się" class="ui secondary button"/>
         </div>
     </form>
 </div>
