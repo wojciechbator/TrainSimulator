@@ -30,7 +30,7 @@ public class StationService {
         logger.info("Saved station: " + station.getName());
     }
 
-    private void deleteStation(final Station station) {
+    void deleteStation(final Station station) {
         stationsDaoInterface.delete(station);
         logger.info("Deleted station: " + station.getName());
     }
@@ -48,6 +48,16 @@ public class StationService {
     public void createStation(final Station station) {
         stationsDaoInterface.create(station);
         logger.info("Created station: " + station.getName());
+    }
+
+    void addTrainToStation(Station station, Train train) {
+        if(!station.getTrainsOnStation().contains(train))
+            trainsOnStation.add(train);
+    }
+
+    void removeTrainFromStation(Station station, Train train) {
+        if (station.getTrainsOnStation().contains(train))
+            trainsOnStation.remove(train);
     }
 
     public Station findStation(final long id) {
