@@ -38,7 +38,6 @@ public class SimulationService implements Runnable {
         this.eventLogService = eventLogService;
         this.station = station;
         //Reference to next station, something like in linked list of stations
-        this.nextStationReference = stationService.findStation(station.getId());
     }
 
     @Override
@@ -46,6 +45,8 @@ public class SimulationService implements Runnable {
         logger.info("Running simulation instance.");
         boolean runFlag = true;
         trainsOnStation = stationService.findStation(station.getId()).getTrainsOnStation();
+        if (!(station.getId() < (station.getRoute().getStationsOnRoute().size() - 1)))
+            nextStationReference = stationService.findStation(station.getId() + 1);
         while (runFlag) {
             synchronized (mutexObject) {
                 runFlag = isRunning;
@@ -87,14 +88,13 @@ public class SimulationService implements Runnable {
             }
         } else if (differenceArrival < -Integer.valueOf(generatorParametersService.findGeneratorParameterById(6).getParameterValue())) {
             if (train.getState() != TrainState.DEPARTED) {
-                Train newTrain = train;
                 train.setState(TrainState.DEPARTED);
                 String logText = "Train with id: " + train.getId() + " departed from station " + train.getStation().getName();
                 logger.info(logText);
                 eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), logText));
                 if (station.getId() < (station.getRoute().getStationsOnRoute().size() - 1)) {
                     stationService.removeTrainFromStation(station, train);
-                    stationService.addTrainToStation(nextStationReference, newTrain);
+                    stationService.addTrainToStation(nextStationReference, train);
                     String switchLog = "Train with id: " + train.getId() + " simulation switched to station: " + train.getStation().getName() + " with state: " + train.getState();
                     logger.info(switchLog);
                     eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), switchLog));

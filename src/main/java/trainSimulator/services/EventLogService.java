@@ -21,11 +21,11 @@ public class EventLogService {
         this.eventLogsDao = eventLogsDao;
     }
 
-    void saveEvent(final EventLog eventLog) {
+    public void saveEvent(final EventLog eventLog) {
         eventLogsDao.update(eventLog);
     }
 
-    void createEvent(final EventLog eventLog) {
+    public void createEvent(final EventLog eventLog) {
         eventLogsDao.create(eventLog);
     }
 
@@ -41,7 +41,7 @@ public class EventLogService {
         eventLogsDao.deleteById(id);
     }
 
-    private void deleteEventLog(final EventLog eventLog) {
+    public void deleteEventLog(final EventLog eventLog) {
         eventLogsDao.delete(eventLog);
     }
 

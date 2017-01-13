@@ -13,6 +13,7 @@
     <script src="../static/js/registrationValidation.js" th:src="@{/js/registrationValidation.js}"></script>
 </head>
 <body>
+
 <div th:include="commonLayout :: commonNavbar"></div>
 <div class="ui raised very padded container segment">
     <div th:if="${param.success} == true">
@@ -53,7 +54,7 @@
                 <label for="email">Email</label>
                 <input type="text" placeholder="Email">
             </div>
-            <input type="submit" th:action="${@userService.saveUser()}" value="Zarejestruj się" class="ui secondary button"/>
+            <input type="submit" formmethod="post" value="Zarejestruj się" class="ui secondary button"/>
         </div>
     </form>
 </div>
