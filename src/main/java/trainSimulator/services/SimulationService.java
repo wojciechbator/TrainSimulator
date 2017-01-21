@@ -38,18 +38,23 @@ public class SimulationService implements Runnable {
         this.eventLogService = eventLogService;
         this.station = station;
         //Reference to next station, something like in linked list of stations
+        this.nextStationReference = stationService.findStation(station.getId() + 1);
     }
 
     @Override
     public void run() {
         logger.info("Running simulation instance.");
         boolean runFlag = true;
-        trainsOnStation = stationService.findStation(station.getId()).getTrainsOnStation();
-        if (!(station.getId() < (station.getRoute().getStationsOnRoute().size() - 1)))
-            nextStationReference = stationService.findStation(station.getId() + 1);
         while (runFlag) {
             synchronized (mutexObject) {
                 runFlag = isRunning;
+            }
+            trainsOnStation = stationService.findStation(station.getId()).getTrainsOnStation();
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                logger.error("Interrupted exception on station: " + station.getName(), e);
             }
             nearestTrainsOnStation = getNearestTrains(trainsOnStation);
             if (nearestTrainsOnStation != null) {
@@ -62,6 +67,7 @@ public class SimulationService implements Runnable {
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
                 logger.error("Interrupted exception while running simulation, stack: " + e.toString());
             }
         }
@@ -93,8 +99,8 @@ public class SimulationService implements Runnable {
                 logger.info(logText);
                 eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), logText));
                 if (station.getId() < (station.getRoute().getStationsOnRoute().size() - 1)) {
-                    stationService.removeTrainFromStation(station, train);
                     stationService.addTrainToStation(nextStationReference, train);
+                    stationService.removeTrainFromStation(station, train);
                     String switchLog = "Train with id: " + train.getId() + " simulation switched to station: " + train.getStation().getName() + " with state: " + train.getState();
                     logger.info(switchLog);
                     eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), switchLog));

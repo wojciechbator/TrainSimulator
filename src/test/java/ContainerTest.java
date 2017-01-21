@@ -7,6 +7,7 @@ import java.util.List;
 
 public class ContainerTest
 {
+    //Spring context simple test
     public static void main(String[] args)
     {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
