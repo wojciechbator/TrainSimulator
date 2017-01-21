@@ -38,7 +38,7 @@ public class RunSimulationService {
         for (Station station : allStations) {
             //In order to get this working I have to implement it asynchronously, all of this thread pool, so when
             //some trains arrives on the next station, the new thread invokes for this station and starts simulation
-            Runnable simulationWorker = new SimulationService(station, stationService, generatorParametersService, eventLogService);
+            Runnable simulationWorker = new SimulationService(station, stationService, generatorParametersService, eventLogService, trainService);
             executorService.execute(simulationWorker);
             logger.info("New instance of executor service is working!");
         }

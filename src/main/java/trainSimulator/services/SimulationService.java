@@ -26,7 +26,6 @@ public class SimulationService implements Runnable {
     private final Object mutexObject = new Object();
     private final Station station;
     private final List<Train> allTrains;
-    private Station nextStationReference;
     private boolean isRunning = true;
 
     @Autowired
