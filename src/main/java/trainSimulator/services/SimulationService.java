@@ -8,7 +8,6 @@ import trainSimulator.models.EventLog;
 import trainSimulator.models.Station;
 import trainSimulator.models.TimetableEntity;
 import trainSimulator.models.Train;
-import trainSimulator.utilities.TrainState;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -56,7 +55,6 @@ public class SimulationService implements Runnable {
             List<Train> nearestTrainsOnStation = getNearestTrains(allTrains);
             if (nearestTrainsOnStation != null) {
                 for (Train train : nearestTrainsOnStation) {
-                    if (train.getState() != TrainState.CANCELLED) {
                         stateMachine(train);
                     }
                 }
@@ -68,46 +66,35 @@ public class SimulationService implements Runnable {
                 logger.error("Interrupted exception while running simulation, stack: " + e.toString());
             }
         }
-    }
 
     private void stateMachine(Train train) {
         Date now = new Date();
         int differenceArrival = (int) ((train.getTimetable().get((int) station.getId()).getArrivalTime().getTime() - now.getTime()) / 1000);
         if (differenceArrival <= Integer.valueOf(generatorParametersService.findGeneratorParameterById(5).getParameterValue()) &&
                 differenceArrival > Integer.valueOf(generatorParametersService.findGeneratorParameterById(6).getParameterValue())) {
-            if (train.getState() != TrainState.ARRIVING) {
-                train.setState(TrainState.ARRIVING);
+                train.setState("ARRIVING");
                 String logText = "Train with id: " + train.getId() + " is approaching on station " + train.getStation().getName();
                 logger.info(logText);
                 eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), logText));
-            }
         } else if (differenceArrival <= Integer.valueOf(generatorParametersService.findGeneratorParameterById(6).getParameterValue())
                 && differenceArrival >= -Integer.valueOf(generatorParametersService.findGeneratorParameterById(6).getParameterValue())) {
-            if (train.getState() != TrainState.ONSTATION) {
-                train.setState(TrainState.ONSTATION);
+                train.setState("ON STATION");
                 String logText = "Train with id: " + train.getId() + " is on station " + train.getStation().getName();
                 logger.info(logText);
                 eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), logText));
-            }
         } else if (differenceArrival < -Integer.valueOf(generatorParametersService.findGeneratorParameterById(6).getParameterValue())) {
-            if (train.getState() != TrainState.DEPARTED) {
-                train.setState(TrainState.DEPARTED);
+                train.setState("DEPARTED");
+                station.getTrainsOnStation().remove(train);
                 String logText = "Train with id: " + train.getId() + " departed from station " + train.getStation().getName();
                 logger.info(logText);
                 eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), logText));
-                if (station.getId() < (station.getRoute().getStationsOnRoute().size() - 1)) {
-                    stationService.removeTrainFromStation(station, train);
-                    String switchLog = "Train with id: " + train.getId() + " simulation switched to station: " + train.getStation().getName() + " with state: " + train.getState();
-                    logger.info(switchLog);
-                    eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), switchLog));
-                } else {
-                    train.setState(TrainState.ENDED);
+                if (station.getId() == (station.getRoute().getStationsOnRoute().size() - 1)) {
+                    train.setState("ENDED");
                     String endRouteLog = "Train with id: " + train.getId() + " ended it's route.";
                     logger.info(endRouteLog);
                     eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), endRouteLog));
                 }
             }
-        }
         logger.info("Simulation is running!");
     }
 
@@ -117,7 +104,7 @@ public class SimulationService implements Runnable {
             for (TimetableEntity timetableEntity : train.getTimetable()) {
                 if (timetableEntity.getArrivalTime().getTime() < DateUtils.addMinutes(new Date(),
                         Integer.valueOf(generatorParametersService.findGeneratorParameterById(7).getParameterValue())).getTime()
-                        && train.getState() != TrainState.DEPARTED && train.getState() != TrainState.ENDED) {
+                        && train.getRoute() == station.getRoute()) {
                     nearestTrains.add(train);
                 }
             }

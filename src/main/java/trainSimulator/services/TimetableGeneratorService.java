@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.*;
-import trainSimulator.utilities.TrainState;
-
 import java.util.*;
 
 /**
@@ -100,7 +98,7 @@ public class TimetableGeneratorService {
             train.setPassengers(passengers);
             logger.info("Passengers has been set for train: " + train.getId());
             train.setStation(stationsOnRoute.get(0));
-            train.setState(TrainState.PLANNED);
+            train.setState("PLANNED");
             EventLog eventLog = new EventLog();
             eventLog.setType("INFO");
             eventLog.setTimestamp(new Date());

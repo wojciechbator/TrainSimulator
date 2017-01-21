@@ -31,6 +31,8 @@ public class Station implements Serializable {
     private List<Train> trainsOnStation;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Route route;
+    @Column(name = "id_for_route")
+    private int idForRoute;
 
     public long getId() {
         return id;
@@ -62,5 +64,13 @@ public class Station implements Serializable {
 
     public void setRoute(Route route) {
         this.route = route;
+    }
+
+    public int getIdForRoute() {
+        return idForRoute;
+    }
+
+    public void setIdForRoute(int idForRoute) {
+        this.idForRoute = idForRoute;
     }
 }
