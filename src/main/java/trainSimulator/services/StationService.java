@@ -50,11 +50,6 @@ public class StationService {
         logger.info("Created station: " + station.getName());
     }
 
-    void addTrainToStation(Station station, Train train) {
-        if(!station.getTrainsOnStation().contains(train))
-            trainsOnStation.add(train);
-    }
-
     void removeTrainFromStation(Station station, Train train) {
         if (station.getTrainsOnStation().contains(train))
             trainsOnStation.remove(train);

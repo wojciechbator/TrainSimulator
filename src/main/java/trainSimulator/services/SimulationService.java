@@ -25,20 +25,19 @@ public class SimulationService implements Runnable {
     private static Logger logger = Logger.getLogger(SimulationService.class);
     private final Object mutexObject = new Object();
     private final Station station;
-    private List<Train> nearestTrainsOnStation;
-    private List<Train> trainsOnStation;
+    private final List<Train> allTrains;
     private Station nextStationReference;
     private boolean isRunning = true;
 
     @Autowired
     public SimulationService(Station station, StationService stationService, GeneratorParametersService generatorParametersService,
-                             EventLogService eventLogService) {
+                             EventLogService eventLogService, TrainService trainService) {
         this.stationService = stationService;
         this.generatorParametersService = generatorParametersService;
         this.eventLogService = eventLogService;
         this.station = station;
         //Reference to next station, something like in linked list of stations
-        this.nextStationReference = stationService.findStation(station.getId() + 1);
+        this.allTrains = trainService.getAllTrains();
     }
 
     @Override
@@ -49,14 +48,13 @@ public class SimulationService implements Runnable {
             synchronized (mutexObject) {
                 runFlag = isRunning;
             }
-            trainsOnStation = stationService.findStation(station.getId()).getTrainsOnStation();
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 logger.error("Interrupted exception on station: " + station.getName(), e);
             }
-            nearestTrainsOnStation = getNearestTrains(trainsOnStation);
+            List<Train> nearestTrainsOnStation = getNearestTrains(allTrains);
             if (nearestTrainsOnStation != null) {
                 for (Train train : nearestTrainsOnStation) {
                     if (train.getState() != TrainState.CANCELLED) {
@@ -99,7 +97,6 @@ public class SimulationService implements Runnable {
                 logger.info(logText);
                 eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), logText));
                 if (station.getId() < (station.getRoute().getStationsOnRoute().size() - 1)) {
-                    stationService.addTrainToStation(nextStationReference, train);
                     stationService.removeTrainFromStation(station, train);
                     String switchLog = "Train with id: " + train.getId() + " simulation switched to station: " + train.getStation().getName() + " with state: " + train.getState();
                     logger.info(switchLog);
