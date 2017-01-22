@@ -34,8 +34,8 @@
                 <td th:text="${train.name}"></td>
                 <td th:text="${train.route.id}"></td>
                 <td th:text="${train.station.name}"></td>
-                <td th:text="${train.state}"></td>
-                <td th:text="${train.timetable.get(0).departureTime}"></td>
+                <td th:text="${train.getStateForStation(train.station)}"></td>
+                <td th:text="${train.timetable.get(train.station.idForRoute).departureTime}"></td>
             </tr>
             </tbody>
         </table>

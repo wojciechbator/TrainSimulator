@@ -91,6 +91,7 @@ public class TimetableGeneratorService {
                 startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterById(3).getParameterValue()));
                 timetable.add(timetableEntity);
                 timetableEntityService.createTimetableEntity(timetableEntity);
+                train.setStation(station);
                 train.setStateForStation(station, TrainState.PLANNED);
             }
             train.setTimetable(timetable);

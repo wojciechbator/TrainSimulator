@@ -49,7 +49,7 @@ public class Train implements Serializable {
     }
 
     public void setStateForStation(Station station, TrainState state) {
-        if (this.station == station) {
+        if (this.station.getId() == station.getId()) {
             this.onStationState = state;
         }
         else this.onStationState = TrainState.PLANNED;
