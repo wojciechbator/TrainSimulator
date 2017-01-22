@@ -1,5 +1,7 @@
 package trainSimulator.models;
 
+import trainSimulator.utilities.TrainState;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -36,14 +38,14 @@ public class Train implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Station station;
     @Column(name = "state")
-    private String state;
+    private TrainState state;
 
 
-    public String getState() {
+    public TrainState getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(TrainState state) {
         this.state = state;
     }
 

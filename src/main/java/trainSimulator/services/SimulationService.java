@@ -8,6 +8,7 @@ import trainSimulator.models.EventLog;
 import trainSimulator.models.Station;
 import trainSimulator.models.TimetableEntity;
 import trainSimulator.models.Train;
+import trainSimulator.utilities.TrainState;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -71,25 +72,31 @@ public class SimulationService implements Runnable {
         Date now = new Date();
         int differenceArrival = (int) ((train.getTimetable().get((int) station.getId()).getArrivalTime().getTime() - now.getTime()) / 1000);
         if (differenceArrival <= Integer.valueOf(generatorParametersService.findGeneratorParameterById(5).getParameterValue()) &&
-                differenceArrival > Integer.valueOf(generatorParametersService.findGeneratorParameterById(6).getParameterValue())) {
-                train.setState("ARRIVING");
+                differenceArrival > Integer.valueOf(generatorParametersService.findGeneratorParameterById(6).getParameterValue())
+                && train.getState() != TrainState.ARRIVING) {
+                train.setState(TrainState.ARRIVING);
                 String logText = "Train with id: " + train.getId() + " is approaching on station " + train.getStation().getName();
                 logger.info(logText);
                 eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), logText));
         } else if (differenceArrival <= Integer.valueOf(generatorParametersService.findGeneratorParameterById(6).getParameterValue())
-                && differenceArrival >= -Integer.valueOf(generatorParametersService.findGeneratorParameterById(6).getParameterValue())) {
-                train.setState("ON STATION");
+                && differenceArrival >= -Integer.valueOf(generatorParametersService.findGeneratorParameterById(6).getParameterValue())
+                && train.getState() != TrainState.ONSTATION) {
+                train.setState(TrainState.ONSTATION);
                 String logText = "Train with id: " + train.getId() + " is on station " + train.getStation().getName();
                 logger.info(logText);
                 eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), logText));
-        } else if (differenceArrival < -Integer.valueOf(generatorParametersService.findGeneratorParameterById(6).getParameterValue())) {
-                train.setState("DEPARTED");
+        } else if (differenceArrival < -Integer.valueOf(generatorParametersService.findGeneratorParameterById(6).getParameterValue())
+                && train.getState() != TrainState.DEPARTED) {
+                train.setState(TrainState.DEPARTED);
                 station.getTrainsOnStation().remove(train);
                 String logText = "Train with id: " + train.getId() + " departed from station " + train.getStation().getName();
                 logger.info(logText);
                 eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), logText));
-                if (station.getId() == (station.getRoute().getStationsOnRoute().size() - 1)) {
-                    train.setState("ENDED");
+                if (station.getId() < (station.getRoute().getStationsOnRoute().size() - 1)) {
+                    train.setState(TrainState.PLANNED);
+                }
+                else {
+                    train.setState(TrainState.ENDED);
                     String endRouteLog = "Train with id: " + train.getId() + " ended it's route.";
                     logger.info(endRouteLog);
                     eventLogService.createEvent(new EventLog("INFO", train.getStation().getName(), new Date(), endRouteLog));
@@ -104,7 +111,8 @@ public class SimulationService implements Runnable {
             for (TimetableEntity timetableEntity : train.getTimetable()) {
                 if (timetableEntity.getArrivalTime().getTime() < DateUtils.addMinutes(new Date(),
                         Integer.valueOf(generatorParametersService.findGeneratorParameterById(7).getParameterValue())).getTime()
-                        && train.getRoute() == station.getRoute()) {
+                        && train.getRoute() == station.getRoute() && timetableEntity.getStation() == station) {
+                    train.setState(TrainState.PLANNED);
                     nearestTrains.add(train);
                 }
             }
