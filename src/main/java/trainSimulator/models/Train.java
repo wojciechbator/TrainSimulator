@@ -37,16 +37,22 @@ public class Train implements Serializable {
     private Set<Passenger> passengers;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Station station;
-    @Column(name = "state")
-    private TrainState state;
+    @Column(name = "on_station_state")
+    private TrainState onStationState;
 
 
-    public TrainState getState() {
-        return state;
+    public TrainState getStateForStation(Station station) {
+        if(this.station == station) {
+            return onStationState;
+        }
+        return TrainState.PLANNED;
     }
 
-    public void setState(TrainState state) {
-        this.state = state;
+    public void setStateForStation(Station station, TrainState state) {
+        if (this.station == station) {
+            this.onStationState = state;
+        }
+        else this.onStationState = TrainState.PLANNED;
     }
 
     public long getId() {

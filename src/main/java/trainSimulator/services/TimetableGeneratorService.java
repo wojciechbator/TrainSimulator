@@ -91,6 +91,7 @@ public class TimetableGeneratorService {
                 startingTime = DateUtils.addSeconds(startingTime, Integer.valueOf(generatorParametersService.findGeneratorParameterById(3).getParameterValue()));
                 timetable.add(timetableEntity);
                 timetableEntityService.createTimetableEntity(timetableEntity);
+                train.setStateForStation(station, TrainState.PLANNED);
             }
             train.setTimetable(timetable);
             logger.info("Timetable has been set for train: " + train.getId());
@@ -100,7 +101,6 @@ public class TimetableGeneratorService {
             train.setPassengers(passengers);
             logger.info("Passengers has been set for train: " + train.getId());
             train.setStation(stationsOnRoute.get(0));
-            train.setState(TrainState.PLANNED);
             EventLog eventLog = new EventLog();
             eventLog.setType("INFO");
             eventLog.setTimestamp(new Date());

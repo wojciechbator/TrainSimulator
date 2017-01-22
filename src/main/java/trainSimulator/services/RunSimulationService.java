@@ -33,7 +33,7 @@ public class RunSimulationService {
             executorService.setCorePoolSize(7);
             logger.info("Created executor service for simulation!");
             for (Station station : stationService.findAllStations()) {
-                Runnable simulationWorker = new SimulationService(station, stationService, generatorParametersService, eventLogService, trainService);
+                Runnable simulationWorker = new SimulationService(station, generatorParametersService, eventLogService, trainService, stationService);
                 executorService.execute(simulationWorker);
                 logger.info("New instance of executor service is working!");
             }
