@@ -12,6 +12,10 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import trainSimulator.services.StationService;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by mitron-wojtek on 22.11.16.
@@ -41,7 +45,7 @@ public class BootApplication extends SpringBootServletInitializer {
     }
 
     @Bean()
-    public ThreadPoolTaskExecutor taskExecutor() {
-        return new ThreadPoolTaskExecutor();
+    public ExecutorService taskExecutor() {
+        return Executors.newFixedThreadPool(7);
     }
 }

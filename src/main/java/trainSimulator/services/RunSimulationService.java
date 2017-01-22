@@ -6,6 +6,8 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 import trainSimulator.models.Station;
 
+import java.util.concurrent.ExecutorService;
+
 /**
  * Created by mitron-wojtek on 08.12.16.
  */
@@ -16,10 +18,10 @@ public class RunSimulationService {
     private final GeneratorParametersService generatorParametersService;
     private final TrainService trainService;
     private final EventLogService eventLogService;
-    private ThreadPoolTaskExecutor executorService;
+    private ExecutorService executorService;
 
     @Autowired
-    public RunSimulationService(ThreadPoolTaskExecutor executorService, StationService stationService,
+    public RunSimulationService(ExecutorService executorService, StationService stationService,
                                 GeneratorParametersService generatorParametersService,
                                 TrainService trainService, EventLogService eventLogService) {
         this.stationService = stationService;
@@ -30,7 +32,6 @@ public class RunSimulationService {
     }
 
     public void runSimulation() {
-            executorService.setCorePoolSize(7);
             logger.info("Created executor service for simulation!");
             for (Station station : stationService.findAllStations()) {
                 Runnable simulationWorker = new SimulationService(station, generatorParametersService, eventLogService, trainService, stationService);
