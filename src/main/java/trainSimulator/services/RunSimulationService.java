@@ -2,11 +2,11 @@ package trainSimulator.services;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 import trainSimulator.models.Station;
 
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by mitron-wojtek on 08.12.16.
@@ -18,23 +18,23 @@ public class RunSimulationService {
     private final GeneratorParametersService generatorParametersService;
     private final TrainService trainService;
     private final EventLogService eventLogService;
-    private ExecutorService executorService;
+    private ExecutorService executorService = null;
 
     @Autowired
-    public RunSimulationService(ExecutorService executorService, StationService stationService,
+    public RunSimulationService(StationService stationService,
                                 GeneratorParametersService generatorParametersService,
                                 TrainService trainService, EventLogService eventLogService) {
         this.stationService = stationService;
         this.generatorParametersService = generatorParametersService;
         this.trainService = trainService;
         this.eventLogService = eventLogService;
-        this.executorService = executorService;
     }
 
     public void runSimulation() {
             logger.info("Created executor service for simulation!");
+            executorService = Executors.newFixedThreadPool(stationService.findAllStations().size());
             for (Station station : stationService.findAllStations()) {
-                Runnable simulationWorker = new SimulationService(station, generatorParametersService, eventLogService, trainService, stationService);
+                Runnable simulationWorker = new SimulationService(station, generatorParametersService, eventLogService, trainService);
                 executorService.execute(simulationWorker);
                 logger.info("New instance of executor service is working!");
             }

@@ -43,9 +43,4 @@ public class BootApplication extends SpringBootServletInitializer {
             container.addErrorPages(errorPage);
         });
     }
-
-    @Bean()
-    public ExecutorService taskExecutor() {
-        return Executors.newFixedThreadPool(7);
-    }
 }

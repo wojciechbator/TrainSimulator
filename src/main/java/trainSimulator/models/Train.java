@@ -42,10 +42,11 @@ public class Train implements Serializable {
 
 
     public TrainState getStateForStation(Station station) {
-        if(this.station == station) {
+        // TODO: maybe problematic
+        if (this.station.getId() == station.getId()) {
             return onStationState;
-        }
-        return TrainState.PLANNED;
+        } else
+            return null;
     }
 
     public void setStateForStation(Station station, TrainState state) {
