@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by mitron-wojtek on 18.11.16.
  */
-@Service
+@Service("trainService")
 @Transactional
 public class TrainService {
     private final TrainsDaoInterface trainsDaoInterface;

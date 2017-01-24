@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by mitron-wojtek on 18.11.16.
  */
-@Service
+@Service("generatorParametersService")
 @Transactional
 public class GeneratorParametersService {
     private static final Logger logger = Logger.getLogger(GeneratorParametersService.class);

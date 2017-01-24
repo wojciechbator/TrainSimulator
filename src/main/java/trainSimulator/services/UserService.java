@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by wojciech on 29.12.16.
  */
-@Service
+@Service("userService")
 @Transactional
 public class UserService {
     private final RoleDaoInterface roleDaoInterface;

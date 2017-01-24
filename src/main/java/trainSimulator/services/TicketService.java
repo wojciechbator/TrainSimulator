@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by mitron-wojtek on 18.11.16.
  */
-@Service
+@Service("ticketService")
 @Transactional
 public class TicketService {
     private static final Logger logger = Logger.getLogger(TicketService.class);

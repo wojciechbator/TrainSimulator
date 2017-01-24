@@ -10,7 +10,7 @@ import java.util.Properties;
 /**
  * Created by mitron-wojtek on 18.11.16.
  */
-@Service
+@Service("propertiesService")
 class PropertiesService {
     private static final Logger log = Logger.getLogger(PropertiesService.class);
     private String dbms;

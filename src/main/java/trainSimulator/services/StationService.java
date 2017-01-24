@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by mitron-wojtek on 18.11.16.
  */
-@Service
+@Service("stationService")
 @Transactional
 public class StationService {
     private static final Logger logger = Logger.getLogger(StationService.class);
@@ -70,5 +70,9 @@ public class StationService {
             deleteStation(station);
         }
         logger.info("Cleared stations!");
+    }
+
+    public void setTrainsOnStation(List<Train> trainsOnStation) {
+        this.trainsOnStation = trainsOnStation;
     }
 }

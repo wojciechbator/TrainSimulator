@@ -17,7 +17,7 @@ import java.util.List;
  * Created by mitron-wojtek on 18.11.16.
  */
 @Transactional
-@Service
+@Service("initDatabaseService")
 public class InitDatabaseService {
     private static Logger logger = Logger.getLogger(InitDatabaseService.class);
     private final EventLogService eventLogService;

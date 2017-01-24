@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by mitron-wojtek on 18.11.16.
  */
-@Service
+@Service("eventLogService")
 @Transactional
 public class EventLogService {
     private final EventLogsDaoInterface eventLogsDao;

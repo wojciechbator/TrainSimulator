@@ -14,7 +14,7 @@ import java.util.Random;
 /**
  * Created by mitron-wojtek on 17.11.16.
  */
-@Service
+@Service("passengerService")
 @Transactional
 public class PassengerService {
     private static final Logger logger = Logger.getLogger(PassengerService.class);

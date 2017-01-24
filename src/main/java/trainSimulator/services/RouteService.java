@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by mitron-wojtek on 18.11.16.
  */
-@Service
+@Service("routeService")
 @Transactional
 public class RouteService {
     private static final Logger logger = Logger.getLogger(RouteService.class);

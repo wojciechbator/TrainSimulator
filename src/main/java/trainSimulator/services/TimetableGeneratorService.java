@@ -13,7 +13,7 @@ import java.util.*;
 /**
  * Created by mitron-wojtek on 17.11.16.
  */
-@Service
+@Service("timetableGeneratorService")
 @Transactional
 public class TimetableGeneratorService {
     private static final Logger logger = Logger.getLogger(TimetableGeneratorService.class);

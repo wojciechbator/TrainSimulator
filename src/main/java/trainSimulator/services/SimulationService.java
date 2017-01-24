@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by mitron-wojtek on 17.11.16.
  */
-@Service
+@Service("simulationService")
 @Transactional
 public class SimulationService implements Runnable {
     private final GeneratorParametersService generatorParametersService;

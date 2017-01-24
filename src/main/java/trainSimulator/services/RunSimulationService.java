@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by mitron-wojtek on 08.12.16.
  */
-@Service
+@Service("runSimulationService")
 public class RunSimulationService {
     private static final Logger logger = Logger.getLogger(RunSimulationService.class);
     private final StationService stationService;
