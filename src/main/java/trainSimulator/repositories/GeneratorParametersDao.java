@@ -4,10 +4,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.GeneratorParameter;
 
-import org.springframework.cache.annotation.Cacheable;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.List;
 
 /**
  * Created by mitron-wojtek on 25.11.16.

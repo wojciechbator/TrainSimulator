@@ -2,7 +2,6 @@ package trainSimulator.repositories;
 
 import trainSimulator.models.EventLog;
 
-import java.awt.*;
 import java.util.List;
 
 /**

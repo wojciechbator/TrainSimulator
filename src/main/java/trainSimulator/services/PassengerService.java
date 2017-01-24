@@ -5,11 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trainSimulator.models.Passenger;
-import trainSimulator.models.Ticket;
 import trainSimulator.repositories.PassengersDaoInterface;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by mitron-wojtek on 17.11.16.
