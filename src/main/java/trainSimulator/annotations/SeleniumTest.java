@@ -3,7 +3,6 @@ package trainSimulator.annotations;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.test.context.TestExecutionListeners;
-import trainSimulator.annotations.SeleniumTestExecutionListener;
 
 import java.lang.annotation.*;
 

@@ -1,8 +1,10 @@
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
@@ -13,9 +15,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import trainSimulator.BootApplication;
-import trainSimulator.annotations.SeleniumTest;
 
-import java.net.URI;
+import java.util.Arrays;
 
 /**
  * Created by wojciech on 24.01.17.
@@ -24,14 +25,11 @@ import java.net.URI;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(BootApplication.class)
 @WebIntegrationTest(value = "server.port=8181")
-@SeleniumTest(driver = ChromeDriver.class, baseUrl = "http://localhost:8181")
 public class SeleniumTests {
     @Autowired
     private WebApplicationContext context;
     @Autowired
-    private URI URIForSelenium;
-    @Autowired
-    private ChromeDriver chromeDriver;
+    private WebDriver webDriver;
     private MockMvc mockMvc;
 
     @Before
@@ -46,11 +44,28 @@ public class SeleniumTests {
     }
 
     @Test
-    public void test_simpleSeleniumTest() throws InterruptedException {
-        chromeDriver.get(URIForSelenium.toString());
+    public void test_GoToAdminPanel() throws InterruptedException {
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("excludeSwitches", Arrays.asList("ignore-certificate-errors"));
+        webDriver.get("localhost:8181");
         Thread.sleep(2000);
-        WebElement generatorTabPanel = chromeDriver.findElementById("generatorTabPanel");
+        WebElement generatorTabPanel = webDriver.findElement(By.id("generatorTabPanel"));
         generatorTabPanel.click();
+        Thread.sleep(3000);
+    }
+
+    @Test
+    public void test_GoToAdminPanelThenGenerateTimetableAndGoToTimetable() throws InterruptedException {
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("excludeSwitches", Arrays.asList("ignore-certificate-errors"));
+        webDriver.get("localhost:8181");
+        Thread.sleep(2000);
+        webDriver.findElement(By.id("generatorTabPanel")).click();;
+        Thread.sleep(3000);
+        WebElement generatorButton = webDriver.findElement(By.id("generateButton"));
+        generatorButton.click();
+        Thread.sleep(3000);
+        webDriver.findElement(By.id("timetableTabPanel")).click();
         Thread.sleep(3000);
     }
 }

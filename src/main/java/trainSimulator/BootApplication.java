@@ -41,11 +41,6 @@ public class BootApplication extends SpringBootServletInitializer {
         });
     }
 
-    @Bean
-    public URI getURIForSelenium() throws URISyntaxException {
-        return new URI("http://localhost:8181/");
-    }
-
     @Bean(destroyMethod = "quit")
     public ChromeDriver getChromeDriver() {
         return new ChromeDriver();
