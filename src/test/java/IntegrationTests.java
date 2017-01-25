@@ -1,6 +1,8 @@
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
@@ -41,6 +43,11 @@ public class IntegrationTests
     private UserService userService;
     @Mock
     private Train trainMock;
+
+    @BeforeClass
+    public static void prepareChromeOptions() {
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+    }
 
     @Test
     public void test_userServiceBeanIsInstantiated_shouldReturnTrue() {
