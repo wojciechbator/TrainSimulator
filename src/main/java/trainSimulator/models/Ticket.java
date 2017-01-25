@@ -48,8 +48,8 @@ public class Ticket implements Serializable {
         return passenger;
     }
 
-    public void setPassenger(Passenger passengerId) {
-        this.passenger = passengerId;
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
     }
 
     public double getPrice() {

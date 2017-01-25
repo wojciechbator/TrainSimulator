@@ -1,4 +1,5 @@
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {PersistenceConfiguration.class, BootApplication.class})
-public class SpringTests
+public class IntegrationTests
 {
     //DEPENDENCY INJECTION
     @Autowired
@@ -40,11 +41,6 @@ public class SpringTests
     @Qualifier("userService")
     private UserService userService;
 
-    @Before
-    public void prepareTrainsForTests() {
-        timetableGeneratorService.generateTimetable();
-    }
-
     @Test
     public void test_userServiceBeanIsInstantiated_shouldReturnTrue() {
         Passenger janusz = passengerService.findById(1);
@@ -55,6 +51,7 @@ public class SpringTests
 
     @Test
     public void test_trainServiceBeanIsInstantiated_shouldReturnTrue() {
+        timetableGeneratorService.generateTimetable();
         assertThat(trainService, instanceOf(TrainService.class));
         List<Train> trains = trainService.getAllTrains();
         assertNotNull(trains);
@@ -68,4 +65,6 @@ public class SpringTests
         //The list of users is not initialized with the start of the application, thus I expect this exception
         userService.saveUser(firstUser);
     }
+
+
 }
