@@ -75,4 +75,8 @@ public class StationService {
     public void setTrainsOnStation(List<Train> trainsOnStation) {
         this.trainsOnStation = trainsOnStation;
     }
+
+    public List<Train> getTrainsOnStation() {
+        return trainsOnStation;
+    }
 }
