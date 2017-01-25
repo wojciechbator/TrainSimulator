@@ -1,5 +1,6 @@
 package trainSimulator;
 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -9,6 +10,9 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * Created by mitron-wojtek on 22.11.16.
@@ -35,5 +39,15 @@ public class BootApplication extends SpringBootServletInitializer {
             final ErrorPage errorPage = new ErrorPage(PATH);
             container.addErrorPages(errorPage);
         });
+    }
+
+    @Bean
+    public URI getURIForSelenium() throws URISyntaxException {
+        return new URI("http://localhost:8181/");
+    }
+
+    @Bean(destroyMethod = "quit")
+    public ChromeDriver getChromeDriver() {
+        return new ChromeDriver();
     }
 }

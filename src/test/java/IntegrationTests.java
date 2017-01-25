@@ -1,7 +1,6 @@
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
@@ -40,6 +39,8 @@ public class IntegrationTests
     @Autowired
     @Qualifier("userService")
     private UserService userService;
+    @Mock
+    private Train trainMock;
 
     @Test
     public void test_userServiceBeanIsInstantiated_shouldReturnTrue() {
@@ -58,12 +59,18 @@ public class IntegrationTests
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void test_creatingTwoUsersWithSameUsername_ShouldReturnException() {
+    public void test_creatingTwoUsersWithSameUsername_shouldReturnException() {
         User firstUser = new User();
         firstUser.setName("Janusz");
         firstUser.setPassword("Janusz");
         //The list of users is not initialized with the start of the application, thus I expect this exception
         userService.saveUser(firstUser);
+    }
+
+    @Test
+    public void test_addMockTrain_shouldReturnTrue() {
+        trainService.saveTrain(trainMock);
+        assertNotNull(trainService.getAllTrains());
     }
 
 
