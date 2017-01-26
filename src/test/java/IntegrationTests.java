@@ -1,14 +1,17 @@
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 import trainSimulator.BootApplication;
-import trainSimulator.configuration.PersistenceConfiguration;
 import trainSimulator.models.Passenger;
 import trainSimulator.models.Train;
 import trainSimulator.models.User;
@@ -25,7 +28,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {PersistenceConfiguration.class, BootApplication.class})
+@SpringApplicationConfiguration(BootApplication.class)
 public class IntegrationTests
 {
     //DEPENDENCY INJECTION
@@ -43,11 +46,6 @@ public class IntegrationTests
     private UserService userService;
     @Mock
     private Train trainMock;
-
-    @BeforeClass
-    public static void prepareChromeOptions() {
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-    }
 
     @Test
     public void test_userServiceBeanIsInstantiated_shouldReturnTrue() {
