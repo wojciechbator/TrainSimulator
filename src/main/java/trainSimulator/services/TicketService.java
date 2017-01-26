@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import trainSimulator.models.Passenger;
 import trainSimulator.models.Ticket;
 import trainSimulator.models.User;
 import trainSimulator.repositories.TicketsDaoInterface;

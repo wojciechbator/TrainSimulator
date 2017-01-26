@@ -11,9 +11,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 /**
  * Created by mitron-wojtek on 22.11.16.
  */
