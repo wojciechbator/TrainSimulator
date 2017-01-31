@@ -72,7 +72,7 @@ public class AdminPanelController {
         return "adminPanel";
     }
 
-    @RequestMapping("/{id")
+    @RequestMapping("/{id}")
     public String userDetails(Model model, @PathVariable long id) {
         model.addAttribute("user", userService.findOne(id));
         return "userDetail";

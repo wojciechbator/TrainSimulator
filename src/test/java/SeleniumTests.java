@@ -60,7 +60,7 @@ public class SeleniumTests {
         options.setExperimentalOption("excludeSwitches", Arrays.asList("ignore-certificate-errors"));
         webDriver.get("localhost:8181");
         Thread.sleep(2000);
-        webDriver.findElement(By.id("generatorTabPanel")).click();;
+        webDriver.findElement(By.id("generatorTabPanel")).click();
         Thread.sleep(3000);
         WebElement generatorButton = webDriver.findElement(By.id("generateButton"));
         generatorButton.click();

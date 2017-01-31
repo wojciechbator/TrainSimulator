@@ -32,11 +32,16 @@ public class UnitTests {
     }
 
     @Test
+    public void test_setTrainName_shouldReturnTrue() {
+	Train train = new Train();
+        train.setName("Komancz");
+	assertEquals(train.getName(), "Komancz");
+    }
+
+    @Test
     public void test_createTrainSuccessfully() {
         Train train = new Train();
-        train.setName("Komancz");
         trainService.createTrain(train);
-        assertEquals(train.getName(), "Komancz");
         assertNotNull(trainService.getAllTrains());
     }
 
